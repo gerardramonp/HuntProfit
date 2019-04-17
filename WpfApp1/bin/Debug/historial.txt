@@ -1,0 +1,16 @@
+>>HuntID: 0|Respawn: Prison -1|Dia: 16/04/2019|Persones: 4|WasteEK: 1|WasteED: 1|WasteRP: 1|WasteMS: 1|WasteTOTAL: 4|Loot: 0|Balance: -4|Profit/Each: -1|TransferEK: 0|TransferED: 0|TransferRP: 0|TransferMS: 0|Pagat: no
+
+>>HuntID: 1|Respawn: Prison -1|Dia: 16/04/2019|Persones: 8|WasteEK: 2|WasteED: 2|WasteRP: 2|WasteMS: 2|WasteTOTAL: 8|Loot: 0|Balance: -8|Profit/Each: -1|TransferEK: 1|TransferED: 1|TransferRP: 1|TransferMS: 1|Pagat: no
+
+>>HuntID: 2|Respawn: Asuras|Dia: 16/04/2019|Persones: 12|WasteEK: 3|WasteED: 3|WasteRP: 3|WasteMS: 3|WasteTOTAL: 12|Loot: 0|Balance: -12|Profit/Each: -1|TransferEK: 2|TransferED: 2|TransferRP: 2|TransferMS: 2|Pagat: no
+
+>>HuntID: 3|Respawn: Prison -3|Dia: 16/04/2019|Persones: 16|WasteEK: 4|WasteED: 4|WasteRP: 4|WasteMS: 4|WasteTOTAL: 16|Loot: 0|Balance: -16|Profit/Each: -1|TransferEK: 3|TransferED: 3|TransferRP: 3|TransferMS: 3|Pagat: no
+
+>>HuntID: 4|Respawn: NULL|Dia: 16/04/2019|Persones: 4|WasteEK: 1|WasteED: 1|WasteRP: 1|WasteMS: 1|WasteTOTAL: 4|Loot: 0|Balance: -4|Profit/Each: -1|TransferEK: 0|TransferED: 0|TransferRP: 0|TransferMS: 0|Pagat: no
+
+>>HuntID: 5|Respawn: NULL|Dia: 16/04/2019|Persones: 4|WasteEK: 1|WasteED: 1|WasteRP: 1|WasteMS: 1|WasteTOTAL: 4|Loot: 0|Balance: -4|Profit/Each: -1|TransferEK: 0|TransferED: 0|TransferRP: 0|TransferMS: 0|Pagat: no
+
+>>HuntID: 6|Respawn: NULL|Dia: 16/04/2019|Persones: 4|WasteEK: 1|WasteED: 1|WasteRP: 1|WasteMS: 1|WasteTOTAL: 4|Loot: 0|Balance: -4|Profit/Each: -1|TransferEK: 0|TransferED: 0|TransferRP: 0|TransferMS: 0|Pagat: no
+
+>>HuntID: 7|Respawn: NULL|Dia: 16/04/2019|Persones: 4|WasteEK: 1|WasteED: 1|WasteRP: 1|WasteMS: 1|WasteTOTAL: 4|Loot: 0|Balance: -4|Profit/Each: -1|TransferEK: 0|TransferED: 0|TransferRP: 0|TransferMS: 0|Pagat: no
+

@@ -1,0 +1,51 @@
+﻿<Window x:Class="WpfApp1.finestraDataGrid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Historial" Height="450" Width="1250" Icon="HuntProfitIcon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="HistorialHunts" HorizontalAlignment="Left" Height="350" Margin="20,30,0,0" VerticalAlignment="Top" Width="1200" HorizontalScrollBarVisibility="Visible">
+            <!-- Style -->
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="DarkTurquoise"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+
+            </DataGrid.Resources>
+
+            <!-- Colum Headers text & bindings-->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="25" Binding="{Binding HuntID}"/>
+                <DataGridTextColumn Header="Respawn" Width="75" Binding="{Binding Respawn}"/>
+                <DataGridTextColumn Header="Day" Width="75" Binding="{Binding Dia}"/>
+                <DataGridTextColumn Header="Pers" Width="30" Binding="{Binding Persones}"/>
+                <DataGridTextColumn Header="W.EK" Width="80" Binding="{Binding WasteEK}"/>
+                <DataGridTextColumn Header="W.ED" Width="80" Binding="{Binding WasteED}"/>
+                <DataGridTextColumn Header="W.RP" Width="80" Binding="{Binding WasteRP}"/>
+                <DataGridTextColumn Header="W.MS" Width="80" Binding="{Binding WasteMS}"/>
+                <DataGridTextColumn Header="W.Total" Width="80" Binding="{Binding TotalWaste}"/>
+                <DataGridTextColumn Header="Loot" Width="80" Binding="{Binding Loot}"/>
+                <DataGridTextColumn Header="Balance" Width="80" Binding="{Binding Balance}"/>
+                <DataGridTextColumn Header="Profit/e" Width="80" Binding="{Binding ProfitEach}"/>
+                <DataGridTextColumn Header="T.EK" Width="80" Binding="{Binding TransferEK}"/>
+                <DataGridTextColumn Header="T.ED" Width="80" Binding="{Binding TransferED}"/>
+                <DataGridTextColumn Header="T.RP" Width="80" Binding="{Binding TransferRP}"/>
+                <DataGridTextColumn Header="T.MS" Width="80" Binding="{Binding TransferMS}"/>
+                <DataGridTextColumn Header="Pagat" Width="50" Binding="{Binding Pagat}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
