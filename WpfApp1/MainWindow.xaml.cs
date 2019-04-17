@@ -27,9 +27,6 @@ namespace WpfApp1
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float lootFinal, balance, profitEach;
         string respawn = "", pathTxt = "";
-
-
-
         // #######################################
 
         public MainWindow()
