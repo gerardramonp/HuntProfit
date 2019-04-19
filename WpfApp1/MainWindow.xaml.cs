@@ -27,9 +27,6 @@ namespace WpfApp1
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float lootFinal, balance, profitEach;
         string respawn = "", pathTxt = "";
-
-
-
         // #######################################
 
         public MainWindow()
@@ -190,6 +187,12 @@ namespace WpfApp1
             transferED = wED + profitEach;
             transferRP = wRP + profitEach;
             transferMS = wMS + profitEach;
+
+            // Si no participen a la hunt, no se li ha de transferir res
+            if (wEK == 0) { transferEK = 0; }
+            if (wED == 0) { transferED = 0; }
+            if (wRP == 0) { transferRP = 0; }
+            if (wMS == 0) { transferMS = 0; }
 
             lbLootFinalValue.Content = lootFinal.ToString();
             lbBalanceValue.Content = balance.ToString();
