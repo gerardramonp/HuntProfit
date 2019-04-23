@@ -50,11 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-<<<<<<< HEAD
-        <dsig:DigestValue>AjOiS1j8Z9FT+nLbDLP2p+gYfVnd8NVqFqdNYD9SmmM=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>29J1VbDpHzT6gtycmgW5pjG11EuLbjv7pjaSPuLLcZg=</dsig:DigestValue>
->>>>>>> berror
+        <dsig:DigestValue>8zxOrh6cH5a7zjz0C5/x1OUTa165EkoJRxPUGOgWMvE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
