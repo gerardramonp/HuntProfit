@@ -22,7 +22,7 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         // ########## VARIABLES GLOBALS ##########
-        int persones = 0, demonic = 0, lines = 0;
+        int persones = 0, demonic = 0, ID = 0;
         float wasteEK = 0, wasteED = 0, wasteRP = 0, wasteMS = 0, totalWaste = 0, loot = 0;
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float lootFinal, balance, profitEach;
@@ -37,32 +37,19 @@ namespace WpfApp1
         // S'executa quan es carrega la finestra principal
         private void HuntProfit_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!File.Exists("config.txt"))
+            if (!File.Exists("config.txt")) // Si no existeix config, el crea i demana path del historial
             {
                 FileStream config = File.Create("config.txt");
                 config.Close();
-                FolderBrowserDialog fbd = new FolderBrowserDialog();
-                fbd.ShowDialog();
-                pathTxt = fbd.SelectedPath + "\\historial.txt";
-                StreamWriter sw = new StreamWriter("config.txt");
-                sw.Write(pathTxt);
-                sw.Close();
+                pathAConfig();
             }
             StreamReader sr = new StreamReader("config.txt");
             pathTxt = sr.ReadLine();
-            if (pathTxt == "")
-            {
-                FolderBrowserDialog fbd = new FolderBrowserDialog();
-                fbd.ShowDialog();
-                pathTxt = fbd.SelectedPath + "\\historial.txt";
-                StreamWriter sw = new StreamWriter("config.txt");
-                sw.Write(pathTxt);
-                sw.Close();
-            }
             sr.Close();
+            if (pathTxt == "") { pathAConfig(); }
             try
             {
-                if (!File.Exists(pathTxt)) { FileStream historial = File.Create(pathTxt); }
+                if (!File.Exists(pathTxt)) { FileStream historial = File.Create(pathTxt); } // Si no existeix historial, el crea al path k li hem dit
             }
             catch
             {
@@ -73,7 +60,7 @@ namespace WpfApp1
         }
 
         // Eventos
-        // Pels wastes, actualitzen waste total al canviar text dels textbox waste
+        // Pels wastes, actualitzen waste total al canviar text dels textbox waste per poder calcular TWASTE en temps real
         #region Events TBWastes -> WasteTotal
         public void TbWEK_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -131,16 +118,7 @@ namespace WpfApp1
 
         private void btHistorial_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                lines = File.ReadLines(pathTxt).Count();
-            }
-            catch
-            {
-                System.Windows.Forms.MessageBox.Show("La ruta de l'arxiu <config.txt> no és correcte. Consulte con uno de nuestros técnicos.\n O modifica-ho i posa la ruta de la carpeta on esta historial.txt," +
-                    "serà algo aixi:\nC:\\user\\<nomusuari>\\OneDrive\\<carpeta del historial.txt>");
-                return;
-            }
+            // Obre la finestra del historial
             finestraDataGrid finestra = new finestraDataGrid();
             finestra.ShowDialog();
         }
@@ -179,20 +157,22 @@ namespace WpfApp1
         // Calcula els valors i transfers i els mostra per pantalla.
         public void calcularValors(float wEK, float wED, float wRP, float wMS, float tWaste, float loot, int demonic, int persones)
         {
+            respawn = cbRespawn.Text;
+            if (respawn == "" || respawn == "Select a respawn...") { respawn = "NULL"; }
+
             lootFinal = loot - demonic;
             balance = lootFinal - tWaste;
             profitEach = balance / persones;
 
-            transferEK = wEK + profitEach;
-            transferED = wED + profitEach;
-            transferRP = wRP + profitEach;
-            transferMS = wMS + profitEach;
-
             // Si no participen a la hunt, no se li ha de transferir res
             if (wEK == 0) { transferEK = 0; }
+            else { transferEK = wEK + profitEach; }
             if (wED == 0) { transferED = 0; }
+            else { transferED = wED + profitEach; }
             if (wRP == 0) { transferRP = 0; }
+            else { transferRP = wRP + profitEach; }
             if (wMS == 0) { transferMS = 0; }
+            else { transferMS = wMS + profitEach; }
 
             lbLootFinalValue.Content = lootFinal.ToString();
             lbBalanceValue.Content = balance.ToString();
@@ -200,29 +180,36 @@ namespace WpfApp1
             tbTEK.Text = transferEK.ToString();
             tbTED.Text = transferED.ToString();
             tbTRP.Text = transferRP.ToString();
-            tbTMS.Text = transferMS.ToString();
-
-            respawn = cbRespawn.Text;
-            if (respawn == "" || respawn == "Select a respawn...") { respawn = "NULL"; }
+            tbTMS.Text = transferMS.ToString();          
         }
 
-        // Suma el valor que reb al waste total
+        // Suma els wastes per calcular waste total (als eventos de canviar text x calcular en temps real)
         public void actualitzarTotalWaste()
         {
             totalWaste = wasteEK + wasteED + wasteRP + wasteMS;
             tbWTotal.Text = totalWaste.ToString();
         }
 
+        public void pathAConfig()
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.ShowDialog();
+            pathTxt = fbd.SelectedPath + "\\historial.txt";
+            StreamWriter sw = new StreamWriter("config.txt");
+            sw.Write(pathTxt);
+            sw.Close();
+        }
+
         public void escriureAHistorial()
         {
             try
             {
-                lines = File.ReadLines(pathTxt).Count();
-                if (lines != 0) { lines /= 2; }
+                ID = File.ReadLines(pathTxt).Count();
+                if (ID != 0) { ID /= 2; } // /2 per ignorar els espais en blanc.
                 StreamWriter wfile = File.AppendText(pathTxt);
                 wfile.WriteLine(">>HuntID: {0}|Respawn: {1}|Dia: {2}|Persones: {3}|WasteEK: {4}|WasteED: {5}|WasteRP: {6}|WasteMS: {7}|" +
                     "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11}|TransferEK: {12}|TransferED: {13}|TransferRP: {14}|TransferMS: {15}|" +
-                    "Pagat: no\n", lines, respawn, DateTime.Now.ToString("dd/MM/yyy"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, lootFinal, balance, profitEach, transferEK,
+                    "Pagat: no\n", ID, respawn, DateTime.Now.ToString("dd/MM/yyy"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, lootFinal, balance, profitEach, transferEK,
                     transferED, transferRP, transferMS);
                 wfile.Close();
             }
