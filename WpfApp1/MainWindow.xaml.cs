@@ -15,23 +15,26 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.VisualBasic;
 using System.Windows.Forms;
+using Squirrel;
 
 
 namespace WpfApp1
 {
     public partial class MainWindow : Window
     {
+        const string VERSION = "1.1.0";
         // ########## VARIABLES GLOBALS ##########
         int persones = 0, demonic = 0, ID = 0;
         float wasteEK = 0, wasteED = 0, wasteRP = 0, wasteMS = 0, totalWaste = 0, loot = 0;
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float lootFinal, balance, profitEach;
-        string respawn = "", pathTxt = "";
+        string respawn = "", path = "", pathHistorial = "", pathUpdates = "";
         // #######################################
 
         public MainWindow()
         {
             InitializeComponent();
+            CheckForUpdates();
         }
 
         // S'executa quan es carrega la finestra principal
@@ -44,12 +47,12 @@ namespace WpfApp1
                 pathAConfig();
             }
             StreamReader sr = new StreamReader("config.txt");
-            pathTxt = sr.ReadLine();
+            pathHistorial = sr.ReadLine();
             sr.Close();
-            if (pathTxt == "") { pathAConfig(); }
+            if (pathHistorial == "") { pathAConfig(); }
             try
             {
-                if (!File.Exists(pathTxt)) { FileStream historial = File.Create(pathTxt); } // Si no existeix historial, el crea al path k li hem dit
+                if (!File.Exists(pathHistorial)) { FileStream historial = File.Create(pathHistorial); } // Si no existeix historial, el crea al path k li hem dit
             }
             catch
             {
@@ -194,9 +197,11 @@ namespace WpfApp1
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowDialog();
-            pathTxt = fbd.SelectedPath + "\\historial.txt";
+            path = fbd.SelectedPath;
+            pathHistorial = path + "\\historial.txt";
+            pathUpdates = path + "\\AutoUpdate";
             StreamWriter sw = new StreamWriter("config.txt");
-            sw.Write(pathTxt);
+            sw.Write(pathHistorial);
             sw.Close();
         }
 
@@ -204,9 +209,9 @@ namespace WpfApp1
         {
             try
             {
-                ID = File.ReadLines(pathTxt).Count();
+                ID = File.ReadLines(pathHistorial).Count();
                 if (ID != 0) { ID /= 2; } // /2 per ignorar els espais en blanc.
-                StreamWriter wfile = File.AppendText(pathTxt);
+                StreamWriter wfile = File.AppendText(pathHistorial);
                 wfile.WriteLine(">>HuntID: {0}|Respawn: {1}|Dia: {2}|Persones: {3}|WasteEK: {4}|WasteED: {5}|WasteRP: {6}|WasteMS: {7}|" +
                     "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11}|TransferEK: {12}|TransferED: {13}|TransferRP: {14}|TransferMS: {15}|" +
                     "Pagat: no\n", ID, respawn, DateTime.Now.ToString("dd/MM/yyy"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, lootFinal, balance, profitEach, transferEK,
@@ -218,6 +223,14 @@ namespace WpfApp1
                 System.Windows.Forms.MessageBox.Show("La ruta de l'arxiu <config.txt> no és correcte. Consulte con uno de nuestros técnicos.\n O modifica-ho i posa la ruta de la carpeta on esta historial.txt," +
                     "serà algo aixi:\nC:\\user\\<nomusuari>\\OneDrive\\<carpeta del historial.txt>");
                 return;
+            }
+        }
+
+        private async Task CheckForUpdates()
+        {
+            using (var manager = new UpdateManager(pathUpdates))
+            {
+                await manager.UpdateApp();
             }
         }
         #endregion

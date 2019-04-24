@@ -22,7 +22,7 @@ namespace WpfApp1
     {
         // ########## VARIABLES GLOBALS ##########
         int huntIDTXT = 0, personesTXT = 0;
-        string respawnTXT = "", pagatTXT = "", diaTXT = "", pathTxt;
+        string respawnTXT = "", pagatTXT = "", diaTXT = "", pathHistorial, pathConfig;
         float wasteEKTXT = 0, wasteEDTXT = 0, wasteRPTXT = 0, wasteMSTXT = 0, totalWasteTXT = 0, lootTXT = 0, balanceTXT = 0, profiEachTXT = 0, transferEKTXT = 0,
             transferEDTXT = 0, transferRPTXT = 0, transferMSTXT = 0;
         // #######################################
@@ -32,9 +32,9 @@ namespace WpfApp1
             try
             {
                 StreamReader sr = new StreamReader("config.txt");
-                pathTxt = sr.ReadLine();
+                pathHistorial = sr.ReadLine();
                 sr.Close();
-                llegirTXT(pathTxt);
+                llegirTXT(pathHistorial);
             }
             catch
             {

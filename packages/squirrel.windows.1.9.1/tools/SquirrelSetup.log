@@ -1,0 +1,8 @@
+﻿2019-04-24 22:00:27> Program: Starting Squirrel Updater: --releasify HuntProfit.1.0.0.nupkg
+2019-04-24 22:00:27> Program: Bootstrapper EXE found at:C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\packages\squirrel.windows.1.9.1\tools\Setup.exe
+2019-04-24 22:00:27> Program: Creating release package: C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit.1.0.0.nupkg
+2019-04-24 22:00:28> ReleasePackage: Creating release package: C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit.1.0.0.nupkg => C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit-1.0.0-full.nupkg
+2019-04-24 22:00:28> ReleasePackage: Extracting dependent packages: []
+2019-04-24 22:00:28> ReleasePackage: Removing unnecessary data
+2019-04-24 22:00:28> ReleasePackage: No release notes found in C:\Users\gerar\AppData\Local\SquirrelTemp\tempa\HuntProfit.nuspec
+2019-04-24 22:00:28> Program: Building embedded zip file for Setup.exe
