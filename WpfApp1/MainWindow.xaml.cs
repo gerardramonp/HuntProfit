@@ -15,7 +15,9 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.VisualBasic;
 using System.Windows.Forms;
+using System.Diagnostics;
 using Squirrel;
+
 
 
 namespace WpfApp1
@@ -34,7 +36,8 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            CheckForUpdates();
+            //CheckForUpdates();
+            AfegirVersio();
         }
 
         // S'executa quan es carrega la finestra principal
@@ -47,9 +50,11 @@ namespace WpfApp1
                 pathAConfig();
             }
             StreamReader sr = new StreamReader("config.txt");
-            pathHistorial = sr.ReadLine();
+            path = sr.ReadLine();
             sr.Close();
-            if (pathHistorial == "") { pathAConfig(); }
+            if (path == "" || path == null) { pathAConfig(); }
+            pathHistorial = path + "\\historial.txt";
+            pathUpdates = path + "\\AutoUpdate";        
             try
             {
                 if (!File.Exists(pathHistorial)) { FileStream historial = File.Create(pathHistorial); } // Si no existeix historial, el crea al path k li hem dit
@@ -201,7 +206,7 @@ namespace WpfApp1
             pathHistorial = path + "\\historial.txt";
             pathUpdates = path + "\\AutoUpdate";
             StreamWriter sw = new StreamWriter("config.txt");
-            sw.Write(pathHistorial);
+            sw.Write(path);
             sw.Close();
         }
 
@@ -226,6 +231,7 @@ namespace WpfApp1
             }
         }
 
+        // Mira si hi ha updates i les fa automaticament quan es tanca el programa
         private async Task CheckForUpdates()
         {
             using (var manager = new UpdateManager(pathUpdates))
@@ -233,6 +239,13 @@ namespace WpfApp1
                 await manager.UpdateApp();
             }
         }
+
+        private void AfegirVersio()
+        {
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            HuntProfit.Title += $"  v.{ versionInfo.FileVersion }";
+        }
         #endregion
     }
-}
+} 
