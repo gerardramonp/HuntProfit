@@ -24,7 +24,6 @@ namespace WpfApp1
 {
     public partial class MainWindow : Window
     {
-        const string VERSION = "1.1.0";
         // ########## VARIABLES GLOBALS ##########
         int persones = 0, demonic = 0, ID = 0;
         float wasteEK = 0, wasteED = 0, wasteRP = 0, wasteMS = 0, totalWaste = 0, loot = 0;
@@ -36,7 +35,6 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            //CheckForUpdates();
             AfegirVersio();
         }
 
@@ -54,7 +52,8 @@ namespace WpfApp1
             sr.Close();
             if (path == "" || path == null) { pathAConfig(); }
             pathHistorial = path + "\\historial.txt";
-            pathUpdates = path + "\\AutoUpdate";        
+            pathUpdates = path + "\\AutoUpdate";
+            CheckForUpdates();
             try
             {
                 if (!File.Exists(pathHistorial)) { FileStream historial = File.Create(pathHistorial); } // Si no existeix historial, el crea al path k li hem dit
@@ -240,6 +239,7 @@ namespace WpfApp1
             }
         }
 
+        // Comprova la versio del AssemblyInfo i la afegeix al titol de la finestra.
         private void AfegirVersio()
         {
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
