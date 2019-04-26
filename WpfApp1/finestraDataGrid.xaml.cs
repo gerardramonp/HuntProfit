@@ -64,11 +64,13 @@ namespace WpfApp1
             transferEDTXT = DGRow.TransferED;
             transferRPTXT = DGRow.TransferRP;
             transferMSTXT = DGRow.TransferMS;
-
+            pagatTXT = DGRow.Pagat;
+            if (pagatTXT == "si") { pagatTXT = "no"; }
+            else { pagatTXT = "si"; }
             newtext = string.Format(">>HuntID: {0}|Respawn: {1}|Dia: {2}|Persones: {3}|WasteEK: {4}|WasteED: {5}|WasteRP: {6}|WasteMS: {7}|" +
                     "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11:F2}|TransferEK: {12:F2}|TransferED: {13:F2}|TransferRP: {14:F2}|TransferMS: {15:F2}|" +
-                    "Pagat: si", huntIDTXT, respawnTXT, DateTime.Now.ToString("dd/MM"), personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT,
-                    profitEachTXT, transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT);
+                    "Pagat: {16}", huntIDTXT, respawnTXT, DateTime.Now.ToString("dd/MM"), personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT,
+                    profitEachTXT, transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT, pagatTXT);
 
             canviarPagat();
         }
