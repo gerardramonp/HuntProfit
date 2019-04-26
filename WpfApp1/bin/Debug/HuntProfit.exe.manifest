@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HuntProfit.exe" size="338920">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HuntProfit.exe" size="340456">
       <assemblyIdentity name="HuntProfit" version="1.1.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Z9zJQSjkDOcbcAPthBI82Ucz+8Ty0oU08jGqUwUkmUk=</dsig:DigestValue>
+        <dsig:DigestValue>w6hGvD7LeA6LnYAPdmQYCMsITnYzreQ2vImfVJoyiBM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

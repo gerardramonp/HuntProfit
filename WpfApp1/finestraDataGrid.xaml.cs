@@ -21,9 +21,10 @@ namespace WpfApp1
     public partial class finestraDataGrid : Window
     {
         // ########## VARIABLES GLOBALS ##########
+        string[] historialfull;
         int huntIDTXT = 0, personesTXT = 0, idDG = 0;
-        string respawnTXT = "", pagatTXT = "", diaTXT = "", pathHistorial = "", path = "", stringcomprovar="";  
-        float wasteEKTXT = 0, wasteEDTXT = 0, wasteRPTXT = 0, wasteMSTXT = 0, totalWasteTXT = 0, lootTXT = 0, balanceTXT = 0, profiEachTXT = 0, transferEKTXT = 0,
+        string respawnTXT = "", pagatTXT = "", diaTXT = "", pathHistorial = "", path = "", newtext="";
+        float wasteEKTXT = 0, wasteEDTXT = 0, wasteRPTXT = 0, wasteMSTXT = 0, totalWasteTXT = 0, lootTXT = 0, balanceTXT = 0, profitEachTXT = 0, transferEKTXT = 0,
             transferEDTXT = 0, transferRPTXT = 0, transferMSTXT = 0;
         // #######################################
         public finestraDataGrid()
@@ -48,27 +49,39 @@ namespace WpfApp1
         public void buttonPagar_Click(object sender, RoutedEventArgs e)
         {
             Hunt DGRow = HistorialHunts.SelectedItem as Hunt;
-            idDG = DGRow.HuntID;
-            stringcomprovar = "HUNT ID: " + idDG.ToString();
+            huntIDTXT = DGRow.HuntID;
+            respawnTXT = DGRow.Respawn;
+            personesTXT = DGRow.Persones;
+            wasteEKTXT = DGRow.WasteEK;
+            wasteEDTXT = DGRow.WasteED;
+            wasteRPTXT = DGRow.WasteRP;
+            wasteMSTXT = DGRow.WasteMS;
+            totalWasteTXT = DGRow.TotalWaste;
+            lootTXT = DGRow.Loot;
+            balanceTXT = DGRow.Balance;
+            profitEachTXT = DGRow.ProfitEach;
+            transferEKTXT = DGRow.TransferEK;
+            transferEDTXT = DGRow.TransferED;
+            transferRPTXT = DGRow.TransferRP;
+            transferMSTXT = DGRow.TransferMS;
+
+            newtext = string.Format(">>HuntID: {0}|Respawn: {1}|Dia: {2}|Persones: {3}|WasteEK: {4}|WasteED: {5}|WasteRP: {6}|WasteMS: {7}|" +
+                    "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11:F2}|TransferEK: {12:F2}|TransferED: {13:F2}|TransferRP: {14:F2}|TransferMS: {15:F2}|" +
+                    "Pagat: si", huntIDTXT, respawnTXT, DateTime.Now.ToString("dd/MM"), personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT,
+                    profitEachTXT, transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT);
+
+            canviarPagat();
         }
 
         private void canviarPagat()
         {
-            int comptador = 0;
-            string huntactu = "";
-            string replacement = "";
-            StreamReader sr = new StreamReader(pathHistorial);
-            while (sr.ReadLine() != null)
-            {
-                huntactu = sr.ReadLine();
-                if (huntactu.Contains(stringcomprovar))
-                {
-                    // Todo: canviar el pagat: no per pagat: si
-                    
-
-                }
-                
-            }
+            int linia = huntIDTXT;
+            if (huntIDTXT != 0) { linia = huntIDTXT * 2; }
+            historialfull = File.ReadAllLines(pathHistorial);
+            historialfull[linia] = newtext;
+            File.WriteAllLines(pathHistorial, historialfull);
+            HistorialHunts.Items.Clear();
+            llegirTXT(pathHistorial);
         }
         // METODES
         #region METODES HISTORIAL
@@ -145,7 +158,7 @@ namespace WpfApp1
                                     balanceTXT = float.Parse(temp);
                                     break;
                                 case 12:
-                                    profiEachTXT = float.Parse(temp);
+                                    profitEachTXT = float.Parse(temp);
                                     break;
                                 case 13:
                                     transferEKTXT = float.Parse(temp);
@@ -164,11 +177,12 @@ namespace WpfApp1
                                     break;
                             }
                         }
-                        Hunt huntTemp = new Hunt(huntIDTXT, respawnTXT, diaTXT, personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT, profiEachTXT,
+                        Hunt huntTemp = new Hunt(huntIDTXT, respawnTXT, diaTXT, personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT, profitEachTXT,
                             transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT, pagatTXT);
                         HistorialHunts.Items.Add(huntTemp); // Afegeix la info de huntTemp a la taula
                     }
                 }
+                sr.Close();
             }
             catch
             {
