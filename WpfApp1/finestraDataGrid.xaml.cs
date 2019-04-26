@@ -22,7 +22,7 @@ namespace WpfApp1
     {
         // ########## VARIABLES GLOBALS ##########
         string[] historialfull;
-        int huntIDTXT = 0, personesTXT = 0, idDG = 0;
+        int huntIDTXT = 0, personesTXT = 0;
         string respawnTXT = "", pagatTXT = "", diaTXT = "", pathHistorial = "", path = "", newtext="";
         float wasteEKTXT = 0, wasteEDTXT = 0, wasteRPTXT = 0, wasteMSTXT = 0, totalWasteTXT = 0, lootTXT = 0, balanceTXT = 0, profitEachTXT = 0, transferEKTXT = 0,
             transferEDTXT = 0, transferRPTXT = 0, transferMSTXT = 0;
@@ -75,7 +75,7 @@ namespace WpfApp1
             canviarPagat();
         }
 
-        private void canviarPagat()
+        private void canviarPagat() // Canvia el si per no i no per si (Datagrid PAID)
         {
             int linia = huntIDTXT;
             if (huntIDTXT != 0) { linia = huntIDTXT * 2; }
@@ -85,6 +85,7 @@ namespace WpfApp1
             HistorialHunts.Items.Clear();
             llegirTXT(pathHistorial);
         }
+
         // METODES
         #region METODES HISTORIAL
         // Legeix "historial.txt" guarda els valors en un objecte d clase Hunt i posa info a la taula.
