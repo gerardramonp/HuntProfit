@@ -21,8 +21,8 @@ namespace WpfApp1
     public partial class finestraDataGrid : Window
     {
         // ########## VARIABLES GLOBALS ##########
-        int huntIDTXT = 0, personesTXT = 0;
-        string respawnTXT = "", pagatTXT = "", diaTXT = "", pathHistorial = "", path = "";
+        int huntIDTXT = 0, personesTXT = 0, idDG = 0;
+        string respawnTXT = "", pagatTXT = "", diaTXT = "", pathHistorial = "", path = "", stringcomprovar="";  
         float wasteEKTXT = 0, wasteEDTXT = 0, wasteRPTXT = 0, wasteMSTXT = 0, totalWasteTXT = 0, lootTXT = 0, balanceTXT = 0, profiEachTXT = 0, transferEKTXT = 0,
             transferEDTXT = 0, transferRPTXT = 0, transferMSTXT = 0;
         // #######################################
@@ -45,6 +45,31 @@ namespace WpfApp1
             }
         }
 
+        public void buttonPagar_Click(object sender, RoutedEventArgs e)
+        {
+            Hunt DGRow = HistorialHunts.SelectedItem as Hunt;
+            idDG = DGRow.HuntID;
+            stringcomprovar = "HUNT ID: " + idDG.ToString();
+        }
+
+        private void canviarPagat()
+        {
+            int comptador = 0;
+            string huntactu = "";
+            string replacement = "";
+            StreamReader sr = new StreamReader(pathHistorial);
+            while (sr.ReadLine() != null)
+            {
+                huntactu = sr.ReadLine();
+                if (huntactu.Contains(stringcomprovar))
+                {
+                    // Todo: canviar el pagat: no per pagat: si
+                    
+
+                }
+                
+            }
+        }
         // METODES
         #region METODES HISTORIAL
         // Legeix "historial.txt" guarda els valors en un objecte d clase Hunt i posa info a la taula.

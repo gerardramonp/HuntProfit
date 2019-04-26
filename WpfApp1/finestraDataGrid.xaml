@@ -44,6 +44,13 @@
                 <DataGridTextColumn Header="T.RP" Width="80" Binding="{Binding TransferRP}"/>
                 <DataGridTextColumn Header="T.MS" Width="80" Binding="{Binding TransferMS}"/>
                 <DataGridTextColumn Header="PAID" Width="33" Binding="{Binding Pagat}"/>
+                <DataGridTemplateColumn Header="Pagar" Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="buttonPagar" Click="buttonPagar_Click" Content="Pagar!"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
