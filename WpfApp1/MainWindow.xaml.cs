@@ -217,8 +217,8 @@ namespace WpfApp1
                 if (ID != 0) { ID /= 2; } // /2 per ignorar els espais en blanc.
                 StreamWriter wfile = File.AppendText(pathHistorial);
                 wfile.WriteLine(">>HuntID: {0}|Respawn: {1}|Dia: {2}|Persones: {3}|WasteEK: {4}|WasteED: {5}|WasteRP: {6}|WasteMS: {7}|" +
-                    "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11}|TransferEK: {12}|TransferED: {13}|TransferRP: {14}|TransferMS: {15}|" +
-                    "Pagat: no\n", ID, respawn, DateTime.Now.ToString("dd/MM/yyy"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, lootFinal, balance, profitEach, transferEK,
+                    "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11:F2}|TransferEK: {12:F2}|TransferED: {13:F2}|TransferRP: {14:F2}|TransferMS: {15:F2}|" +
+                    "Pagat: no\n", ID, respawn, DateTime.Now.ToString("dd/MM"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, lootFinal, balance, profitEach, transferEK,
                     transferED, transferRP, transferMS);
                 wfile.Close();
             }

@@ -29,21 +29,21 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="25" Binding="{Binding HuntID}"/>
                 <DataGridTextColumn Header="Respawn" Width="75" Binding="{Binding Respawn}"/>
-                <DataGridTextColumn Header="Day" Width="75" Binding="{Binding Dia}"/>
-                <DataGridTextColumn Header="Pers" Width="30" Binding="{Binding Persones}"/>
-                <DataGridTextColumn Header="W.EK" Width="80" Binding="{Binding WasteEK}"/>
-                <DataGridTextColumn Header="W.ED" Width="80" Binding="{Binding WasteED}"/>
-                <DataGridTextColumn Header="W.RP" Width="80" Binding="{Binding WasteRP}"/>
-                <DataGridTextColumn Header="W.MS" Width="80" Binding="{Binding WasteMS}"/>
-                <DataGridTextColumn Header="W.Total" Width="80" Binding="{Binding TotalWaste}"/>
-                <DataGridTextColumn Header="Loot" Width="80" Binding="{Binding Loot}"/>
-                <DataGridTextColumn Header="Balance" Width="80" Binding="{Binding Balance}"/>
+                <DataGridTextColumn Header="Day" Width="40" Binding="{Binding Dia}"/>
+                <DataGridTextColumn Header="Pers" Width="26" Binding="{Binding Persones}"/>
+                <DataGridTextColumn Header="W.EK" Width="70" Binding="{Binding WasteEK}"/>
+                <DataGridTextColumn Header="W.ED" Width="70" Binding="{Binding WasteED}"/>
+                <DataGridTextColumn Header="W.RP" Width="70" Binding="{Binding WasteRP}"/>
+                <DataGridTextColumn Header="W.MS" Width="70" Binding="{Binding WasteMS}"/>
+                <DataGridTextColumn Header="W.Total" Width="70" Binding="{Binding TotalWaste}"/>
+                <DataGridTextColumn Header="Loot" Width="75" Binding="{Binding Loot}"/>
+                <DataGridTextColumn Header="Balance" Width="75" Binding="{Binding Balance}"/>
                 <DataGridTextColumn Header="Profit/e" Width="80" Binding="{Binding ProfitEach}"/>
                 <DataGridTextColumn Header="T.EK" Width="80" Binding="{Binding TransferEK}"/>
                 <DataGridTextColumn Header="T.ED" Width="80" Binding="{Binding TransferED}"/>
                 <DataGridTextColumn Header="T.RP" Width="80" Binding="{Binding TransferRP}"/>
                 <DataGridTextColumn Header="T.MS" Width="80" Binding="{Binding TransferMS}"/>
-                <DataGridTextColumn Header="Pagat" Width="50" Binding="{Binding Pagat}"/>
+                <DataGridTextColumn Header="PAID" Width="33" Binding="{Binding Pagat}"/>
             </DataGrid.Columns>
         </DataGrid>
 
