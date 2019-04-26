@@ -358,3 +358,35 @@ Nombre de archivo: 'HuntProfit.1.0.1.nupkg'
 2019-04-24 23:07:57> DeltaPackageBuilder: \lib\net45\Squirrel.dll hasn't changed, writing dummy file
 2019-04-24 23:07:57> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempa\lib\net45\app.publish\HuntProfit.exe => C:\Users\gerar\AppData\Local\SquirrelTemp\tempb\lib\net45\app.publish\HuntProfit.exe
 2019-04-24 23:07:57> Program: Building embedded zip file for Setup.exe
+2019-04-26 15:07:55> Program: Starting Squirrel Updater: --releasify HuntProfit.1.1.1.nupkg
+2019-04-26 15:07:55> Program: Bootstrapper EXE found at:C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\packages\squirrel.windows.1.9.1\tools\Setup.exe
+2019-04-26 15:07:55> Program: Creating release package: C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit.1.1.1.nupkg
+2019-04-26 15:07:55> ReleasePackage: Creating release package: C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit.1.1.1.nupkg => C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit-1.1.1-full.nupkg
+2019-04-26 15:07:56> ReleasePackage: Extracting dependent packages: []
+2019-04-26 15:07:56> ReleasePackage: Removing unnecessary data
+2019-04-26 15:07:56> ReleasePackage: No release notes found in C:\Users\gerar\AppData\Local\SquirrelTemp\tempa\HuntProfit.nuspec
+2019-04-26 15:07:56> DeltaPackageBuilder: Extracting .\Releases\HuntProfit-1.1.0-full.nupkg and C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit-1.1.1-full.nupkg into C:\Users\gerar\AppData\Local\SquirrelTemp\tempb
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.dll hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.MsDelta.dll hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.PatchApi.dll hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempa\lib\net45\HuntProfit.application => C:\Users\gerar\AppData\Local\SquirrelTemp\tempb\lib\net45\HuntProfit.application
+2019-04-26 15:07:57> DeltaPackageBuilder: We really couldn't create a delta for HuntProfit.application: System.DivideByZeroException: Intento de dividir por cero.
+   en Squirrel.Bsdiff.BinaryPatchUtility.Create(Byte[] oldData, Byte[] newData, Stream output)
+   en Squirrel.DeltaPackageBuilder.createDeltaForSingleFile(FileInfo targetFile, DirectoryInfo workingDirectory, Dictionary`2 baseFileListing)
+2019-04-26 15:07:57> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempa\lib\net45\HuntProfit.exe => C:\Users\gerar\AppData\Local\SquirrelTemp\tempb\lib\net45\HuntProfit.exe
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\HuntProfit.exe.config hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempa\lib\net45\HuntProfit.exe.manifest => C:\Users\gerar\AppData\Local\SquirrelTemp\tempb\lib\net45\HuntProfit.exe.manifest
+2019-04-26 15:07:57> DeltaPackageBuilder: We really couldn't create a delta for HuntProfit.exe.manifest: System.DivideByZeroException: Intento de dividir por cero.
+   en Squirrel.Bsdiff.BinaryPatchUtility.Create(Byte[] oldData, Byte[] newData, Stream output)
+   en Squirrel.DeltaPackageBuilder.createDeltaForSingleFile(FileInfo targetFile, DirectoryInfo workingDirectory, Dictionary`2 baseFileListing)
+2019-04-26 15:07:57> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempa\lib\net45\HuntProfit_ExecutionStub.exe => C:\Users\gerar\AppData\Local\SquirrelTemp\tempb\lib\net45\HuntProfit_ExecutionStub.exe
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\Mono.Cecil.dll hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\Mono.Cecil.Mdb.dll hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\Mono.Cecil.Pdb.dll hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\Mono.Cecil.Rocks.dll hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\NuGet.Squirrel.dll hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\SharpCompress.dll hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\Splat.dll hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: \lib\net45\Squirrel.dll hasn't changed, writing dummy file
+2019-04-26 15:07:57> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempa\lib\net45\app.publish\HuntProfit.exe => C:\Users\gerar\AppData\Local\SquirrelTemp\tempb\lib\net45\app.publish\HuntProfit.exe
+2019-04-26 15:07:58> Program: Building embedded zip file for Setup.exe
