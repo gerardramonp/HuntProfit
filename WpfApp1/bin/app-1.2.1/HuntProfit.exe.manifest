@@ -4,7 +4,7 @@
   <description asmv2:iconFile="HuntProfitIcon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="HuntProfit" version="1.1.1.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="HuntProfit" version="1.2.1.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="HuntProfit.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HuntProfit.exe" size="334312">
-      <assemblyIdentity name="HuntProfit" version="1.1.1.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HuntProfit.exe" size="335848">
+      <assemblyIdentity name="HuntProfit" version="1.2.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dNQJ5vpXoqeG2x9yk1SUyYGb3yZc8GRm7VoB3JVVBOk=</dsig:DigestValue>
+        <dsig:DigestValue>olmZiJiO4Cspure03iSE07u/5HGMn1AOJ2FCQ5FmrA8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

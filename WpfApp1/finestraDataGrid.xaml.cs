@@ -32,17 +32,14 @@ namespace WpfApp1
             InitializeComponent();
             try
             {
-                StreamReader sr = new StreamReader("config.txt");
-                path = sr.ReadLine();
-                pathHistorial = path + "\\historial.txt";
-                sr.Close();
+                ComprovarPathHistorial();
                 llegirTXT(pathHistorial);
             }
             catch
             {
-                MessageBox.Show("La ruta de l'arxiu <config.txt> no és correcte. Consulte con uno de nuestros técnicos.\n O modifica-ho i posa la ruta de la carpeta on esta historial.txt," +
-                    "serà algo aixi:\nC:\\user\\<nomusuari>\\OneDrive\\<carpeta del historial.txt>");
-                return;
+                MessageBox.Show("La ruta de l'arxiu <config.txt> no és correcte. Selecciona la carpeta on es troba l'arxiu <historial.txt>");
+
+
             }
         }
 
@@ -88,6 +85,15 @@ namespace WpfApp1
 
         // METODES
         #region METODES HISTORIAL
+        private void ComprovarPathHistorial()
+        {
+            StreamReader sr = new StreamReader("config.txt");
+            path = sr.ReadLine();
+            pathHistorial = $"{ path }\\historial.txt";
+            sr.Close();
+        }
+
+
         // Legeix "historial.txt" guarda els valors en un objecte d clase Hunt i posa info a la taula.
         public void llegirTXT(string _path)
         {

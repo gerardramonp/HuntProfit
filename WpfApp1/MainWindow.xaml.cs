@@ -30,6 +30,7 @@ namespace WpfApp1
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float lootFinal, balance, profitEach;
         string respawn = "", path = "", pathHistorial = "", pathUpdates = "";
+        
         // #######################################
 
         public MainWindow()
@@ -41,29 +42,31 @@ namespace WpfApp1
         // S'executa quan es carrega la finestra principal
         private void HuntProfit_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!File.Exists("config.txt")) // Si no existeix config, el crea i demana path del historial
-            {
-                FileStream config = File.Create("config.txt");
-                config.Close();
-                pathAConfig();
-            }
-            StreamReader sr = new StreamReader("config.txt");
-            path = sr.ReadLine();
-            sr.Close();
-            if (path == "" || path == null) { pathAConfig(); }
-            pathHistorial = path + "\\historial.txt";
-            pathUpdates = path + "\\AutoUpdate";
-            CheckForUpdates();
-            try
-            {
-                if (!File.Exists(pathHistorial)) { FileStream historial = File.Create(pathHistorial); } // Si no existeix historial, el crea al path k li hem dit
-            }
-            catch
-            {
-                System.Windows.Forms.MessageBox.Show("La ruta de l'arxiu <config.txt> no és correcte. Consulte con uno de nuestros técnicos.\n O modifica-ho i posa la ruta de la carpeta on esta historial.txt," +
-                    "serà algo aixi:\nC:\\user\\<nomusuari>\\OneDrive\\<carpeta del historial.txt>");
-                return;
-            }
+
+
+            //if (!File.Exists("config.txt")) // Si no existeix config, el crea i demana path del historial
+            //{
+            //    FileStream config = File.Create("config.txt");
+            //    config.Close();
+            //    pathAConfig();
+            //}
+            //StreamReader sr = new StreamReader("config.txt");
+            //path = sr.ReadLine();
+            //sr.Close();
+            //if (path == "" || path == null) { pathAConfig(); } // Canviar per while
+            //pathHistorial = $"{ path }\\historial.txt";
+            //pathUpdates = $"{ path }\\AutoUpdate";
+            //CheckForUpdates();
+            //try
+            //{
+            //    if (!File.Exists(pathHistorial)) { FileStream historial = File.Create(pathHistorial); } // Si no existeix historial, el crea al path k li hem dit
+            //}
+            //catch
+            //{
+            //    System.Windows.Forms.MessageBox.Show("La ruta de l'arxiu <config.txt> no és correcte. Consulte con uno de nuestros técnicos.\n O modifica-ho i posa la ruta de la carpeta on esta historial.txt," +
+            //        "serà algo aixi:\nC:\\user\\<nomusuari>\\OneDrive\\<carpeta del historial.txt>");
+            //    return;
+            //}
         }
 
         // Eventos
@@ -202,8 +205,8 @@ namespace WpfApp1
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowDialog();
             path = fbd.SelectedPath;
-            pathHistorial = path + "\\historial.txt";
-            pathUpdates = path + "\\AutoUpdate";
+            pathHistorial = $"{ path }\\historial.txt";
+            pathUpdates = $"{ path }\\AutoUpdate";
             StreamWriter sw = new StreamWriter("config.txt");
             sw.Write(path);
             sw.Close();
