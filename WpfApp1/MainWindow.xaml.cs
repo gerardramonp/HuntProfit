@@ -19,7 +19,6 @@ using System.Diagnostics;
 using Squirrel;
 using HuntProfit;
 
-
 namespace WpfApp1
 {
     public partial class MainWindow : Window
@@ -29,7 +28,7 @@ namespace WpfApp1
         float wasteEK = 0, wasteED = 0, wasteRP = 0, wasteMS = 0, totalWaste = 0, loot = 0;
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float lootFinal, balance, profitEach;
-        string respawn = "", path = "", pathHistorial = "", pathUpdates = "";
+        string respawn = "", pathHistorial = "", pathUpdates = "";
         MetodesPath metodes = new MetodesPath();
         // #######################################
 
@@ -48,57 +47,38 @@ namespace WpfApp1
                 metodes.PathAConfig();
             }
             metodes.GenerarPaths(out pathHistorial, out pathUpdates);
-            if (!File.Exists(pathHistorial)) { metodes.CrearHistorial(pathHistorial); }
-
-           
-            //StreamReader sr = new StreamReader("config.txt");
-            //path = sr.ReadLine();
-            //sr.Close();
-            //if (path == "" || path == null) { pathAConfig(); } // Canviar per while
-            //pathHistorial = $"{ path }\\historial.txt";
-            //pathUpdates = $"{ path }\\AutoUpdate";
-            //CheckForUpdates();
-            //try
-            //{
-            //    if (!File.Exists(pathHistorial)) { FileStream historial = File.Create(pathHistorial); } // Si no existeix historial, el crea al path k li hem dit
-            //}
-            //catch
-            //{
-            //    System.Windows.Forms.MessageBox.Show("La ruta de l'arxiu <config.txt> no és correcte. Consulte con uno de nuestros técnicos.\n O modifica-ho i posa la ruta de la carpeta on esta historial.txt," +
-            //        "serà algo aixi:\nC:\\user\\<nomusuari>\\OneDrive\\<carpeta del historial.txt>");
-            //    return;
-            //}
+            if (!File.Exists(pathHistorial)) { metodes.CrearHistorial(pathHistorial); }           
         }
 
         // Eventos
         // Pels wastes, actualitzen waste total al canviar text dels textbox waste per poder calcular TWASTE en temps real
         #region Events TBWastes -> WasteTotal
-        public void TbWEK_TextChanged(object sender, TextChangedEventArgs e)
+        private void TbWEK_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (tbWEK.Text == "") { wasteEK = 0; }
             else { wasteEK = float.Parse(tbWEK.Text); }
-            actualitzarTotalWaste();
+            ActualitzarTotalWaste();
         }
 
         private void TbWED_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (tbWED.Text == "") { wasteED = 0; }
             else { wasteED = float.Parse(tbWED.Text); }
-            actualitzarTotalWaste();
+            ActualitzarTotalWaste();
         }
 
         private void TbWRP_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (tbWRP.Text == "") { wasteRP = 0; }
             else { wasteRP = float.Parse(tbWRP.Text); }
-            actualitzarTotalWaste();
+            ActualitzarTotalWaste();
         }
 
         private void TbWMS_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (tbWMS.Text == "") { wasteMS = 0; }
             else { wasteMS = float.Parse(tbWMS.Text); }
-            actualitzarTotalWaste();
+            ActualitzarTotalWaste();
         }
         #endregion
 
@@ -117,14 +97,14 @@ namespace WpfApp1
             if (wasteRP != 0) { persones++; }
             if (wasteMS != 0) { persones++; }
 
-            calcularValors(wasteEK, wasteED, wasteRP, wasteMS, totalWaste, loot, demonic, persones);
+            CalcularValors(wasteEK, wasteED, wasteRP, wasteMS, totalWaste, loot, demonic, persones);
             escriureAHistorial();
-            reiniciarValors();
+            ReiniciarValors();
         }
 
         private void BtReiniciar_Click(object sender, RoutedEventArgs e)
         {
-            reiniciarValors_Formulari();
+            ReiniciarValorsFormulari();
         }
 
         private void btHistorial_Click(object sender, RoutedEventArgs e)
@@ -136,7 +116,7 @@ namespace WpfApp1
 
         // Metodes
         #region METODES
-        public void reiniciarValors()
+        private void ReiniciarValors()
         {
             persones = 0;
             lootFinal = 0;
@@ -147,9 +127,9 @@ namespace WpfApp1
             transferMS = 0;
         }
 
-        public void reiniciarValors_Formulari()
+        private void ReiniciarValorsFormulari()
         {
-            reiniciarValors();
+            ReiniciarValors();
             tbWEK.Text = "";
             tbWED.Text = "";
             tbWRP.Text = "";
@@ -166,7 +146,7 @@ namespace WpfApp1
         }
 
         // Calcula els valors i transfers i els mostra per pantalla.
-        public void calcularValors(float wEK, float wED, float wRP, float wMS, float tWaste, float loot, int demonic, int persones)
+        private void CalcularValors(float wEK, float wED, float wRP, float wMS, float tWaste, float loot, int demonic, int persones)
         {
             respawn = cbRespawn.Text;
             if (respawn == "" || respawn == "Select a respawn...") { respawn = "NULL"; }
@@ -194,26 +174,13 @@ namespace WpfApp1
             tbTMS.Text = transferMS.ToString();          
         }
 
-        // Suma els wastes per calcular waste total (als eventos de canviar text x calcular en temps real)
-        public void actualitzarTotalWaste()
+        private void ActualitzarTotalWaste()
         {
             totalWaste = wasteEK + wasteED + wasteRP + wasteMS;
             tbWTotal.Text = totalWaste.ToString();
         }
 
-        public void pathAConfig()
-        {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.ShowDialog();
-            path = fbd.SelectedPath;
-            pathHistorial = $"{ path }\\historial.txt";
-            pathUpdates = $"{ path }\\AutoUpdate";
-            StreamWriter sw = new StreamWriter("config.txt");
-            sw.Write(path);
-            sw.Close();
-        }
-
-        public void escriureAHistorial()
+        private void escriureAHistorial()
         {
             try
             {
@@ -228,9 +195,9 @@ namespace WpfApp1
             }
             catch
             {
-                System.Windows.Forms.MessageBox.Show("La ruta de l'arxiu <config.txt> no és correcte. Consulte con uno de nuestros técnicos.\n O modifica-ho i posa la ruta de la carpeta on esta historial.txt," +
-                    "serà algo aixi:\nC:\\user\\<nomusuari>\\OneDrive\\<carpeta del historial.txt>");
-                return;
+                System.Windows.MessageBox.Show("El path està mal introduit, selecciona la carpeta on es troba l'arxiu <historial.txt>");
+                metodes.PathAConfig();
+                metodes.GenerarPaths(out pathHistorial, out pathUpdates);
             }
         }
 

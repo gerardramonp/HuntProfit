@@ -13,7 +13,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="HistorialHunts" HorizontalAlignment="Left" Height="350" Margin="20,30,0,0" VerticalAlignment="Top" Width="1200" HorizontalScrollBarVisibility="Visible">
+        <DataGrid x:Name="HistorialHunts" HorizontalAlignment="Left" Height="350" Margin="20,30,0,0" VerticalAlignment="Top" Width="1200" HorizontalScrollBarVisibility="Visible" IsReadOnly="True">
             <!-- Style -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
