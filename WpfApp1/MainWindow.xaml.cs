@@ -17,7 +17,7 @@ using Microsoft.VisualBasic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Squirrel;
-
+using HuntProfit;
 
 
 namespace WpfApp1
@@ -30,7 +30,7 @@ namespace WpfApp1
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float lootFinal, balance, profitEach;
         string respawn = "", path = "", pathHistorial = "", pathUpdates = "";
-        
+        MetodesPath metodes = new MetodesPath();
         // #######################################
 
         public MainWindow()
@@ -42,14 +42,15 @@ namespace WpfApp1
         // S'executa quan es carrega la finestra principal
         private void HuntProfit_Loaded(object sender, RoutedEventArgs e)
         {
+            if(!File.Exists("config.txt"))
+            {
+                metodes.CrearConfig();
+                metodes.PathAConfig();
+            }
+            metodes.GenerarPaths(out pathHistorial, out pathUpdates);
+            if (!File.Exists(pathHistorial)) { metodes.CrearHistorial(pathHistorial); }
 
-
-            //if (!File.Exists("config.txt")) // Si no existeix config, el crea i demana path del historial
-            //{
-            //    FileStream config = File.Create("config.txt");
-            //    config.Close();
-            //    pathAConfig();
-            //}
+           
             //StreamReader sr = new StreamReader("config.txt");
             //path = sr.ReadLine();
             //sr.Close();

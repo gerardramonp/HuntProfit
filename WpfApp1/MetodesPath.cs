@@ -10,13 +10,10 @@ namespace HuntProfit
 {
     public class MetodesPath
     {
-        public void CrearConfig()
+        public void CrearConfig() // Crea l'arxiu config
         {
-            if (!File.Exists("config.txt")) // Si no existeix config, el crea i demana path del historial
-            {
-                FileStream config = File.Create("config.txt");
-                config.Close();
-            }
+            FileStream config = File.Create("config.txt");
+            config.Close();
         }
 
         public void PathAConfig() // Buscador de carpetes, escriu el path al config.txt
@@ -29,28 +26,25 @@ namespace HuntProfit
             sw.Close();
         }
 
-        public void CrearHistorial(string _pathHistorial)
+        public void GenerarPaths(out string _pathHistorial, out string _pathUpdates) // Crea path historial.txt i /updates
         {
-            if (!File.Exists(_pathHistorial))
+            StreamReader sr = new StreamReader("config.txt");
+            string _path = sr.ReadLine();
+            while (_path == null || _path == "")
             {
-                FileStream historial = File.Create(_pathHistorial);
+                MessageBox.Show("El path no està introduit, selecciona la carpeta on es troba l'arxiu <historial.txt>");
+                PathAConfig();
             }
-        }
-        
-
-        public void CrearPathHistorial(string _path, out string _pathHistorial) // Crea el path del historial.txt
-        {
-            _pathHistorial = $"{ _path }\\historial.txt";
-        }
-
-        public void CrearPathDoble(string _path, out string _pathHistorial, out string _pathUpdates) // Crea path historial.txt i /updates
-        {
             _pathHistorial = $"{ _path }\\historial.txt";
             _pathUpdates = $"{ _path }\\AutoUpdate";
         }
 
-        
+        public void CrearHistorial(string _pathHistorial)
+        {
 
+            FileStream historial = File.Create(_pathHistorial);
+
+        }
 
 
 
