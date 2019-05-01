@@ -6,23 +6,28 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="Historial" Height="450" Width="1250" Icon="HuntProfitIcon.ico">
-    <Grid>
+    <Grid Background="#FF222431">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="HistorialHunts" HorizontalAlignment="Left" Height="350" Margin="20,30,0,0" VerticalAlignment="Top" Width="1200" HorizontalScrollBarVisibility="Visible" IsReadOnly="True">
+        <DataGrid x:Name="HistorialHunts" HorizontalAlignment="Left" Height="350" Margin="20,30,0,0" VerticalAlignment="Top" Width="1200" HorizontalScrollBarVisibility="Visible" IsReadOnly="True" Background="#FFBBC7FB" BorderBrush="#FF4EB8CE" Foreground="Black" HeadersVisibility="Column">
             <!-- Style -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="DarkTurquoise"/>
+                    <Setter Property="Background" Value="#FF4EB8CE"/>
                     <Setter Property="FontWeight" Value="Bold"/>
                     <Setter Property="BorderThickness" Value="0,0,1,2"/>
                     <Setter Property="BorderBrush" Value="Black"/>
                 </Style>
-
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Background" Value="#FFBBC7FB"/>
+                    <Setter Property="BorderThickness" Value="0,0,0.4,0.4"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
             </DataGrid.Resources>
 
             <!-- Colum Headers text & bindings-->

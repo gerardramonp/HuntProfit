@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.IO;
 using HuntProfit;
 
+
 namespace WpfApp1
 {
     /// <summary>
@@ -27,6 +28,7 @@ namespace WpfApp1
         int huntIDTXT = 0, personesTXT = 0;
         float wasteEKTXT = 0, wasteEDTXT = 0, wasteRPTXT = 0, wasteMSTXT = 0, totalWasteTXT = 0, lootTXT = 0, balanceTXT = 0, profitEachTXT = 0, transferEKTXT = 0,
             transferEDTXT = 0, transferRPTXT = 0, transferMSTXT = 0;
+
         MetodesPath metodes = new MetodesPath();
         // #######################################
         public finestraDataGrid()
@@ -36,6 +38,7 @@ namespace WpfApp1
             {
                 metodes.GenerarPaths(out pathHistorial, out pathUpdates);
                 llegirTXT();
+
             }
             catch
             {
@@ -87,7 +90,7 @@ namespace WpfApp1
 
         // METODES
         #region METODES HISTORIAL
-        
+
         // Llegeix el historial i posa els valors a la taula
         private void llegirTXT()
         {
@@ -196,6 +199,6 @@ namespace WpfApp1
         }
 
     }
-    #endregion
+    #endregion  
 }
 
