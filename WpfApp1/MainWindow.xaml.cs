@@ -41,7 +41,7 @@ namespace WpfApp1
         // S'executa quan es carrega la finestra principal
         private void HuntProfit_Loaded(object sender, RoutedEventArgs e)
         {
-            if(!File.Exists("config.txt"))
+            if (!File.Exists("config.txt"))
             {
                 metodes.CrearConfig();
                 metodes.PathAConfig();
