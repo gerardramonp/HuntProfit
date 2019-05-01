@@ -187,6 +187,15 @@
   <ItemGroup>
     <Resource Include="Resources\HuntProfitIcon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\backGroundCLAR.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\backGroundFOSC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\backGroundSTANDARD.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -24,7 +24,7 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         // ########## VARIABLES GLOBALS ##########
-        int persones = 0, demonic = 0, ID = 0;
+        int persones = 0, demonic = 0, ID = 0, posX, posY;
         float wasteEK = 0, wasteED = 0, wasteRP = 0, wasteMS = 0, totalWaste = 0, loot = 0;
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float lootFinal, balance, profitEach;
@@ -47,7 +47,7 @@ namespace WpfApp1
                 metodes.PathAConfig();
             }
             metodes.GenerarPaths(out pathHistorial, out pathUpdates);
-            if (!File.Exists(pathHistorial)) { metodes.CrearHistorial(pathHistorial); }           
+            if (!File.Exists(pathHistorial)) { metodes.CrearHistorial(pathHistorial); }
         }
 
         // Eventos
@@ -112,6 +112,21 @@ namespace WpfApp1
             // Obre la finestra del historial
             finestraDataGrid finestra = new finestraDataGrid();
             finestra.ShowDialog();
+        }
+
+        private void HuntProfit_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            posX = (int)e.GetPosition(HuntProfit).X;
+            posY = (int)e.GetPosition(HuntProfit).Y;
+        }
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            if (posX>=266 && posX<=291 && posY>=0 && posY<=30)
+            {
+                this.Close();
+            }
+            base.OnMouseLeftButtonDown(e);
+            this.DragMove();
         }
 
         // Metodes
@@ -215,7 +230,7 @@ namespace WpfApp1
         {
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
-            HuntProfit.Title += $"  v.{ versionInfo.FileVersion }";
+            lbTitol.Content += $"  v.{ versionInfo.FileVersion }";
         }
         #endregion
     }
