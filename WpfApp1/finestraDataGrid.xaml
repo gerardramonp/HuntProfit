@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Historial" Height="450" Width="1250" Icon="HuntProfitIcon.ico">
-    <Grid Background="#FF222431">
+        Title="HistorialDG" Height="475" Width="1240" Icon="HuntProfitIcon.ico" WindowStyle="None" MouseMove="Window_MouseMove" Background="White" ResizeMode="NoResize">
+    <Grid x:Name="gridHistorial" Background="#FF363944">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="HistorialHunts" HorizontalAlignment="Left" Height="350" Margin="20,30,0,0" VerticalAlignment="Top" Width="1200" HorizontalScrollBarVisibility="Visible" IsReadOnly="True" Background="#FFBBC7FB" BorderBrush="#FF4EB8CE" Foreground="Black" HeadersVisibility="Column">
+        <DataGrid x:Name="HistorialHunts" HorizontalAlignment="Left" Height="400" Margin="20,52,0,0" VerticalAlignment="Top" Width="1200" HorizontalScrollBarVisibility="Visible" IsReadOnly="True" Background="#FF4A4E5F" AlternatingRowBackground="#FFA0D8E4" AlternationCount="2" BorderBrush="#FF222431" BorderThickness="2" Foreground="Black" HeadersVisibility="Column">
             <!-- Style -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -24,17 +24,24 @@
                 </Style>
                 <Style TargetType="{x:Type DataGridCell}">
                     <Setter Property="Foreground" Value="Black"/>
-                    <Setter Property="Background" Value="#FFBBC7FB"/>
+                    <Setter Property="FontSize" Value="14"/>
                     <Setter Property="BorderThickness" Value="0,0,0.4,0.4"/>
                     <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <Trigger Property="AlternationIndex" Value="0">
+                            <Setter Property="Background" Value="#FF84B5BF"/>
+                        </Trigger>
+                    </Style.Triggers>
                 </Style>
             </DataGrid.Resources>
 
             <!-- Colum Headers text & bindings-->
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="25" Binding="{Binding HuntID}"/>
+                <DataGridTextColumn Header="ID" Width="27" Binding="{Binding HuntID}"/>
                 <DataGridTextColumn Header="Respawn" Width="105" Binding="{Binding Respawn}"/>
-                <DataGridTextColumn Header="Day" Width="40" Binding="{Binding Dia}"/>
+                <DataGridTextColumn Header="Day" Width="42" Binding="{Binding Dia}"/>
                 <DataGridTextColumn Header="Pers" Width="20" Binding="{Binding Persones}"/>
                 <DataGridTextColumn Header="W.EK" Width="70" Binding="{Binding WasteEK}"/>
                 <DataGridTextColumn Header="W.ED" Width="70" Binding="{Binding WasteED}"/>
@@ -52,12 +59,16 @@
                 <DataGridTemplateColumn Header="PAGAR" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="buttonPagar" Click="buttonPagar_Click" Content="Pagar!"/>
+                            <Button Name="buttonPagar" Click="buttonPagar_Click" Content="Pagar!" Margin="2,2,2,2"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
+        <Canvas HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="1240" Background="#FF222431">
+            <Label x:Name="lbTitolDG" Content="Historial" Canvas.Left="20" Foreground="#FFD4D4D4" FontSize="20" FontWeight="SemiBold" Canvas.Top="-3"/>
+        </Canvas>
+        <Canvas HorizontalAlignment="Left" Height="2" VerticalAlignment="Top" Width="1240" Margin="0,34,0,0" Background="#FFD4D4D4"/>
+        <Label x:Name="lbClose" Content="X" HorizontalAlignment="Left" Margin="1204,-3,0,0" VerticalAlignment="Top" Foreground="#FF4EB8CE" FontWeight="Bold" FontSize="20"/>
     </Grid>
 </Window>

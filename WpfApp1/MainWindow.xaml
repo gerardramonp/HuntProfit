@@ -7,7 +7,7 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Name="HuntProfit" x:Class="WpfApp1.MainWindow"
         mc:Ignorable="d"
         Title="Hunt Profit" Height="600" Width="385.5" Loaded="HuntProfit_Loaded" Icon="Resources/HuntProfitIcon.ico" ResizeMode="NoResize" Background="#FF222431" Foreground="#FFD4D4D4" WindowStyle="None" MouseMove="HuntProfit_MouseMove">
-    <Grid Margin="0,0,0,0" Background="#FF2C2E36">
+    <Grid Margin="0,0,0,0" Background="#FF363944">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="390"/>
         </Grid.ColumnDefinitions>
@@ -80,10 +80,10 @@
         <Button x:Name="btCalcular" Content="CALCULAR" HorizontalAlignment="Left" Margin="240,397,0,0" VerticalAlignment="Top" Width="112" Height="50" Click="BtCalcular_Click" Background="{x:Null}" BorderBrush="#FF4EB8CE" Foreground="#FF4EB8CE" FontSize="20"/>
         <Button x:Name="btHistorial" Content="Historial" HorizontalAlignment="Left" Margin="240,533,0,0" VerticalAlignment="Top" Width="117" Height="44" Click="btHistorial_Click" Background="#FF4EB8CE" BorderBrush="{x:Null}" Foreground="#FF222431" FontSize="22" FontWeight="SemiBold"/>
         <Button x:Name="btReiniciar" Content="Reiniciar" HorizontalAlignment="Left" Margin="246,337,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtReiniciar_Click" BorderBrush="#FFD4D4D4" Foreground="#FFD4D4D4" Background="{x:Null}" FontSize="20"/>
-        <Label x:Name="lbTitol" Content="Hunt Profit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,3,0,0" Foreground="#FFD4D4D4" FontSize="20" FontWeight="SemiBold"/>
+        <Label x:Name="lbTitol" Content="Hunt Profit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,3,0,0" Foreground="#FFD4D4D4" FontSize="20" FontWeight="SemiBold"/>
         <Label x:Name="lbClose" Content="X" HorizontalAlignment="Left" Margin="358,-3,0,0" VerticalAlignment="Top" Foreground="#FF4EB8CE" FontWeight="Bold" FontSize="20"/>
-        <Canvas HorizontalAlignment="Left" Height="1" Margin="0,44,0,0" VerticalAlignment="Top" Width="386" Background="#FFD4D4D4"/>
-        <Canvas HorizontalAlignment="Left" Height="1" Margin="0,461,0,0" VerticalAlignment="Top" Width="386" Background="#FFD4D4D4"/>
+        <Canvas HorizontalAlignment="Left" Height="2" Margin="0,43,0,0" VerticalAlignment="Top" Width="386" Background="#FFD4D4D4"/>
+        <Canvas HorizontalAlignment="Left" Height="2" Margin="0,461,0,0" VerticalAlignment="Top" Width="386" Background="#FFD4D4D4"/>
 
     </Grid>
 </Window>

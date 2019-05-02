@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using Squirrel;
 using HuntProfit;
+using System.Windows.Threading;
 
 namespace WpfApp1
 {
@@ -30,6 +31,9 @@ namespace WpfApp1
         float lootFinal, balance, profitEach;
         string respawn = "", pathHistorial = "", pathUpdates = "";
         MetodesPath metodes = new MetodesPath();
+
+        DispatcherTimer timer1 = new DispatcherTimer();
+        DispatcherTimer timer2 = new DispatcherTimer();
         // #######################################
 
         public MainWindow()
@@ -80,13 +84,13 @@ namespace WpfApp1
             else { wasteMS = float.Parse(tbWMS.Text); }
             ActualitzarTotalWaste();
         }
-        #endregion
 
         private void TbDemonic_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (tbDemonic.Text == "") { demonic = 0; }
             else { demonic = int.Parse(tbDemonic.Text); }
         }
+        #endregion
 
         private void BtCalcular_Click(object sender, RoutedEventArgs e)
         {
@@ -110,8 +114,8 @@ namespace WpfApp1
         private void btHistorial_Click(object sender, RoutedEventArgs e)
         {
             // Obre la finestra del historial
-            finestraDataGrid finestra = new finestraDataGrid();
-            finestra.ShowDialog();
+            finestraDataGrid formDG = new finestraDataGrid();
+            formDG.ShowDialog();
         }
 
         private void HuntProfit_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
@@ -119,9 +123,10 @@ namespace WpfApp1
             posX = (int)e.GetPosition(HuntProfit).X;
             posY = (int)e.GetPosition(HuntProfit).Y;
         }
+
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            if (posX>=358 && posX<=385.5 && posY>=0 && posY<=27)
+            if (posX >= 358 && posX <= 385.5 && posY >= 0 && posY <= 27)
             {
                 this.Close();
             }
@@ -155,9 +160,9 @@ namespace WpfApp1
             tbTED.Text = "";
             tbTRP.Text = "";
             tbTMS.Text = "";
-            lbLootFinalValue.Content = "";
-            lbBalanceValue.Content = "";
-            lbProfitValue.Content = "";
+            lbLootFinalValue.Content = "0";
+            lbBalanceValue.Content = "0";
+            lbProfitValue.Content = "0";
         }
 
         // Calcula els valors i transfers i els mostra per pantalla.
