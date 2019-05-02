@@ -17,7 +17,6 @@ C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\b
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Release\NuGet.Squirrel.pdb
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Release\Splat.pdb
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Release\Squirrel.pdb
-C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Release\HuntProfit.csprojAssemblyReference.cache
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Release\finestraDataGrid.g.cs
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Release\MainWindow.g.cs
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Release\App.g.cs

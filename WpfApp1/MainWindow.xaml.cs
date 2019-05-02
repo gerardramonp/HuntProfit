@@ -52,6 +52,7 @@ namespace WpfApp1
             }
             metodes.GenerarPaths(out pathHistorial, out pathUpdates);
             if (!File.Exists(pathHistorial)) { metodes.CrearHistorial(pathHistorial); }
+            CheckForUpdates();
         }
 
         // Eventos
