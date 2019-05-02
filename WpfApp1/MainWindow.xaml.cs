@@ -121,7 +121,7 @@ namespace WpfApp1
         }
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            if (posX>=266 && posX<=291 && posY>=0 && posY<=30)
+            if (posX>=358 && posX<=385.5 && posY>=0 && posY<=27)
             {
                 this.Close();
             }

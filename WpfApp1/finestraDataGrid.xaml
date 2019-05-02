@@ -33,9 +33,9 @@
             <!-- Colum Headers text & bindings-->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="25" Binding="{Binding HuntID}"/>
-                <DataGridTextColumn Header="Respawn" Width="75" Binding="{Binding Respawn}"/>
+                <DataGridTextColumn Header="Respawn" Width="105" Binding="{Binding Respawn}"/>
                 <DataGridTextColumn Header="Day" Width="40" Binding="{Binding Dia}"/>
-                <DataGridTextColumn Header="Pers" Width="26" Binding="{Binding Persones}"/>
+                <DataGridTextColumn Header="Pers" Width="20" Binding="{Binding Persones}"/>
                 <DataGridTextColumn Header="W.EK" Width="70" Binding="{Binding WasteEK}"/>
                 <DataGridTextColumn Header="W.ED" Width="70" Binding="{Binding WasteED}"/>
                 <DataGridTextColumn Header="W.RP" Width="70" Binding="{Binding WasteRP}"/>
@@ -48,7 +48,7 @@
                 <DataGridTextColumn Header="T.ED" Width="80" Binding="{Binding TransferED}"/>
                 <DataGridTextColumn Header="T.RP" Width="80" Binding="{Binding TransferRP}"/>
                 <DataGridTextColumn Header="T.MS" Width="80" Binding="{Binding TransferMS}"/>
-                <DataGridTextColumn Header="Pagat" Width="40" Binding="{Binding Pagat}"/>
+                <DataGridTextColumn Header="Pag." Width="25" Binding="{Binding Pagat}"/>
                 <DataGridTemplateColumn Header="PAGAR" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
