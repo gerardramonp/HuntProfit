@@ -262,6 +262,28 @@ namespace WpfApp1
             imgTemp.Stretch = Stretch.Fill;
             nomImg.Source = bi3;
         }
+
+        private void SelectAddress(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Controls.TextBox tb = (sender as System.Windows.Controls.TextBox);
+            if (tb != null)
+            {
+                tb.SelectAll();
+            }
+        }
+
+        private void SelectivelyIgnoreMouseButton(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Controls.TextBox tb = (sender as System.Windows.Controls.TextBox);
+            if (tb != null)
+            {
+                if (!tb.IsKeyboardFocusWithin)
+                {
+                    e.Handled = true;
+                    tb.Focus();
+                }
+            }
+        }
         #endregion
     }
 } 
