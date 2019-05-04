@@ -33,3 +33,4 @@ C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\o
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Release\HuntProfit.csproj.CopyComplete
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Release\HuntProfit.exe
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Release\HuntProfit.pdb
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Release\HuntProfit.csprojAssemblyReference.cache

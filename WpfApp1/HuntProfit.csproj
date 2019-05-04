@@ -94,6 +94,7 @@
     <Reference Include="NuGet.Squirrel, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\squirrel.windows.1.9.1\lib\Net45\NuGet.Squirrel.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="SharpCompress, Version=0.17.1.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpCompress.0.17.1\lib\net45\SharpCompress.dll</HintPath>
     </Reference>
@@ -188,13 +189,10 @@
     <Resource Include="Resources\HuntProfitIcon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\backGroundCLAR.PNG" />
+    <Resource Include="Resources\sb64.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\backGroundFOSC.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\backGroundSTANDARD.png" />
+    <Resource Include="Resources\sw128.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

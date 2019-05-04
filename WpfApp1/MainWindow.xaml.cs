@@ -93,6 +93,18 @@ namespace WpfApp1
         }
         #endregion
 
+        // Pel canvi de les imatges
+        #region CanviImg
+        private void TbWEK_GotFocus(object sender, RoutedEventArgs e)
+        {
+            CanviarImg("\\Resources\\sb64.png", imgEK);
+        }
+        private void TbWEK_LostFocus(object sender, RoutedEventArgs e)
+        {
+            CanviarImg("\\Resources\\sw128.png", imgEK);
+        }
+        #endregion
+
         private void BtCalcular_Click(object sender, RoutedEventArgs e)
         {
             if (tbLoot.Text == "") { loot = 0; }
@@ -237,6 +249,18 @@ namespace WpfApp1
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
             lbTitol.Content += $"  v.{ versionInfo.FileVersion }";
+        }
+
+        // Posa la imatge del tb corresponent en blanc/blau
+        private void CanviarImg(string pathImg, Image nomImg)
+        {
+            Image imgTemp = new Image();
+            BitmapImage bi3 = new BitmapImage();
+            bi3.BeginInit();
+            bi3.UriSource = new Uri(pathImg, UriKind.Relative);
+            bi3.EndInit();
+            imgTemp.Stretch = Stretch.Fill;
+            nomImg.Source = bi3;
         }
         #endregion
     }

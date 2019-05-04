@@ -50,7 +50,7 @@
                 <DataGridTextColumn Header="W.Total" Width="70" Binding="{Binding TotalWaste}"/>
                 <DataGridTextColumn Header="Loot" Width="80" Binding="{Binding Loot}"/>
                 <DataGridTextColumn Header="Balance" Width="80" Binding="{Binding Balance}"/>
-                <DataGridTextColumn Header="Profit/e" Width="80" Binding="{Binding ProfitEach}"/>
+                <DataGridTextColumn Header="Profit/e" Width="80" Binding="{Binding ProfitEach}" FontWeight="Bold"/>
                 <DataGridTextColumn Header="T.EK" Width="80" Binding="{Binding TransferEK}"/>
                 <DataGridTextColumn Header="T.ED" Width="80" Binding="{Binding TransferED}"/>
                 <DataGridTextColumn Header="T.RP" Width="80" Binding="{Binding TransferRP}"/>
