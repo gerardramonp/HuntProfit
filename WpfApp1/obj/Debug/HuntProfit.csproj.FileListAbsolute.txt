@@ -106,3 +106,9 @@ C:\Users\Gerard\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\
 C:\Users\Gerard\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Debug\HuntProfit.csproj.CopyComplete
 C:\Users\Gerard\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Debug\HuntProfit.exe
 C:\Users\Gerard\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Debug\HuntProfit.pdb
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Debug\LiveCharts.dll
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Debug\LiveCharts.pdb
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Debug\LiveCharts.xml
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Debug\LiveCharts.Wpf.xml

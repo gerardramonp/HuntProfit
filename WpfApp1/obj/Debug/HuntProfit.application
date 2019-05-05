@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="HuntProfit.exe.manifest" size="11391">
+    <dependentAssembly dependencyType="install" codebase="HuntProfit.exe.manifest" size="12745">
       <assemblyIdentity name="HuntProfit.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>W3zGr9szV8bKOZSaA8Eqxguz8M11sY+sDxyH5pc9J2I=</dsig:DigestValue>
+        <dsig:DigestValue>ASK//Q3oNdpt/8Uk92iZaEOzzDQSKqikDJ4c2G7NeFc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -30,7 +30,8 @@ namespace WpfApp1
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float lootFinal, balance, profitEach;
         string respawn = "", pathHistorial = "", pathUpdates = "";
-        MetodesPath metodes = new MetodesPath();
+        MetodesPath metodesPath = new MetodesPath();
+        MetodesGenerals metodesGenerals = new MetodesGenerals();
 
         DispatcherTimer timer1 = new DispatcherTimer();
         DispatcherTimer timer2 = new DispatcherTimer();
@@ -47,12 +48,12 @@ namespace WpfApp1
         {
             if (!File.Exists("config.txt"))
             {
-                metodes.CrearConfig();
-                metodes.PathAConfig();
+                metodesPath.CrearConfig();
+                metodesPath.PathAConfig();
             }
-            metodes.GenerarPaths(out pathHistorial, out pathUpdates);
-            if (!File.Exists(pathHistorial)) { metodes.CrearHistorial(pathHistorial); }
-            CheckForUpdates();
+            metodesPath.GenerarPaths(out pathHistorial, out pathUpdates);
+            if (!File.Exists(pathHistorial)) { metodesPath.CrearHistorial(pathHistorial); }
+            metodesGenerals.CheckForUpdates(pathUpdates);
         }
 
         // Eventos
@@ -93,15 +94,15 @@ namespace WpfApp1
         }
         #endregion
 
-        // Pel canvi de les imatges
+        // Pel canvi dels iconos de Vocations
         #region CanviImg
         private void TbWEK_GotFocus(object sender, RoutedEventArgs e)
         {
-            CanviarImg("\\Resources\\sb64.png", imgEK);
+            metodesGenerals.CanviarImg("\\Resources\\sb64.png", imgEK);
         }
         private void TbWEK_LostFocus(object sender, RoutedEventArgs e)
         {
-            CanviarImg("\\Resources\\sw128.png", imgEK);
+            metodesGenerals.CanviarImg("\\Resources\\sw128.png", imgEK);
         }
         #endregion
 
@@ -119,16 +120,15 @@ namespace WpfApp1
             ReiniciarValors();
         }
 
+        private void btHistorial_Click(object sender, RoutedEventArgs e)
+        {
+            finestraDataGrid formDG = new finestraDataGrid();
+            formDG.ShowDialog();
+        }
+
         private void BtReiniciar_Click(object sender, RoutedEventArgs e)
         {
             ReiniciarValorsFormulari();
-        }
-
-        private void btHistorial_Click(object sender, RoutedEventArgs e)
-        {
-            // Obre la finestra del historial
-            finestraDataGrid formDG = new finestraDataGrid();
-            formDG.ShowDialog();
         }
 
         private void HuntProfit_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
@@ -204,7 +204,7 @@ namespace WpfApp1
             tbTEK.Text = transferEK.ToString();
             tbTED.Text = transferED.ToString();
             tbTRP.Text = transferRP.ToString();
-            tbTMS.Text = transferMS.ToString();          
+            tbTMS.Text = transferMS.ToString();
         }
 
         private void ActualitzarTotalWaste()
@@ -229,39 +229,19 @@ namespace WpfApp1
             catch
             {
                 System.Windows.MessageBox.Show("El path està mal introduit, selecciona la carpeta on es troba l'arxiu <historial.txt>");
-                metodes.PathAConfig();
-                metodes.GenerarPaths(out pathHistorial, out pathUpdates);
-            }
-        }
-
-        // Mira si hi ha updates i les fa automaticament quan es tanca el programa
-        private async Task CheckForUpdates()
-        {
-            using (var manager = new UpdateManager(pathUpdates))
-            {
-                await manager.UpdateApp();
+                metodesPath.PathAConfig();
+                metodesPath.GenerarPaths(out pathHistorial, out pathUpdates);
             }
         }
 
         // Comprova la versio del AssemblyInfo i la afegeix al titol de la finestra.
-        private void AfegirVersio()
+        private void AfegirVersio() // A GENERALS
         {
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
             lbTitol.Content += $"  v.{ versionInfo.FileVersion }";
         }
 
-        // Posa la imatge del tb corresponent en blanc/blau
-        private void CanviarImg(string pathImg, Image nomImg)
-        {
-            Image imgTemp = new Image();
-            BitmapImage bi3 = new BitmapImage();
-            bi3.BeginInit();
-            bi3.UriSource = new Uri(pathImg, UriKind.Relative);
-            bi3.EndInit();
-            imgTemp.Stretch = Stretch.Fill;
-            nomImg.Source = bi3;
-        }
 
         private void SelectAddress(object sender, RoutedEventArgs e)
         {
@@ -286,4 +266,4 @@ namespace WpfApp1
         }
         #endregion
     }
-} 
+}

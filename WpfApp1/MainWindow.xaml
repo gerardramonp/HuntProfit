@@ -7,7 +7,7 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Name="HuntProfit" x:Class="WpfApp1.MainWindow"
         mc:Ignorable="d"
         Title="Hunt Profit" Height="600" Width="385.5" Loaded="HuntProfit_Loaded" Icon="Resources/HuntProfitIcon.ico" ResizeMode="NoResize" Background="#FF222431" Foreground="#FFD4D4D4" WindowStyle="None" MouseMove="HuntProfit_MouseMove">
-    
+
     <!-- STYLES -->
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
@@ -24,9 +24,17 @@
                 </Style>
             </Style.Resources>
         </Style>
+        <Style TargetType="{x:Type Label}" x:Key="canviColorLBTancar">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#FFD4D4D4"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </Window.Resources>
     <!-- FI STYLES -->
-    
+
     <Grid Margin="0,0,0,0" Background="#FF363944">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="390"/>
@@ -34,7 +42,7 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <Canvas x:Name="canvasHeader" HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="386" Background="#FF222431"/>
         <Canvas HorizontalAlignment="Left" Height="140" Margin="0,462,0,0" VerticalAlignment="Top" Width="386" Background="#FF222431"/>
 
@@ -74,7 +82,7 @@
         <TextBox x:Name="tbWMS" HorizontalAlignment="Left" Height="30" Margin="111,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFBE00FF" TextChanged="TbWMS_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton"/>
 
         <TextBox x:Name="tbTEK" HorizontalAlignment="Left" Height="30" Margin="246,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FFF07D0A" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
-        <TextBox x:Name="tbTED" HorizontalAlignment="Left" Height="30" Margin="246,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FF127439" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
+        <TextBox x:Name="tbTED" HorizontalAlignment="Left" Height="30" Margin="246,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FF00FF64" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbTRP" HorizontalAlignment="Left" Height="30" Margin="246,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FFFFDC46" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbTMS" HorizontalAlignment="Left" Height="30" Margin="246,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FFBE00FF" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
 
@@ -100,9 +108,20 @@
         <Button x:Name="btReiniciar" Content="Reiniciar" HorizontalAlignment="Left" Margin="246,337,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtReiniciar_Click" BorderBrush="#FFD4D4D4" Foreground="#FFD4D4D4" Background="{x:Null}" FontSize="20"/>
 
         <Label x:Name="lbTitol" Content="Hunt Profit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,3,0,0" Foreground="#FFD4D4D4" FontSize="20" FontWeight="SemiBold"/>
-        <Label x:Name="lbClose" Content="X" HorizontalAlignment="Left" Margin="358,-3,0,0" VerticalAlignment="Top" Foreground="#FF4EB8CE" FontWeight="Bold" FontSize="20"/>
+        <Label x:Name="lbClose" Content="X" HorizontalAlignment="Left" Margin="358,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="#FF4EB8CE"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#FFD4D4D4"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
         <Canvas HorizontalAlignment="Left" Height="2" Margin="0,43,0,0" VerticalAlignment="Top" Width="386" Background="#FFD4D4D4"/>
         <Canvas HorizontalAlignment="Left" Height="2" Margin="0,461,0,0" VerticalAlignment="Top" Width="386" Background="#FFD4D4D4"/>
-        <Image x:Name="imgEK" HorizontalAlignment="Left" Height="20" Margin="53,146,0,0" VerticalAlignment="Top" Width="20" Source="Resources\sw128.png"/>
+        <Image x:Name="imgEK" HorizontalAlignment="Left" Height="20" Width="20" Margin="53,150,0,0" VerticalAlignment="Top"  Source="Resources\sw128.png" RenderTransformOrigin="-0.95,3.8"/>
     </Grid>
 </Window>
