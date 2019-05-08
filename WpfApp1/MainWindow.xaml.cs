@@ -87,23 +87,60 @@ namespace WpfApp1
             ActualitzarTotalWaste();
         }
 
+
         private void TbDemonic_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (tbDemonic.Text == "") { demonic = 0; }
             else { demonic = int.Parse(tbDemonic.Text); }
         }
+
+
         #endregion
 
         // Pel canvi dels iconos de Vocations
         #region CanviImg
+        // EK
         private void TbWEK_GotFocus(object sender, RoutedEventArgs e)
         {
-            metodesGenerals.CanviarImg("\\Resources\\sb64.png", imgEK);
+            metodesGenerals.CanviarImg("\\Resources\\EK_b.png", imgEK);
         }
         private void TbWEK_LostFocus(object sender, RoutedEventArgs e)
         {
-            metodesGenerals.CanviarImg("\\Resources\\sw128.png", imgEK);
+            metodesGenerals.CanviarImg("\\Resources\\EK_g.png", imgEK);
         }
+
+        // ED
+        private void TbWED_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void TbWED_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // RP
+        private void TbWRP_GotFocus(object sender, RoutedEventArgs e)
+        {
+            metodesGenerals.CanviarImg("\\Resources\\RP_b.png", imgRP);
+        }
+        private void TbWRP_LostFocus(object sender, RoutedEventArgs e)
+        {
+            metodesGenerals.CanviarImg("\\Resources\\RP_g.png", imgRP);
+        }
+
+        // MS
+        private void TbWMS_GotFocus(object sender, RoutedEventArgs e)
+        {
+            metodesGenerals.CanviarImg("\\Resources\\MS_b.png", imgMS);
+        }
+        private void TbWMS_LostFocus(object sender, RoutedEventArgs e)
+        {
+            metodesGenerals.CanviarImg("\\Resources\\MS_g.png", imgMS);
+        }
+
+
+
         #endregion
 
         private void BtCalcular_Click(object sender, RoutedEventArgs e)

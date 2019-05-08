@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/ms_g.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/ek_b.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/ek_g.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/ms_b.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/rp_b.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/rp_g.png")]
 
 

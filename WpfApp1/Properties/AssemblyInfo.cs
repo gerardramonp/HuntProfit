@@ -8,9 +8,9 @@ using System.Windows;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("HuntProfit")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyDescription("HuntProfit_Desc")]
+[assembly: AssemblyConfiguration("HuntProfit_Config")]
+[assembly: AssemblyCompany("HuntProfit_Company")]
 [assembly: AssemblyProduct("HuntProfit")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]

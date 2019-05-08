@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Name="HuntProfit" x:Class="WpfApp1.MainWindow"
         mc:Ignorable="d"
-        Title="Hunt Profit" Height="600" Width="385.5" Loaded="HuntProfit_Loaded" Icon="Resources/HuntProfitIcon.ico" ResizeMode="NoResize" Background="#FF222431" Foreground="#FFD4D4D4" WindowStyle="None" MouseMove="HuntProfit_MouseMove">
+        Title="Hunt Profit" Height="600" Width="385.5" Loaded="HuntProfit_Loaded" Icon="Resources/HuntProfit_TCicon.ico" ResizeMode="NoResize" Background="#FF222431" Foreground="#FFD4D4D4" WindowStyle="None" MouseMove="HuntProfit_MouseMove">
 
     <!-- STYLES -->
     <Window.Resources>
@@ -39,12 +39,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="390"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        <Grid.RowDefinitions/>
 
         <Canvas x:Name="canvasHeader" HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="386" Background="#FF222431"/>
-        <Canvas HorizontalAlignment="Left" Height="140" Margin="0,462,0,0" VerticalAlignment="Top" Width="386" Background="#FF222431"/>
+        <Canvas HorizontalAlignment="Left" Height="140" Margin="0,462,0,-2" VerticalAlignment="Top" Width="386" Background="#FF222431"/>
 
         <!--ComboBox Respawn-->
         <Label x:Name="lbRespawn" Content="Respawn:" HorizontalAlignment="Left" Margin="35,58,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
@@ -77,9 +75,9 @@
         <Label x:Name="lbMS" Content="MS:" HorizontalAlignment="Left" Margin="66,271,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="20"/>
 
         <TextBox x:Name="tbWEK" HorizontalAlignment="Left" Height="30" Margin="111,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFF07D0A" TextChanged="TbWEK_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" GotFocus="TbWEK_GotFocus" LostFocus="TbWEK_LostFocus"/>
-        <TextBox x:Name="tbWED" HorizontalAlignment="Left" Height="30" Margin="111,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FF00FF64" TextChanged="TbWED_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton"/>
-        <TextBox x:Name="tbWRP" HorizontalAlignment="Left" Height="30" Margin="111,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFFFDC00" TextChanged="TbWRP_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton"/>
-        <TextBox x:Name="tbWMS" HorizontalAlignment="Left" Height="30" Margin="111,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFBE00FF" TextChanged="TbWMS_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton"/>
+        <TextBox x:Name="tbWED" HorizontalAlignment="Left" Height="30" Margin="111,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FF00FF64" TextChanged="TbWED_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" GotFocus="TbWED_GotFocus" LostFocus="TbWED_LostFocus"/>
+        <TextBox x:Name="tbWRP" HorizontalAlignment="Left" Height="30" Margin="111,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFFFDC00" TextChanged="TbWRP_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" LostFocus="TbWRP_LostFocus" GotFocus="TbWRP_GotFocus"/>
+        <TextBox x:Name="tbWMS" HorizontalAlignment="Left" Height="30" Margin="111,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFBE00FF" TextChanged="TbWMS_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" GotFocus="TbWMS_GotFocus" LostFocus="TbWMS_LostFocus"/>
 
         <TextBox x:Name="tbTEK" HorizontalAlignment="Left" Height="30" Margin="246,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FFF07D0A" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbTED" HorizontalAlignment="Left" Height="30" Margin="246,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FF00FF64" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
@@ -107,7 +105,7 @@
         <Button x:Name="btHistorial" Content="Historial" HorizontalAlignment="Left" Margin="240,532,0,0" VerticalAlignment="Top" Width="117" Height="50" Click="btHistorial_Click" Background="#FF4EB8CE" BorderBrush="{x:Null}" Foreground="#FF222431" FontSize="22" FontWeight="SemiBold"/>
         <Button x:Name="btReiniciar" Content="Reiniciar" HorizontalAlignment="Left" Margin="246,337,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtReiniciar_Click" BorderBrush="#FFD4D4D4" Foreground="#FFD4D4D4" Background="{x:Null}" FontSize="20"/>
 
-        <Label x:Name="lbTitol" Content="Hunt Profit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,3,0,0" Foreground="#FFD4D4D4" FontSize="20" FontWeight="SemiBold"/>
+        <Label x:Name="lbTitol" Content="Hunt Profit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,2,0,0" Foreground="#FFD4D4D4" FontSize="20" FontWeight="SemiBold"/>
         <Label x:Name="lbClose" Content="X" HorizontalAlignment="Left" Margin="358,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20">
             <Label.Style>
                 <Style TargetType="Label">
@@ -122,6 +120,34 @@
         </Label>
         <Canvas HorizontalAlignment="Left" Height="2" Margin="0,43,0,0" VerticalAlignment="Top" Width="386" Background="#FFD4D4D4"/>
         <Canvas HorizontalAlignment="Left" Height="2" Margin="0,461,0,0" VerticalAlignment="Top" Width="386" Background="#FFD4D4D4"/>
-        <Image x:Name="imgEK" HorizontalAlignment="Left" Height="20" Width="20" Margin="53,150,0,0" VerticalAlignment="Top"  Source="Resources\sw128.png" RenderTransformOrigin="-0.95,3.8"/>
+
+        <Image x:Name="imgEK" HorizontalAlignment="Left" Height="22" Width="22" Margin="62,145,0,0" VerticalAlignment="Top"  Source="Resources\EK_g.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="43.461"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="imgED" HorizontalAlignment="Left" Height="20" Width="20" Margin="53,192,0,0" VerticalAlignment="Top"  Source="Resources\HuntProfit_TC.jpg"/>
+        <Image x:Name="imgRP" HorizontalAlignment="Left" Height="20" Width="20" Margin="59,236,0,0" VerticalAlignment="Top"  Source="Resources\RP_g.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-39.551"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="imgMS" HorizontalAlignment="Left" Height="20" Width="20" Margin="49,281,0,0" VerticalAlignment="Top"  Source="Resources\ms_g.png"/>
+        
+        
+        
+        
+        
+        <Image x:Name="imgIconoTC" HorizontalAlignment="Left" Height="25" Width="25" Margin="11,9,0,0" VerticalAlignment="Top"  Source="Resources\HuntProfit_TC.jpg"/>
     </Grid>
 </Window>
