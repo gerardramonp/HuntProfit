@@ -34,3 +34,9 @@ C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\o
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Release\HuntProfit.exe
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Release\HuntProfit.pdb
 C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\obj\Release\HuntProfit.csprojAssemblyReference.cache
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Release\LiveCharts.dll
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Release\LiveCharts.Wpf.dll
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Release\LiveCharts.pdb
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Release\LiveCharts.xml
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Release\LiveCharts.Wpf.pdb
+C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\WpfApp1\bin\Release\LiveCharts.Wpf.xml
