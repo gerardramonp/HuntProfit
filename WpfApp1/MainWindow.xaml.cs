@@ -19,6 +19,7 @@ using System.Diagnostics;
 using Squirrel;
 using HuntProfit;
 using System.Windows.Threading;
+using System.Windows.Media.Animation;
 
 namespace WpfApp1
 {
@@ -160,6 +161,10 @@ namespace WpfApp1
         private void btHistorial_Click(object sender, RoutedEventArgs e)
         {
             finestraDataGrid formDG = new finestraDataGrid();
+
+            DoubleAnimation animWidth = new DoubleAnimation(0, 1340, TimeSpan.FromSeconds(0.55));   
+            formDG.BeginAnimation(Window.WidthProperty, animWidth);
+
             formDG.ShowDialog();
         }
 
