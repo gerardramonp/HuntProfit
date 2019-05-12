@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HuntProfit"
         mc:Ignorable="d"
-        Title="HistorialDG" Height="550" Width="1340" Icon="Resources/HuntProfit_TCicon.ico" WindowStyle="None" MouseMove="Window_MouseMove" Background="White" ResizeMode="NoResize"
+        Title="HistorialDG" Height="550" Width="1340" Icon="Resources/HuntProfit_TCicon.ico" WindowStyle="None" Background="White" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid x:Name="gridHistorial" Background="#FF363944">
         <Grid.RowDefinitions>

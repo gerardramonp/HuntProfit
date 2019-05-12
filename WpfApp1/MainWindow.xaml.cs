@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,7 +12,7 @@ namespace HuntProfit
     public partial class MainWindow : Window
     {
         // ########## VARIABLES GLOBALS ##########       
-        int persones = 0, demonic = 0, ID = 0, posX, posY;
+        int persones = 0, demonic = 0, ID = 0;
         float wasteEK = 0, wasteED = 0, wasteRP = 0, wasteMS = 0, totalWaste = 0, loot = 0;
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float lootFinal, balance, profitEach;
@@ -130,14 +129,10 @@ namespace HuntProfit
         #endregion
         //####################################################
 
-        private void HuntProfit_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            posX = (int)e.GetPosition(windowHuntProfit).X;
-            posY = (int)e.GetPosition(windowHuntProfit).Y;
-        }
-
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
+            int posX = (int)e.GetPosition(windowHuntProfit).X;
+            int posY = (int)e.GetPosition(windowHuntProfit).Y;
             if (posX >= 358 && posX <= 381 && posY >= 0 && posY <= 27)
             {
                 this.Close();
@@ -156,7 +151,11 @@ namespace HuntProfit
             if (wasteMS != 0) { persones++; }
 
             CalcularValors(wasteEK, wasteED, wasteRP, wasteMS, totalWaste, loot, demonic, persones);
-            escriureAHistorial();
+
+            Hunt huntTemp = new Hunt(ID, respawn, DateTime.Now.ToString("dd/MM"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, loot, balance, profitEach,
+                transferEK, transferED, transferRP, transferMS, "no");
+
+            metodesGenerals.EscriureAHistorial(huntTemp, pathHistorial);
             ReiniciarValors();
         }
 
@@ -206,6 +205,12 @@ namespace HuntProfit
             lbProfitValue.Content = "0";
         }
 
+        private void ActualitzarTotalWaste()
+        {
+            totalWaste = wasteEK + wasteED + wasteRP + wasteMS;
+            tbWTotal.Text = totalWaste.ToString();
+        }
+
         // Calcula els valors i transfers i els mostra per pantalla.
         private void CalcularValors(float wEK, float wED, float wRP, float wMS, float tWaste, float loot, int demonic, int persones)
         {
@@ -233,34 +238,7 @@ namespace HuntProfit
             tbTED.Text = transferED.ToString();
             tbTRP.Text = transferRP.ToString();
             tbTMS.Text = transferMS.ToString();
-        }
-
-        private void ActualitzarTotalWaste()
-        {
-            totalWaste = wasteEK + wasteED + wasteRP + wasteMS;
-            tbWTotal.Text = totalWaste.ToString();
-        }
-
-        private void escriureAHistorial()
-        {
-            try
-            {
-                ID = File.ReadLines(pathHistorial).Count();
-                if (ID != 0) { ID /= 2; } // /2 per ignorar els espais en blanc.
-                StreamWriter wfile = File.AppendText(pathHistorial);
-                wfile.WriteLine(">>HuntID: {0}|Respawn: {1}|Dia: {2}|Persones: {3}|WasteEK: {4}|WasteED: {5}|WasteRP: {6}|WasteMS: {7}|" +
-                    "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11:F2}|TransferEK: {12:F2}|TransferED: {13:F2}|TransferRP: {14:F2}|TransferMS: {15:F2}|" +
-                    "Pagat: no\n", ID, respawn, DateTime.Now.ToString("dd/MM"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, lootFinal, balance, profitEach, transferEK,
-                    transferED, transferRP, transferMS);
-                wfile.Close();
-            }
-            catch
-            {
-                System.Windows.MessageBox.Show("El path està mal introduit, selecciona la carpeta on es troba l'arxiu <historial.txt>");
-                metodesPath.PathAConfig();
-                metodesPath.GenerarPaths(out pathHistorial, out pathUpdates);
-            }
-        }
+        }       
 
         // Comprova la versio del AssemblyInfo i la afegeix al titol de la finestra.
         private void AfegirVersio()

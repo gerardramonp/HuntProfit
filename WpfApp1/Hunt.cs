@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HuntProfit
+﻿namespace HuntProfit
 {
     public class Hunt
     {
@@ -28,7 +22,7 @@ namespace HuntProfit
 
 
         public Hunt(int huntID, string respawn, string dia, int persones, float wasteEK, float wasteED, float wasteRP, float wasteMS, float totalWaste,
-            float loot, float balance, float profitEach, float transferEK, float transferED, float transferRP, float transferMS, string pagat)
+                float loot, float balance, float profitEach, float transferEK, float transferED, float transferRP, float transferMS, string pagat)
         {
             HuntID = huntID;
             Respawn = respawn;

@@ -17,24 +17,24 @@ namespace HuntProfit
         // ########## VARIABLES GLOBALS ##########
         string[] historialfull;
         string respawnTXT = "", pagatTXT = "", diaTXT = "", pathHistorial = "", pathUpdates = "";
-        int huntIDTXT = 0, personesTXT = 0, posX = 0, posY = 0;
+        int huntIDTXT = 0, personesTXT = 0;
         float wasteEKTXT = 0, wasteEDTXT = 0, wasteRPTXT = 0, wasteMSTXT = 0, totalWasteTXT = 0, lootTXT = 0, balanceTXT = 0, profitEachTXT = 0, transferEKTXT = 0,
             transferEDTXT = 0, transferRPTXT = 0, transferMSTXT = 0;
-        MetodesPath metodes = new MetodesPath();
+        MetodesPath metodesPath = new MetodesPath();
         // #######################################
         public finestraDataGrid()
         {
             InitializeComponent();
             try
             {
-                metodes.GenerarPaths(out pathHistorial, out pathUpdates);
-                llegirTXT();
+                metodesPath.GenerarPaths(out pathHistorial, out pathUpdates);
+                LlegirTXT();
                 SortDataGrid(HistorialHunts);
             }
             catch
             {
-                System.Windows.MessageBox.Show("El path està mal introduit, selecciona la carpeta on es troba l'arxiu <historial.txt>. Després tanca itorna a obrir la finestra de l'historial.");
-                metodes.PathAConfig();
+                MessageBox.Show("El path està mal introduit, selecciona la carpeta on es troba l'arxiu <historial.txt>. Després tanca itorna a obrir la finestra de l'historial.");
+                metodesPath.PathAConfig();
             }
         }
 
@@ -48,14 +48,14 @@ namespace HuntProfit
                     "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11:F2}|TransferEK: {12:F2}|TransferED: {13:F2}|TransferRP: {14:F2}|TransferMS: {15:F2}|" +
                     "Pagat: {16}", huntIDTXT, respawnTXT, DateTime.Now.ToString("dd/MM"), personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT,
                     profitEachTXT, transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT, pagatTXT);
-            canviarPagat(newtext);
+            CanviarPagat(newtext);
         }
 
         // METODES
         #region METODES HISTORIAL
 
         // Llegeix el historial i posa els valors a la taula
-        private void llegirTXT()
+        private void LlegirTXT()
         {
             StreamReader sr = new StreamReader(pathHistorial);
             string[] blocs;
@@ -160,7 +160,7 @@ namespace HuntProfit
             HistorialHunts.Items.Add(huntTemp); // Afegeix la info de huntTemp a la taula
         }
 
-        private void canviarPagat(string text) // Canvia el si per no i no per si (Datagrid PAID)
+        private void CanviarPagat(string text) // Canvia el si per no i no per si (Datagrid PAID)
         {
             int linia = huntIDTXT;
             if (huntIDTXT != 0) { linia = huntIDTXT * 2; } // Perque hi ha espais en blanc pel mig.
@@ -168,7 +168,7 @@ namespace HuntProfit
             historialfull[linia] = text; // Canvia la linia antiga per la nova.
             File.WriteAllLines(pathHistorial, historialfull);
             HistorialHunts.Items.Clear(); // Neteja datagrid
-            llegirTXT(); // Torna a omplir la datagrid
+            LlegirTXT(); // Torna a omplir la datagrid
             SortDataGrid(HistorialHunts);
         }
 
@@ -206,14 +206,10 @@ namespace HuntProfit
             dataGrid.Items.Refresh();
         }
 
-        private void Window_MouseMove(object sender, MouseEventArgs e)
-        {
-            posX = (int)e.GetPosition(gridHistorial).X;
-            posY = (int)e.GetPosition(gridHistorial).Y;
-        }
-
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
+            int posX = (int)e.GetPosition(gridHistorial).X;
+            int posY = (int)e.GetPosition(gridHistorial).Y;
             if (posX >= 1311 && posX <= 1334 && posY >= 1 && posY <= 30)
             {
                 this.Close();
