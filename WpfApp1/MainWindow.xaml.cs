@@ -1,31 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.IO;
-using Microsoft.VisualBasic;
-using System.Windows.Forms;
 using System.Diagnostics;
-using Squirrel;
-using HuntProfit;
 using System.Windows.Threading;
 using System.Windows.Media.Animation;
 
-namespace WpfApp1
+namespace HuntProfit
 {
     public partial class MainWindow : Window
     {
-        // ########## VARIABLES GLOBALS ##########
+        // ########## VARIABLES GLOBALS ##########       
         int persones = 0, demonic = 0, ID = 0, posX, posY;
         float wasteEK = 0, wasteED = 0, wasteRP = 0, wasteMS = 0, totalWaste = 0, loot = 0;
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
@@ -41,12 +28,12 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            AfegirVersio();
         }
 
         // S'executa quan es carrega la finestra principal
         private void HuntProfit_Loaded(object sender, RoutedEventArgs e)
         {
+            AfegirVersio();
             if (!File.Exists("config.txt"))
             {
                 metodesPath.CrearConfig();
@@ -97,8 +84,9 @@ namespace WpfApp1
 
 
         #endregion
+        //################################################################################################################
 
-        // Pel canvi dels iconos de Vocations
+        // Pel canvi dels iconos de Vocations ################
         #region CanviImg
         // EK
         private void TbWEK_GotFocus(object sender, RoutedEventArgs e)
@@ -113,11 +101,11 @@ namespace WpfApp1
         // ED
         private void TbWED_GotFocus(object sender, RoutedEventArgs e)
         {
-
+            metodesGenerals.CanviarImg("\\Resources\\ED_b.png", imgED);
         }
         private void TbWED_LostFocus(object sender, RoutedEventArgs e)
         {
-
+            metodesGenerals.CanviarImg("\\Resources\\ED_g.png", imgED);
         }
 
         // RP
@@ -139,10 +127,24 @@ namespace WpfApp1
         {
             metodesGenerals.CanviarImg("\\Resources\\MS_g.png", imgMS);
         }
-
-
-
         #endregion
+        //####################################################
+
+        private void HuntProfit_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            posX = (int)e.GetPosition(windowHuntProfit).X;
+            posY = (int)e.GetPosition(windowHuntProfit).Y;
+        }
+
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            if (posX >= 358 && posX <= 381 && posY >= 0 && posY <= 27)
+            {
+                this.Close();
+            }
+            base.OnMouseLeftButtonDown(e);
+            this.DragMove();
+        }
 
         private void BtCalcular_Click(object sender, RoutedEventArgs e)
         {
@@ -171,23 +173,7 @@ namespace WpfApp1
         private void BtReiniciar_Click(object sender, RoutedEventArgs e)
         {
             ReiniciarValorsFormulari();
-        }
-
-        private void HuntProfit_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            posX = (int)e.GetPosition(HuntProfit).X;
-            posY = (int)e.GetPosition(HuntProfit).Y;
-        }
-
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            if (posX >= 358 && posX <= 381 && posY >= 0 && posY <= 27)
-            {
-                this.Close();
-            }
-            base.OnMouseLeftButtonDown(e);
-            this.DragMove();
-        }
+        }        
 
         // Metodes
         #region METODES
@@ -277,7 +263,7 @@ namespace WpfApp1
         }
 
         // Comprova la versio del AssemblyInfo i la afegeix al titol de la finestra.
-        private void AfegirVersio() // A GENERALS
+        private void AfegirVersio()
         {
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);

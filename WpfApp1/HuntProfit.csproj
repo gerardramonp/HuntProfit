@@ -172,7 +172,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="HuntProfit_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -204,6 +203,10 @@
     <Resource Include="Resources\MS_b.png" />
     <Resource Include="Resources\RP_b.png" />
     <Resource Include="Resources\RP_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ED_b.png" />
+    <Resource Include="Resources\ED_g.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

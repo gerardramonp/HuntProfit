@@ -41,12 +41,7 @@ namespace HuntProfit
 
         public void CrearHistorial(string _pathHistorial)
         {
-
             FileStream historial = File.Create(_pathHistorial);
-
         }
-
-
-
     }
 }
