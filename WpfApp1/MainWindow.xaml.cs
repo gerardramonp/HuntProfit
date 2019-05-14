@@ -6,6 +6,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Windows.Threading;
 using System.Windows.Media.Animation;
+using System.Text.RegularExpressions;
 
 namespace HuntProfit
 {
@@ -248,19 +249,20 @@ namespace HuntProfit
             lbTitol.Content += $"  v.{ versionInfo.FileVersion }";
         }
 
-
+        // Perk al fer click al textbox es seleccioni el text
         private void SelectAddress(object sender, RoutedEventArgs e)
         {
-            System.Windows.Controls.TextBox tb = (sender as System.Windows.Controls.TextBox);
+            TextBox tb = (sender as TextBox);
             if (tb != null)
             {
                 tb.SelectAll();
             }
         }
 
+        // Perk al fer click al textbox es seleccioni el text (complement)
         private void SelectivelyIgnoreMouseButton(object sender, MouseButtonEventArgs e)
         {
-            System.Windows.Controls.TextBox tb = (sender as System.Windows.Controls.TextBox);
+            TextBox tb = (sender as TextBox);
             if (tb != null)
             {
                 if (!tb.IsKeyboardFocusWithin)
@@ -269,6 +271,13 @@ namespace HuntProfit
                     tb.Focus();
                 }
             }
+        }
+
+        // Per evitar que als textbox es posin lletres.
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
         #endregion
     }
