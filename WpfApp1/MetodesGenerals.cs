@@ -1,5 +1,6 @@
 ﻿using Squirrel;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,6 +54,12 @@ namespace HuntProfit
             nomImg.Source = bi3;
         }
 
+        public string AfegirVersio()
+        {
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            return $" v.{versionInfo.FileVersion}";
+        }
 
     }
 }

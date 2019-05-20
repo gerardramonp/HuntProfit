@@ -33,7 +33,7 @@ namespace HuntProfit
         // S'executa quan es carrega la finestra principal
         private void HuntProfit_Loaded(object sender, RoutedEventArgs e)
         {
-            AfegirVersio();
+            lbTitol.Content += metodesGenerals.AfegirVersio();
             if (!File.Exists("config.txt"))
             {
                 metodesPath.CrearConfig();
@@ -240,14 +240,6 @@ namespace HuntProfit
             tbTRP.Text = transferRP.ToString();
             tbTMS.Text = transferMS.ToString();
         }       
-
-        // Comprova la versio del AssemblyInfo i la afegeix al titol de la finestra.
-        private void AfegirVersio() // Mirar a general retornant un string
-        {
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
-            lbTitol.Content += $"  v.{ versionInfo.FileVersion }";
-        }
 
         // Perk al fer click al textbox es seleccioni el text
         private void SelectAddress(object sender, RoutedEventArgs e)
