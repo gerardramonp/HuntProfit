@@ -13,10 +13,10 @@ namespace HuntProfit
     public partial class MainWindow : Window
     {
         // ########## VARIABLES GLOBALS ##########       
-        int persones = 0, demonic = 0, ID = 0;
+        int persones = 0, ID = 0;
         float wasteEK = 0, wasteED = 0, wasteRP = 0, wasteMS = 0, totalWaste = 0, loot = 0;
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
-        float lootFinal, balance, profitEach;
+        float balance, profitEach;
         string respawn = "", pathHistorial = "", pathUpdates = "";
         MetodesPath metodesPath = new MetodesPath();
         MetodesGenerals metodesGenerals = new MetodesGenerals();
@@ -122,6 +122,8 @@ namespace HuntProfit
         #endregion
         //####################################################
 
+        // Eventos en general
+        #region Generals
         private void LbClose_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
@@ -136,7 +138,7 @@ namespace HuntProfit
 
         private void BtCalcular_Click(object sender, RoutedEventArgs e)
         {
-            CalcularPersonesDemonic();
+            CalcularPersones();
             CalcularValors();
 
             Hunt huntTemp = new Hunt(ID, respawn, DateTime.Now.ToString("dd/MM"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, loot, balance, profitEach,
@@ -159,14 +161,16 @@ namespace HuntProfit
         private void BtReiniciar_Click(object sender, RoutedEventArgs e)
         {
             ReiniciarValorsFormulari();
-        }        
+        }
+
+        #endregion
 
         // Metodes
         #region METODES
         private void ReiniciarValors()
         {
             persones = 0;
-            lootFinal = 0;
+            loot = 0;
             balance = 0;
             transferEK = 0;
             transferED = 0;
@@ -182,12 +186,10 @@ namespace HuntProfit
             tbWRP.Text = "";
             tbWMS.Text = "";
             tbLoot.Text = "";
-            tbDemonic.Text = "";
             tbTEK.Text = "";
             tbTED.Text = "";
             tbTRP.Text = "";
             tbTMS.Text = "";
-            lbLootFinalValue.Content = "0";
             lbBalanceValue.Content = "0";
             lbProfitValue.Content = "0";
         }
@@ -199,7 +201,7 @@ namespace HuntProfit
         }
 
         // Mira quantes persones hi ha a la hunt i les demonic.
-        private void CalcularPersonesDemonic()
+        private void CalcularPersones()
         {
             if (tbLoot.Text == "") { loot = 0; }
             else { loot = float.Parse(tbLoot.Text); }
@@ -207,9 +209,6 @@ namespace HuntProfit
             if (wasteED != 0) { persones++; }
             if (wasteRP != 0) { persones++; }
             if (wasteMS != 0) { persones++; }
-
-            if (tbDemonic.Text == "") { demonic = 0; }
-            else { demonic = int.Parse(tbDemonic.Text); }
         }
 
         // Calcula el waste, profit i transfers i els mostra per pantalla.
@@ -217,22 +216,22 @@ namespace HuntProfit
         {
             respawn = cbRespawn.Text;
             if (respawn == "" || respawn == "Select a respawn...") { respawn = "NULL"; }
-
-            lootFinal = loot - demonic;
-            balance = lootFinal - totalWaste;
+            balance = loot - totalWaste;
             profitEach = balance / persones;
 
             // Si no participen a la hunt, no se li ha de transferir res
             if (wasteEK == 0) { transferEK = 0; }
             else { transferEK = wasteEK + profitEach; }
+
             if (wasteED == 0) { transferED = 0; }
             else { transferED = wasteED + profitEach; }
+
             if (wasteRP == 0) { transferRP = 0; }
             else { transferRP = wasteRP + profitEach; }
+
             if (wasteMS == 0) { transferMS = 0; }
             else { transferMS = wasteMS + profitEach; }
 
-            lbLootFinalValue.Content = lootFinal.ToString();
             lbBalanceValue.Content = balance.ToString();
             lbProfitValue.Content = profitEach.ToString();
             tbTEK.Text = transferEK.ToString();
