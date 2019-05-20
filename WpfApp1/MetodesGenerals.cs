@@ -26,7 +26,7 @@ namespace HuntProfit
             try
             {
                 huntTemp.HuntID = File.ReadLines(pathHistorial).Count();
-                if (huntTemp.HuntID != 0) { huntTemp.HuntID /= 2; } // /2 per ignorar els espais en blanc.
+                if (huntTemp.HuntID != 0) { huntTemp.HuntID /= 2; } // /2 per ignorar els espais en blanc. Conta quantes hunts hi ha per saber quina es la ID de la hunt temp.
                 StreamWriter wfile = File.AppendText(pathHistorial);
                 wfile.WriteLine(">>HuntID: {0}|Respawn: {1}|Dia: {2}|Persones: {3}|WasteEK: {4}|WasteED: {5}|WasteRP: {6}|WasteMS: {7}|" +
                     "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11:F2}|TransferEK: {12:F2}|TransferED: {13:F2}|TransferRP: {14:F2}|TransferMS: {15:F2}|" +

@@ -58,6 +58,7 @@
             <ComboBoxItem Content="Ice Elfs"/>
             <ComboBoxItem Content="Asuras"/>
             <ComboBoxItem Content="Prison -1"/>
+            <ComboBoxItem Content="Prison -2"/>
             <ComboBoxItem Content="Prison -3"/>
             <ComboBoxItem Content="Nightmare Isle"/>
             <ComboBoxItem Content="Carnivoras"/>
@@ -88,7 +89,7 @@
         <Label x:Name="lbTWaste" Content="T Waste:" HorizontalAlignment="Left" Margin="22,316,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbWTotal" HorizontalAlignment="Left" Height="34" Margin="111,318,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FF4EB8CE" FontWeight="SemiBold" UndoLimit="101" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" BorderThickness="2.5" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton"/>
         <Label x:Name="lbDemonic" Content="Demonic:" HorizontalAlignment="Left" Margin="16,361,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="20"/>
-        <TextBox x:Name="tbDemonic" HorizontalAlignment="Left" Height="30" Margin="111,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FF4EB8CE" TextChanged="TbDemonic_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox x:Name="tbDemonic" HorizontalAlignment="Left" Height="30" Margin="111,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FF4EB8CE" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" PreviewTextInput="NumberValidationTextBox"/>
         <Label x:Name="lbLoot" Content="Loot:" HorizontalAlignment="Left" Margin="52,406,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbLoot" HorizontalAlignment="Left" Height="30" Margin="111,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" FontWeight="SemiBold" BorderBrush="#FF4EB8CE" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" PreviewTextInput="NumberValidationTextBox"/>
 
@@ -102,12 +103,12 @@
         <Label x:Name="lbBalanceValue" Content="0" HorizontalAlignment="Left" Margin="130,511,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
         <Label x:Name="lbProfitValue" Content="0" HorizontalAlignment="Left" Margin="130,546,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
 
-        <Button x:Name="btCalcular" Content="CALCULAR" HorizontalAlignment="Left" Margin="240,397,0,0" VerticalAlignment="Top" Width="112" Height="50" Click="BtCalcular_Click" Background="{x:Null}" BorderBrush="#FF4EB8CE" Foreground="#FF4EB8CE" FontSize="20"/>
-        <Button x:Name="btHistorial" Content="Historial" HorizontalAlignment="Left" Margin="240,532,0,0" VerticalAlignment="Top" Width="117" Height="50" Click="btHistorial_Click" Background="#FF4EB8CE" BorderBrush="{x:Null}" Foreground="#FF222431" FontSize="22" FontWeight="SemiBold"/>
-        <Button x:Name="btReiniciar" Content="Reiniciar" HorizontalAlignment="Left" Margin="246,337,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtReiniciar_Click" BorderBrush="#FFD4D4D4" Foreground="#FFD4D4D4" Background="{x:Null}" FontSize="20"/>
+        <Button x:Name="btCalcular" Content="CALCULAR" HorizontalAlignment="Left" Margin="240,397,0,0" VerticalAlignment="Top" Width="112" Height="50" Click="BtCalcular_Click" Background="{x:Null}" BorderBrush="#FF4EB8CE" Foreground="#FF4EB8CE" FontSize="20" Cursor="Hand"/>
+        <Button x:Name="btHistorial" Content="Historial" HorizontalAlignment="Left" Margin="240,532,0,0" VerticalAlignment="Top" Width="117" Height="50" Click="btHistorial_Click" Background="#FF4EB8CE" BorderBrush="{x:Null}" Foreground="#FF222431" FontSize="22" FontWeight="SemiBold" Cursor="Hand"/>
+        <Button x:Name="btReiniciar" Content="Reiniciar" HorizontalAlignment="Left" Margin="246,337,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtReiniciar_Click" BorderBrush="#FFD4D4D4" Foreground="#FFD4D4D4" Background="{x:Null}" FontSize="20" Cursor="Hand"/>
 
         <Label x:Name="lbTitol" Content="Hunt Profit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,2,0,0" Foreground="#FFD4D4D4" FontSize="20" FontWeight="SemiBold"/>
-        <Label x:Name="lbClose" Content="X" HorizontalAlignment="Left" Margin="358,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20">
+        <Label x:Name="lbClose" Content="X" HorizontalAlignment="Left" Margin="358,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" MouseDown="LbClose_MouseDown">
             <Label.Style>
                 <Style TargetType="Label">
                     <Setter Property="Foreground" Value="#FF4EB8CE"/>

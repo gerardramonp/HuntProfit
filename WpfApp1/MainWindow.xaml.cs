@@ -75,14 +75,6 @@ namespace HuntProfit
             ActualitzarTotalWaste();
         }
 
-
-        private void TbDemonic_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (tbDemonic.Text == "") { demonic = 0; }
-            else { demonic = int.Parse(tbDemonic.Text); }
-        }
-
-
         #endregion
         //################################################################################################################
 
@@ -116,7 +108,7 @@ namespace HuntProfit
         private void TbWRP_LostFocus(object sender, RoutedEventArgs e)
         {
             metodesGenerals.CanviarImg("\\Resources\\RP_g.png", imgRP);
-        }
+        }      
 
         // MS
         private void TbWMS_GotFocus(object sender, RoutedEventArgs e)
@@ -130,28 +122,22 @@ namespace HuntProfit
         #endregion
         //####################################################
 
+        private void LbClose_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        // Per moure la finestra fent click on sigui
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            int posX = (int)e.GetPosition(windowHuntProfit).X;
-            int posY = (int)e.GetPosition(windowHuntProfit).Y;
-            if (posX >= 358 && posX <= 381 && posY >= 0 && posY <= 27)
-            {
-                this.Close();
-            }
             base.OnMouseLeftButtonDown(e);
             this.DragMove();
         }
 
         private void BtCalcular_Click(object sender, RoutedEventArgs e)
         {
-            if (tbLoot.Text == "") { loot = 0; }
-            else { loot = float.Parse(tbLoot.Text); }
-            if (wasteEK != 0) { persones++; }
-            if (wasteED != 0) { persones++; }
-            if (wasteRP != 0) { persones++; }
-            if (wasteMS != 0) { persones++; }
-
-            CalcularValors(wasteEK, wasteED, wasteRP, wasteMS, totalWaste, loot, demonic, persones);
+            CalcularPersonesDemonic();
+            CalcularValors();
 
             Hunt huntTemp = new Hunt(ID, respawn, DateTime.Now.ToString("dd/MM"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, loot, balance, profitEach,
                 transferEK, transferED, transferRP, transferMS, "no");
@@ -212,25 +198,39 @@ namespace HuntProfit
             tbWTotal.Text = totalWaste.ToString();
         }
 
-        // Calcula els valors i transfers i els mostra per pantalla.
-        private void CalcularValors(float wEK, float wED, float wRP, float wMS, float tWaste, float loot, int demonic, int persones)
+        // Mira quantes persones hi ha a la hunt i les demonic.
+        private void CalcularPersonesDemonic()
+        {
+            if (tbLoot.Text == "") { loot = 0; }
+            else { loot = float.Parse(tbLoot.Text); }
+            if (wasteEK != 0) { persones++; }
+            if (wasteED != 0) { persones++; }
+            if (wasteRP != 0) { persones++; }
+            if (wasteMS != 0) { persones++; }
+
+            if (tbDemonic.Text == "") { demonic = 0; }
+            else { demonic = int.Parse(tbDemonic.Text); }
+        }
+
+        // Calcula el waste, profit i transfers i els mostra per pantalla.
+        private void CalcularValors()
         {
             respawn = cbRespawn.Text;
             if (respawn == "" || respawn == "Select a respawn...") { respawn = "NULL"; }
 
             lootFinal = loot - demonic;
-            balance = lootFinal - tWaste;
+            balance = lootFinal - totalWaste;
             profitEach = balance / persones;
 
             // Si no participen a la hunt, no se li ha de transferir res
-            if (wEK == 0) { transferEK = 0; }
-            else { transferEK = wEK + profitEach; }
-            if (wED == 0) { transferED = 0; }
-            else { transferED = wED + profitEach; }
-            if (wRP == 0) { transferRP = 0; }
-            else { transferRP = wRP + profitEach; }
-            if (wMS == 0) { transferMS = 0; }
-            else { transferMS = wMS + profitEach; }
+            if (wasteEK == 0) { transferEK = 0; }
+            else { transferEK = wasteEK + profitEach; }
+            if (wasteED == 0) { transferED = 0; }
+            else { transferED = wasteED + profitEach; }
+            if (wasteRP == 0) { transferRP = 0; }
+            else { transferRP = wasteRP + profitEach; }
+            if (wasteMS == 0) { transferMS = 0; }
+            else { transferMS = wasteMS + profitEach; }
 
             lbLootFinalValue.Content = lootFinal.ToString();
             lbBalanceValue.Content = balance.ToString();
@@ -242,7 +242,7 @@ namespace HuntProfit
         }       
 
         // Comprova la versio del AssemblyInfo i la afegeix al titol de la finestra.
-        private void AfegirVersio()
+        private void AfegirVersio() // Mirar a general retornant un string
         {
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
