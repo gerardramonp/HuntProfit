@@ -26,6 +26,11 @@ namespace HuntProfit
         public finestraDataGrid()
         {
             InitializeComponent();
+        }
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
             try
             {
                 metodesPath.GenerarPaths(out pathHistorial, out pathUpdates);
@@ -74,117 +79,115 @@ namespace HuntProfit
             int lines = File.ReadLines(pathHistorial).Count();
             for (int i = 0; i < lines; i++)
             {
-                string huntactu = sr.ReadLine();
-                if (huntactu != "")
+                string huntActual = sr.ReadLine();
+                if (huntActual != "")
                 {
-                    blocs = huntactu.Split('|');
-                    GenerarValors(blocs);
+                    blocs = huntActual.Split('|');
+                    GenerarValorsHunt(blocs);
                     AfegirHuntATaula();
                 }
             }
             sr.Close();
         }
-     
-        private void GenerarValors(string[] valors)
+
+        // Avalua la hunt que rep per paràmetre, i li posa els valors a les variables globals.
+        private void GenerarValorsHunt(string[] valors)
         {
-            int comptador = 0;
+            int columnaActual = 0;
             bool trobat = false;
-            foreach (var item in valors)
+            foreach (var bloc in valors)
             {
-                StringBuilder sbTemp = new StringBuilder();
-                for (int j = 0; j < item.Length; j++)
+                StringBuilder stringTemp = new StringBuilder();
+                for (int j = 0; j < bloc.Length; j++)
                 {
-                    char lletra = item[j];
-                    if (item[j] == ':')
+                    char lletra = bloc[j];
+                    if (bloc[j] == ':')
                     {
                         trobat = true;
                         j += 2;
                     }
                     if (trobat)
                     {
-                        sbTemp.Append(item[j]);
+                        stringTemp.Append(bloc[j]);
                     }
                 }
-                string temp = "";
-                temp = sbTemp.ToString();
-                switch (comptador)
-                {
-                    case 0:
-                        huntIDTXT = int.Parse(temp);
-                        break;
-                    case 1:
-                        respawnTXT = temp;
-                        break;
-                    case 2:
-                        diaTXT = temp;
-                        break;
-                    case 3:
-                        personesTXT = int.Parse(temp);
-                        break;
-                    case 4:
-                        wasteEKTXT = float.Parse(temp);
-                        break;
-                    case 5:
-                        wasteEDTXT = float.Parse(temp);
-                        break;
-                    case 6:
-                        wasteRPTXT = float.Parse(temp);
-                        break;
-                    case 7:
-                        wasteMSTXT = float.Parse(temp);
-                        break;
-                    case 8:
-                        totalWasteTXT = float.Parse(temp);
-                        break;
-                    case 9:
-                        lootTXT = float.Parse(temp);
-                        break;
-                    case 10:
-                        balanceTXT = float.Parse(temp);
-                        break;
-                    case 11:
-                        profitEachTXT = float.Parse(temp);
-                        break;
-                    case 12:
-                        transferEKTXT = float.Parse(temp);
-                        break;
-                    case 13:
-                        transferEDTXT = float.Parse(temp);
-                        break;
-                    case 14:
-                        transferRPTXT = float.Parse(temp);
-                        break;
-                    case 15:
-                        transferMSTXT = float.Parse(temp);
-                        break;
-                    case 16:
-                        pagatTXT = temp;
-                        break;
-                }
+                string valorColumna = "";
+                valorColumna = stringTemp.ToString();
+
+                DonarValorAVariables(columnaActual, valorColumna);
+
                 trobat = false;
-                comptador++;
+                columnaActual++;
             }
         }
 
+        // Dona valor del string que rep a la variable que toca (segons la columna del historial.txt que estigui mirant)
+        private void DonarValorAVariables(int comptador, string valorColumna)
+        {
+            switch (comptador)
+            {
+                case 0:
+                    huntIDTXT = int.Parse(valorColumna);
+                    break;
+                case 1:
+                    respawnTXT = valorColumna;
+                    break;
+                case 2:
+                    diaTXT = valorColumna;
+                    break;
+                case 3:
+                    personesTXT = int.Parse(valorColumna);
+                    break;
+                case 4:
+                    wasteEKTXT = float.Parse(valorColumna);
+                    break;
+                case 5:
+                    wasteEDTXT = float.Parse(valorColumna);
+                    break;
+                case 6:
+                    wasteRPTXT = float.Parse(valorColumna);
+                    break;
+                case 7:
+                    wasteMSTXT = float.Parse(valorColumna);
+                    break;
+                case 8:
+                    totalWasteTXT = float.Parse(valorColumna);
+                    break;
+                case 9:
+                    lootTXT = float.Parse(valorColumna);
+                    break;
+                case 10:
+                    balanceTXT = float.Parse(valorColumna);
+                    break;
+                case 11:
+                    profitEachTXT = float.Parse(valorColumna);
+                    break;
+                case 12:
+                    transferEKTXT = float.Parse(valorColumna);
+                    break;
+                case 13:
+                    transferEDTXT = float.Parse(valorColumna);
+                    break;
+                case 14:
+                    transferRPTXT = float.Parse(valorColumna);
+                    break;
+                case 15:
+                    transferMSTXT = float.Parse(valorColumna);
+                    break;
+                case 16:
+                    pagatTXT = valorColumna;
+                    break;
+            }
+        }
+
+        // Crea la clase Hunt i afegeix la hunt a la taula
         private void AfegirHuntATaula()
         {
             Hunt huntTemp = new Hunt(huntIDTXT, respawnTXT, diaTXT, personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT, profitEachTXT, transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT, pagatTXT);
             HistorialHunts.Items.Add(huntTemp);
         }
 
-        // Canvia el si per no i no per si (Datagrid PAID)
-        private void CanviarPagat(string text)
-        {
-            int linia = huntIDTXT;
-            if (huntIDTXT != 0) { linia = huntIDTXT * 2; } // Perque hi ha espais en blanc pel mig.
-            historialfull = File.ReadAllLines(pathHistorial);
-            historialfull[linia] = text; // Canvia la linia antiga per la nova.
-            File.WriteAllLines(pathHistorial, historialfull);
-            HistorialHunts.Items.Clear();
-            LlegirTXT();
-            SortDataGrid(HistorialHunts);
-        }
-
+        // Agafa dades de la fila seleccionada de la DataGrid
         private void LlegirFilaDG()
         {
             Hunt DGRow = HistorialHunts.SelectedItem as Hunt;
@@ -206,6 +209,20 @@ namespace HuntProfit
             pagatTXT = DGRow.Pagat;
         }
 
+        // Canvia el si per no i no per si (Datagrid PAID)
+        private void CanviarPagat(string text)
+        {
+            int linia = huntIDTXT;
+            if (huntIDTXT != 0) { linia = huntIDTXT * 2; } // Perque hi ha espais en blanc pel mig.
+            historialfull = File.ReadAllLines(pathHistorial);
+            historialfull[linia] = text; // Canvia la linia antiga per la nova.
+            File.WriteAllLines(pathHistorial, historialfull);
+            HistorialHunts.Items.Clear();
+            LlegirTXT();
+            SortDataGrid(HistorialHunts);
+        }
+
+        // Ordena la datagrid per ID de hunt (descendent)
         void SortDataGrid(DataGrid dataGrid, int columnIndex = 0, ListSortDirection sortDirection = ListSortDirection.Descending)
         {
             var column = dataGrid.Columns[columnIndex];
@@ -217,7 +234,7 @@ namespace HuntProfit
             }
             column.SortDirection = sortDirection;
             dataGrid.Items.Refresh();
-        }  
+        }
     }
     #endregion  
 }

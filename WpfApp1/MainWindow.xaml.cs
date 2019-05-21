@@ -47,6 +47,7 @@ namespace HuntProfit
         // Eventos
         // Pels wastes, actualitzen waste total al canviar text dels textbox waste per poder calcular TWASTE en temps real
         #region Events TBWastes -> WasteTotal
+
         private void TbWEK_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (tbWEK.Text == "") { wasteEK = 0; }
@@ -80,6 +81,7 @@ namespace HuntProfit
 
         // Pel canvi dels iconos de Vocations ################
         #region CanviImg
+
         // EK
         private void TbWEK_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -119,11 +121,13 @@ namespace HuntProfit
         {
             metodesGenerals.CanviarImg("\\Resources\\MS_g.png", imgMS);
         }
+
         #endregion
         //####################################################
 
         // Eventos en general
         #region Generals
+
         private void LbClose_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
@@ -164,9 +168,11 @@ namespace HuntProfit
         }
 
         #endregion
+        //###################
 
         // Metodes
         #region METODES
+
         private void ReiniciarValors()
         {
             persones = 0;
@@ -270,6 +276,8 @@ namespace HuntProfit
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
         #endregion
+        //###################
     }
 }

@@ -21,6 +21,14 @@ namespace HuntProfit
             }
         }
 
+        // Afegeix la versio al titol de la window
+        public string AfegirVersio()
+        {
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            return $" v.{versionInfo.FileVersion}";
+        }
+
         // Escriu les dades de la hunt al historial
         public void EscriureAHistorial(Hunt huntTemp, string pathHistorial)
         {
@@ -52,14 +60,6 @@ namespace HuntProfit
             bi3.EndInit();
             imgTemp.Stretch = Stretch.Fill;
             nomImg.Source = bi3;
-        }
-
-        public string AfegirVersio()
-        {
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
-            return $" v.{versionInfo.FileVersion}";
-        }
-
+        }      
     }
 }
