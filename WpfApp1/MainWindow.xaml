@@ -18,6 +18,7 @@
                 </Style>
             </Style.Resources>
         </Style>
+        
         <Style TargetType="{x:Type Button}">
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -25,6 +26,7 @@
                 </Style>
             </Style.Resources>
         </Style>
+        
         <Style TargetType="{x:Type Label}" x:Key="canviColorLBTancar">
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -76,11 +78,13 @@
         <Label x:Name="lbED" Content="ED:" HorizontalAlignment="Left" Margin="71,181,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="20"/>
         <Label x:Name="lbRP" Content="RP:" HorizontalAlignment="Left" Margin="71,226,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="20"/>
         <Label x:Name="lbMS" Content="MS:" HorizontalAlignment="Left" Margin="66,271,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="20"/>
+        <Label x:Name="lbLoot" Content="Loot:" HorizontalAlignment="Left" Margin="53,376,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
 
         <TextBox x:Name="tbWEK" HorizontalAlignment="Left" Height="30" Margin="111,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFF07D0A" TextChanged="TbWEK_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" GotFocus="TbWEK_GotFocus" LostFocus="TbWEK_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="tbWED" HorizontalAlignment="Left" Height="30" Margin="111,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FF00FF64" TextChanged="TbWED_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" GotFocus="TbWED_GotFocus" LostFocus="TbWED_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="tbWRP" HorizontalAlignment="Left" Height="30" Margin="111,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFFFDC00" TextChanged="TbWRP_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" LostFocus="TbWRP_LostFocus" GotFocus="TbWRP_GotFocus" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="tbWMS" HorizontalAlignment="Left" Height="30" Margin="111,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFBE00FF" TextChanged="TbWMS_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" GotFocus="TbWMS_GotFocus" LostFocus="TbWMS_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox x:Name="tbLoot" HorizontalAlignment="Left" Height="30" Margin="111,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" FontWeight="SemiBold" BorderBrush="#FF4EB8CE" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" PreviewTextInput="NumberValidationTextBox"/>
 
         <TextBox x:Name="tbTEK" HorizontalAlignment="Left" Height="30" Margin="246,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FFF07D0A" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbTED" HorizontalAlignment="Left" Height="30" Margin="246,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FF00FF64" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
@@ -89,19 +93,15 @@
 
         <Label x:Name="lbTWaste" Content="T Waste:" HorizontalAlignment="Left" Margin="22,326,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbWTotal" HorizontalAlignment="Left" Height="34" Margin="111,328,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FF4EB8CE" FontWeight="SemiBold" UndoLimit="101" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" BorderThickness="2.5" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton"/>
-        <Label x:Name="lbLoot" Content="Loot:" HorizontalAlignment="Left" Margin="53,376,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
-        <TextBox x:Name="tbLoot" HorizontalAlignment="Left" Height="30" Margin="111,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" FontWeight="SemiBold" BorderBrush="#FF4EB8CE" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SelectAddress" GotKeyboardFocus="SelectAddress" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" PreviewTextInput="NumberValidationTextBox"/>
 
-        <!--SEPARADOR-->
-        <!--SEPARADOR-->
+        <Button x:Name="btCalcular" Content="CALCULAR" HorizontalAlignment="Left" Margin="240,369,0,0" VerticalAlignment="Top" Width="112" Height="50" Click="BtCalcular_Click" Background="{x:Null}" BorderBrush="#FF4EB8CE" Foreground="#FF4EB8CE" FontSize="20" Cursor="Hand"/>
+        <Button x:Name="btReiniciar" Content="Reiniciar" HorizontalAlignment="Left" Margin="246,318,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtReiniciar_Click" BorderBrush="#FFD4D4D4" Foreground="#FFD4D4D4" Background="{x:Null}" FontSize="20" Cursor="Hand"/>
+
         <Label x:Name="lbBalance" Content="Balance:" HorizontalAlignment="Left" Margin="44,451,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
         <Label x:Name="lbProfit" Content="Profit/each:" HorizontalAlignment="Left" Margin="14,495,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
         <Label x:Name="lbBalanceValue" Content="0" HorizontalAlignment="Left" Margin="130,452,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
         <Label x:Name="lbProfitValue" Content="0" HorizontalAlignment="Left" Margin="130,496,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
-
-        <Button x:Name="btCalcular" Content="CALCULAR" HorizontalAlignment="Left" Margin="240,369,0,0" VerticalAlignment="Top" Width="112" Height="50" Click="BtCalcular_Click" Background="{x:Null}" BorderBrush="#FF4EB8CE" Foreground="#FF4EB8CE" FontSize="20" Cursor="Hand"/>
         <Button x:Name="btHistorial" Content="Historial" HorizontalAlignment="Left" Margin="240,477,0,0" VerticalAlignment="Top" Width="117" Height="50" Click="btHistorial_Click" Background="#FF4EB8CE" BorderBrush="{x:Null}" Foreground="#FF222431" FontSize="22" FontWeight="SemiBold" Cursor="Hand"/>
-        <Button x:Name="btReiniciar" Content="Reiniciar" HorizontalAlignment="Left" Margin="246,318,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtReiniciar_Click" BorderBrush="#FFD4D4D4" Foreground="#FFD4D4D4" Background="{x:Null}" FontSize="20" Cursor="Hand"/>
 
         <Label x:Name="lbTitol" Content="Hunt Profit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,2,0,0" Foreground="#FFD4D4D4" FontSize="20" FontWeight="SemiBold"/>
         <Label x:Name="lbClose" Content="X" HorizontalAlignment="Left" Margin="358,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" MouseDown="LbClose_MouseDown">
@@ -141,10 +141,6 @@
             </Image.RenderTransform>
         </Image>
         <Image x:Name="imgMS" HorizontalAlignment="Left" Height="20" Width="20" Margin="49,281,0,0" VerticalAlignment="Top"  Source="Resources\ms_g.png"/>
-
-
-
-
 
         <Image x:Name="imgIconoTC" HorizontalAlignment="Left" Height="25" Width="25" Margin="11,9,0,0" VerticalAlignment="Top"  Source="Resources\HuntProfit_TC.jpg"/>
     </Grid>

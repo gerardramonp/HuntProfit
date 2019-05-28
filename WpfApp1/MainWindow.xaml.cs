@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Windows.Threading;
 using System.Windows.Media.Animation;
 using System.Text.RegularExpressions;
+using Microsoft.VisualBasic;
 
 namespace HuntProfit
 {
@@ -14,6 +15,7 @@ namespace HuntProfit
     {
         // ########## VARIABLES GLOBALS ##########       
         int persones = 0, ID = 0;
+        float lootED = 0, lootRP, lootMS;
         float wasteEK = 0, wasteED = 0, wasteRP = 0, wasteMS = 0, totalWaste = 0, loot = 0;
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float balance, profitEach;
