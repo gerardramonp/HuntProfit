@@ -19,7 +19,7 @@ namespace HuntProfit
         string respawnTXT = "", pagatTXT = "", diaTXT = "", pathHistorial = "", pathUpdates = "";
         int huntIDTXT = 0, personesTXT = 0;
         float wasteEKTXT = 0, wasteEDTXT = 0, wasteRPTXT = 0, wasteMSTXT = 0, totalWasteTXT = 0, lootTXT = 0, balanceTXT = 0, profitEachTXT = 0, transferEKTXT = 0,
-            transferEDTXT = 0, transferRPTXT = 0, transferMSTXT = 0;
+            transferEDTXT = 0, transferRPTXT = 0, transferMSTXT = 0, faltaPagarED = 0;
 
         MetodesGenerals metodesGenerals = new MetodesGenerals();
         MetodesPath metodesPath = new MetodesPath();
@@ -37,6 +37,7 @@ namespace HuntProfit
                 metodesPath.GenerarPaths(out pathHistorial, out pathUpdates);
                 LlegirTXT();
                 SortDataGrid(HistorialHunts);
+                CalcularQuantAPagarED();
             }
             catch
             {
@@ -67,6 +68,7 @@ namespace HuntProfit
                     "Pagat: {16}", huntIDTXT, respawnTXT, diaTXT, personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT,
                     profitEachTXT, transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT, pagatTXT);
             CanviarPagat(newtext);
+            CalcularQuantAPagarED();
         }
 
         // METODES
@@ -235,6 +237,20 @@ namespace HuntProfit
             }
             column.SortDirection = sortDirection;
             dataGrid.Items.Refresh();
+        }
+
+        private void CalcularQuantAPagarED()
+        {
+            faltaPagarED = 0;
+            for (int i = 0; i < HistorialHunts.Items.Count; i++)
+            {
+                Hunt huntTemp = (Hunt)HistorialHunts.Items[i]; // Agafa la fila de la datagrid
+                if (huntTemp.Pagat == "no")
+                {
+                    faltaPagarED += huntTemp.TransferED;
+                }
+            }
+            tbFaltaPagarED.Text = faltaPagarED.ToString();
         }
     }
     #endregion  

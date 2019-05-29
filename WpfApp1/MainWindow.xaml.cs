@@ -156,7 +156,7 @@ namespace HuntProfit
         {
             finestraDataGrid formDG = new finestraDataGrid();
 
-            DoubleAnimation animWidth = new DoubleAnimation(0, 1340, TimeSpan.FromSeconds(0.55));   
+            DoubleAnimation animWidth = new DoubleAnimation(0, 1340, TimeSpan.FromSeconds(0.35));   
             formDG.BeginAnimation(Window.WidthProperty, animWidth);
 
             formDG.ShowDialog();

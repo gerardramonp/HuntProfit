@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HuntProfit"
         mc:Ignorable="d"
-        Title="HistorialDG" Height="550" Width="1340" Icon="Resources/HuntProfit_TCicon.ico" WindowStyle="None" Background="White" ResizeMode="NoResize" 
+        Title="HistorialDG" Height="555" Width="1340" Icon="Resources/HuntProfit_TCicon.ico" WindowStyle="None" Background="White" ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid x:Name="gridHistorial" Background="#FF363944">
         <Grid.RowDefinitions>
@@ -14,8 +14,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
-        <DataGrid x:Name="HistorialHunts" HorizontalAlignment="Left" Height="475" Margin="20,52,0,0" VerticalAlignment="Top" Width="1300" HorizontalScrollBarVisibility="Visible" IsReadOnly="True" Background="#FF4A4E5F" AlternatingRowBackground="#FFA0D8E4" AlternationCount="2" BorderBrush="#FF222431" BorderThickness="2" Foreground="Black" HeadersVisibility="Column">
+
+        <DataGrid x:Name="HistorialHunts" HorizontalAlignment="Left" Height="475" Margin="20,69,0,0" VerticalAlignment="Top" Width="1300" HorizontalScrollBarVisibility="Visible" IsReadOnly="True" Background="#FF4A4E5F" AlternatingRowBackground="#FFA0D8E4" AlternationCount="2" BorderBrush="#FF222431" BorderThickness="2" Foreground="Black" HeadersVisibility="Column">
             <!-- Style -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -81,8 +81,11 @@
                 </Style>
             </Label.Style>
         </Label>
-        
+
         <Label x:Name="lbTitolDG" Content="Historial Hunts" FontWeight="SemiBold" Foreground="#FFD4D4D4" HorizontalAlignment="Left" Margin="42,-3,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Image x:Name="imgIcono" HorizontalAlignment="Left" Height="22" Width="22" Margin="14,6,0,0" VerticalAlignment="Top"  Source="Resources\HuntProfit_TC.jpg"/>
+        <Label x:Name="lbFaltaPagarEDtxt" Content="Falta pagar ED:" HorizontalAlignment="Left" Margin="1117,36,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="16" FontWeight="SemiBold"/>
+        <TextBox x:Name="tbFaltaPagarED" HorizontalAlignment="Left" Height="25"  Width="80" Margin="1236,40,0,0" TextWrapping="Wrap" IsReadOnly="True" Text="TextBox" VerticalAlignment="Top" TextAlignment="Center" BorderBrush="#FF4EB8CE" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="16" FontWeight="SemiBold"/>
+
     </Grid>
 </Window>
