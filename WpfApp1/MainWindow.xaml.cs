@@ -22,9 +22,6 @@ namespace HuntProfit
         string respawn = "", pathHistorial = "", pathUpdates = "";
         MetodesPath metodesPath = new MetodesPath();
         MetodesGenerals metodesGenerals = new MetodesGenerals();
-
-        DispatcherTimer timer1 = new DispatcherTimer();
-        DispatcherTimer timer2 = new DispatcherTimer();
         // #######################################
 
         public MainWindow()
@@ -44,6 +41,7 @@ namespace HuntProfit
             metodesPath.GenerarPaths(out pathHistorial, out pathUpdates);
             if (!File.Exists(pathHistorial)) { metodesPath.CrearHistorial(pathHistorial); }
             metodesGenerals.CheckForUpdates(pathUpdates);
+            metodesGenerals.ComprovarEspaisFinal(pathHistorial);
         }
 
         // Eventos
@@ -249,17 +247,18 @@ namespace HuntProfit
         }       
 
         // Perk al fer click al textbox es seleccioni el text
-        private void SelectAddress(object sender, RoutedEventArgs e)
+        private void SeleccionarContingutTb(object sender, RoutedEventArgs e)
         {
             TextBox tb = (sender as TextBox);
             if (tb != null)
             {
                 tb.SelectAll();
             }
+            // SelectAddress
         }
 
         // Perk al fer click al textbox es seleccioni el text (complement)
-        private void SelectivelyIgnoreMouseButton(object sender, MouseButtonEventArgs e)
+        private void ForcarSeleccionarContingutTb(object sender, MouseButtonEventArgs e)
         {
             TextBox tb = (sender as TextBox);
             if (tb != null)
@@ -272,7 +271,7 @@ namespace HuntProfit
             }
         }
 
-        // Per evitar que als textbox es posin lletres.
+        // S'assegura que entres un numero al textbox, sinó no deixa escriure.
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
