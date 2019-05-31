@@ -18,7 +18,7 @@
                 </Style>
             </Style.Resources>
         </Style>
-        
+
         <Style TargetType="{x:Type Button}">
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -26,7 +26,7 @@
                 </Style>
             </Style.Resources>
         </Style>
-        
+
         <Style TargetType="{x:Type Label}" x:Key="canviColorLBTancar">
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -48,8 +48,8 @@
         <Canvas HorizontalAlignment="Left" Height="114" Margin="0,435,0,0" VerticalAlignment="Top" Width="386" Background="#FF222431"/>
 
         <!--ComboBox Respawn-->
-        <Label x:Name="lbRespawn" Content="Respawn:" HorizontalAlignment="Left" Margin="35,58,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
-        <ComboBox x:Name="cbRespawn" Text="Select a respawn..." HorizontalAlignment="Left" Margin="135,60,0,0" VerticalAlignment="Top" Width="209" IsEditable="True" StaysOpenOnEdit="True" Background="#FF222431" BorderBrush="#FF1CC5E8" FontSize="18">
+        <Label x:Name="lbRespawn" Content="Respawn:" HorizontalAlignment="Left" Margin="7,58,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
+        <ComboBox x:Name="cbRespawn" Text="Select a respawn..." HorizontalAlignment="Left" Margin="107,60,0,0" VerticalAlignment="Top" Width="209" IsEditable="True" StaysOpenOnEdit="True" Background="#FF222431" BorderBrush="#FF1CC5E8" FontSize="18">
             <ComboBoxItem Content="Hero Cave"/>
             <ComboBoxItem Content="Spike"/>
             <ComboBoxItem Content="Grimvale (Upper floors)"/>
@@ -143,5 +143,33 @@
         <Image x:Name="imgMS" HorizontalAlignment="Left" Height="20" Width="20" Margin="49,281,0,0" VerticalAlignment="Top"  Source="Resources\ms_g.png"/>
 
         <Image x:Name="imgIconoTC" HorizontalAlignment="Left" Height="25" Width="25" Margin="11,9,0,0" VerticalAlignment="Top"  Source="Resources\HuntProfit_TC.jpg"/>
+
+        <Label x:Name="lbFolderSettings" Content="" HorizontalAlignment="Left" Margin="355,50,0,0" VerticalAlignment="Top" Width="25" Height="25" Foreground="White" ToolTip="Modificar carpeta Historial.txt" MouseDown="LbFolderSettings_MouseDown">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="Resources/FolderSettings_b.png"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="Resources/FolderSettings_g.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+            <Label.Resources>
+                <Style TargetType="ToolTip" BasedOn="{StaticResource {x:Type ToolTip}}">
+                    <Setter Property="Background" Value="#FF222431"/>
+                    <Setter Property="Foreground" Value="#FFD4D4D4"/>
+                </Style>
+            </Label.Resources>
+        </Label>
+
     </Grid>
 </Window>

@@ -42,7 +42,7 @@ namespace HuntProfit
             catch
             {
                 MessageBox.Show("El path està mal introduit, selecciona la carpeta on es troba l'arxiu <historial.txt>. Després tanca itorna a obrir la finestra de l'historial.");
-                metodesPath.PathAConfig();
+                metodesPath.EscriurePathHistorialAConfig();
             }
         }
 

@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sw128.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/foldersettings.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/foldersettings_g.png")]
 
 

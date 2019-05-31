@@ -11,7 +11,7 @@ namespace HuntProfit
             config.Close();
         }
 
-        public void PathAConfig() // Buscador de carpetes, escriu el path al config.txt
+        public void EscriurePathHistorialAConfig() // Buscador de carpetes, escriu el path al config.txt
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowDialog();
@@ -28,10 +28,14 @@ namespace HuntProfit
             while (_path == null || _path == "")
             {
                 MessageBox.Show("El path no està introduit, selecciona la carpeta on es troba l'arxiu <historial.txt>");
-                PathAConfig();
+                sr.Close();
+                EscriurePathHistorialAConfig();
+                sr = new StreamReader("config.txt");
+                _path = sr.ReadLine();
             }
             _pathHistorial = $"{ _path }\\historial.txt";
             _pathUpdates = $"{ _path }\\AutoUpdate";
+            sr.Close();
         }
 
         public void CrearHistorial(string _pathHistorial)

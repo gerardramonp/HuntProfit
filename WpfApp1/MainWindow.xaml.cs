@@ -8,6 +8,7 @@ using System.Windows.Threading;
 using System.Windows.Media.Animation;
 using System.Text.RegularExpressions;
 using Microsoft.VisualBasic;
+using System.Windows.Interop;
 
 namespace HuntProfit
 {
@@ -36,7 +37,7 @@ namespace HuntProfit
             if (!File.Exists("config.txt"))
             {
                 metodesPath.CrearConfig();
-                metodesPath.PathAConfig();
+                metodesPath.EscriurePathHistorialAConfig();
             }
             metodesPath.GenerarPaths(out pathHistorial, out pathUpdates);
             if (!File.Exists(pathHistorial)) { metodesPath.CrearHistorial(pathHistorial); }
@@ -110,13 +111,14 @@ namespace HuntProfit
         private void TbWRP_LostFocus(object sender, RoutedEventArgs e)
         {
             metodesGenerals.CanviarImg("\\Resources\\RP_g.png", imgRP);
-        }      
+        }
 
         // MS
         private void TbWMS_GotFocus(object sender, RoutedEventArgs e)
         {
             metodesGenerals.CanviarImg("\\Resources\\MS_b.png", imgMS);
         }
+
         private void TbWMS_LostFocus(object sender, RoutedEventArgs e)
         {
             metodesGenerals.CanviarImg("\\Resources\\MS_g.png", imgMS);
@@ -128,16 +130,20 @@ namespace HuntProfit
         // Eventos en general
         #region Generals
 
-        private void LbClose_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.Close();
-        }
-
         // Per moure la finestra fent click on sigui
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            base.OnMouseLeftButtonDown(e);
-            this.DragMove();
+            try
+            {
+                base.OnMouseLeftButtonDown(e);
+                this.DragMove();
+            }
+            catch { /* Vuit xk no doni problemes amb els messagebox, etc.. */ }
+        }
+
+        private void LbClose_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
         }
 
         private void BtCalcular_Click(object sender, RoutedEventArgs e)
@@ -156,7 +162,7 @@ namespace HuntProfit
         {
             finestraDataGrid formDG = new finestraDataGrid();
 
-            DoubleAnimation animWidth = new DoubleAnimation(0, 1340, TimeSpan.FromSeconds(0.35));   
+            DoubleAnimation animWidth = new DoubleAnimation(0, 1340, TimeSpan.FromSeconds(0.35));
             formDG.BeginAnimation(Window.WidthProperty, animWidth);
 
             formDG.ShowDialog();
@@ -167,6 +173,15 @@ namespace HuntProfit
             ReiniciarValorsFormulari();
         }
 
+        private void LbFolderSettings_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to modify the Historial.txt path?", "Confirm path change", MessageBoxButton.YesNo);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                metodesPath.EscriurePathHistorialAConfig();
+            }
+        }
         #endregion
         //###################
 
@@ -244,7 +259,7 @@ namespace HuntProfit
             tbTED.Text = transferED.ToString();
             tbTRP.Text = transferRP.ToString();
             tbTMS.Text = transferMS.ToString();
-        }       
+        }
 
         // Perk al fer click al textbox es seleccioni el text
         private void SeleccionarContingutTb(object sender, RoutedEventArgs e)
