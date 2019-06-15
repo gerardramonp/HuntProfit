@@ -133,12 +133,8 @@ namespace HuntProfit
         // Per moure la finestra fent click on sigui
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            try
-            {
-                base.OnMouseLeftButtonDown(e);
-                this.DragMove();
-            }
-            catch { /* Vuit xk no doni problemes amb els messagebox, etc.. */ }
+            base.OnMouseLeftButtonDown(e);
+            this.DragMove();         
         }
 
         private void LbClose_MouseDown(object sender, MouseButtonEventArgs e)
@@ -165,7 +161,8 @@ namespace HuntProfit
             DoubleAnimation animWidth = new DoubleAnimation(0, 1340, TimeSpan.FromSeconds(0.35));
             formDG.BeginAnimation(Window.WidthProperty, animWidth);
 
-            formDG.ShowDialog();
+            //formDG.ShowDialog();
+            formDG.Show();
         }
 
         private void BtReiniciar_Click(object sender, RoutedEventArgs e)
@@ -181,6 +178,7 @@ namespace HuntProfit
             {
                 metodesPath.EscriurePathHistorialAConfig();
             }
+            e.Handled = true;
         }
         #endregion
         //###################
