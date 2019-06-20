@@ -64,6 +64,7 @@
             <ComboBoxItem Content="Prison -2"/>
             <ComboBoxItem Content="Prison -3"/>
             <ComboBoxItem Content="Nightmare Isle"/>
+            <ComboBoxItem Content="Gazer Spectres"/>
             <ComboBoxItem Content="Carnivoras"/>
             <ComboBoxItem Content="Mirror"/>
             <ComboBoxItem Content="Elite Skeletons"/>

@@ -21,7 +21,7 @@ namespace HuntProfit
             }
         }
 
-        // Afegeix la versio al titol de la window
+        // Retorna la versio de la aplicació
         public string AfegirVersio()
         {
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
@@ -30,15 +30,15 @@ namespace HuntProfit
         }
 
         // Posa la imatge del tb corresponent en blanc/blau
-        public void CanviarImg(string pathImg, Image nomImg) // A GENERALS
+        public void CanviarImg(string pathImg, Image imgACanviar) // A GENERALS
         {
             Image imgTemp = new Image();
-            BitmapImage bi3 = new BitmapImage();
-            bi3.BeginInit();
-            bi3.UriSource = new Uri(pathImg, UriKind.Relative);
-            bi3.EndInit();
+            BitmapImage novaImatge = new BitmapImage();
+            novaImatge.BeginInit();
+            novaImatge.UriSource = new Uri(pathImg, UriKind.Relative);
+            novaImatge.EndInit();
             imgTemp.Stretch = Stretch.Fill;
-            nomImg.Source = bi3;
+            imgACanviar.Source = novaImatge;
         }
 
         // Comprova si falten els espais al final del Historial i els posa si fan falta.
@@ -56,7 +56,7 @@ namespace HuntProfit
             }
             catch
             {
-                System.Windows.MessageBox.Show("No s'ha pogut escriure la hunt al txt. Torna a introduir la carpeta on es troba el historial.txt.");
+                System.Windows.MessageBox.Show("No s'ha pogut escriure la hunt al txt. Torna a introduir la carpeta on es troba l'arxiu historial.txt.");
                 return;
             }
         }
