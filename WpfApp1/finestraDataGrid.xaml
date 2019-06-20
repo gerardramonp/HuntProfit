@@ -85,7 +85,7 @@
         <Label x:Name="lbTitolDG" Content="Historial Hunts" FontWeight="SemiBold" Foreground="#FFD4D4D4" HorizontalAlignment="Left" Margin="42,-3,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Image x:Name="imgIcono" HorizontalAlignment="Left" Height="22" Width="22" Margin="14,6,0,0" VerticalAlignment="Top"  Source="Resources\HuntProfit_TC.jpg"/>
         <Label x:Name="lbFaltaPagarEDtxt" Content="Falta pagar ED:" HorizontalAlignment="Left" Margin="1117,522,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="16" FontWeight="SemiBold"/>
-        <TextBox x:Name="tbFaltaPagarED" HorizontalAlignment="Left" Height="25"  Width="80" Margin="1236,526,0,0" TextWrapping="Wrap" IsReadOnly="True" Text="TextBox" VerticalAlignment="Top" TextAlignment="Center" BorderBrush="#FF4EB8CE" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="16" FontWeight="SemiBold"/>
+        <TextBox x:Name="tbFaltaPagarED" HorizontalAlignment="Left" Height="25"  Width="80" Margin="1236,526,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" TextAlignment="Center" BorderBrush="#FF4EB8CE" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="16" FontWeight="SemiBold"/>
 
     </Grid>
 </Window>
