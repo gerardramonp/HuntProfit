@@ -9,6 +9,7 @@ using System.Windows.Media.Animation;
 using System.Text.RegularExpressions;
 using Microsoft.VisualBasic;
 using System.Windows.Interop;
+using System.Reflection;
 
 namespace HuntProfit
 {
@@ -16,13 +17,16 @@ namespace HuntProfit
     {
         // ########## VARIABLES GLOBALS ##########       
         int persones = 0, ID = 0;
-        float lootED = 0, lootRP, lootMS;
+        // float lootED = 0, lootRP = 0, lootMS = 0; Per quan balance positiu
         float wasteEK = 0, wasteED = 0, wasteRP = 0, wasteMS = 0, totalWaste = 0, loot = 0;
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float balance, profitEach;
-        string respawn = "", pathHistorial = "", pathUpdates = "";
+        int hours = 0, min = 0, slidermin = 0;
+        string respawn = "", pathHistorial = "", pathUpdates = "", time = "";
         MetodesPath metodesPath = new MetodesPath();
         MetodesGenerals metodesGenerals = new MetodesGenerals();
+
+        // finestraDataGrid formDG = new finestraDataGrid();
         // #######################################
 
         public MainWindow()
@@ -134,7 +138,7 @@ namespace HuntProfit
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
-            this.DragMove();         
+            this.DragMove();
         }
 
         private void LbClose_MouseDown(object sender, MouseButtonEventArgs e)
@@ -148,7 +152,7 @@ namespace HuntProfit
             CalcularValors();
 
             Hunt huntTemp = new Hunt(ID, respawn, DateTime.Now.ToString("dd/MM"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, loot, balance, profitEach,
-                transferEK, transferED, transferRP, transferMS, "no");
+                transferEK, transferED, transferRP, transferMS, "no", time);
 
             metodesGenerals.EscriureAHistorial(huntTemp, pathHistorial);
             ReiniciarValors();
@@ -161,8 +165,23 @@ namespace HuntProfit
             DoubleAnimation animWidth = new DoubleAnimation(0, 1340, TimeSpan.FromSeconds(0.35));
             formDG.BeginAnimation(Window.WidthProperty, animWidth);
 
-            //formDG.ShowDialog();
             formDG.Show();
+        }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            slidermin = (int)sliderTime.Value;
+            hours = slidermin / 60;
+            min = slidermin - (hours * 60);
+            if (min > 9)
+            {
+                time = $"{hours}:{min}";
+            }
+            else
+            {
+                time = $"{hours}:0{min}";
+            }
+            lbTimeValue.Content = time;
         }
 
         private void BtReiniciar_Click(object sender, RoutedEventArgs e)
@@ -211,6 +230,7 @@ namespace HuntProfit
             tbTMS.Text = "";
             lbBalanceValue.Content = "0";
             lbProfitValue.Content = "0";
+            sliderTime.Value = 0;
         }
 
         private void ActualitzarTotalWaste()
@@ -289,6 +309,19 @@ namespace HuntProfit
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        // Tanca la finestra que rebi
+        private void CloseWindow(Window window)
+        {
+            Assembly currentAssembly = Assembly.GetExecutingAssembly();
+            foreach (Window w in Application.Current.Windows)
+            {
+                if (w.GetType().Assembly == currentAssembly && w == window)
+                {
+                    w.Close();
+                }
+            }
         }
 
         #endregion

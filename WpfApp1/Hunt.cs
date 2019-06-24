@@ -19,10 +19,11 @@
         public float TransferRP { get; set; }
         public float TransferMS { get; set; }
         public string Pagat { get; set; }
+        public string Time { get; set; }
 
 
         public Hunt(int huntID, string respawn, string dia, int persones, float wasteEK, float wasteED, float wasteRP, float wasteMS, float totalWaste,
-                float loot, float balance, float profitEach, float transferEK, float transferED, float transferRP, float transferMS, string pagat)
+                float loot, float balance, float profitEach, float transferEK, float transferED, float transferRP, float transferMS, string pagat, string time )
         {
             HuntID = huntID;
             Respawn = respawn;
@@ -41,6 +42,7 @@
             TransferRP = transferRP;
             TransferMS = transferMS;
             Pagat = pagat;
+            Time = time;
         }
     }   
 }
