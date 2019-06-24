@@ -16,7 +16,7 @@ namespace HuntProfit
     {
         // ########## VARIABLES GLOBALS ##########
         string[] historialfull;
-        string respawnTXT = "", pagatTXT = "", diaTXT = "", pathHistorial = "", pathUpdates = "";
+        string respawnTXT = "", pagatTXT = "", diaTXT = "", timeTXT="", pathHistorial = "", pathUpdates = "";
         int huntIDTXT = 0, personesTXT = 0;
         float wasteEKTXT = 0, wasteEDTXT = 0, wasteRPTXT = 0, wasteMSTXT = 0, totalWasteTXT = 0, lootTXT = 0, balanceTXT = 0, profitEachTXT = 0, transferEKTXT = 0,
             transferEDTXT = 0, transferRPTXT = 0, transferMSTXT = 0, faltaPagarED = 0;
@@ -66,8 +66,8 @@ namespace HuntProfit
             else { pagatTXT = "si"; }
             string newtext = string.Format(">>HuntID: {0}|Respawn: {1}|Dia: {2}|Persones: {3}|WasteEK: {4}|WasteED: {5}|WasteRP: {6}|WasteMS: {7}|" +
                     "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11:F2}|TransferEK: {12:F2}|TransferED: {13:F2}|TransferRP: {14:F2}|TransferMS: {15:F2}|" +
-                    "Pagat: {16}", huntIDTXT, respawnTXT, diaTXT, personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT,
-                    profitEachTXT, transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT, pagatTXT);
+                    "Pagat: {16}|Time:{17}", huntIDTXT, respawnTXT, diaTXT, personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT,
+                    profitEachTXT, transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT, pagatTXT, timeTXT);
             CanviarPagat(newtext);
             CalcularQuantAPagarED();
         }
@@ -77,7 +77,7 @@ namespace HuntProfit
 
         // Llegeix el historial i posa els valors a la taula
         private void LlegirTXT() //  Pot posar a generals return blocs
-        {           
+        {
             string[] blocs;
             string huntActual;
             StreamReader sr = new StreamReader(pathHistorial);
@@ -89,7 +89,7 @@ namespace HuntProfit
                     GenerarValorsHunt(blocs);
                     AfegirHuntATaula();
                 }
-            }         
+            }
             sr.Close();
         }
 
@@ -104,7 +104,7 @@ namespace HuntProfit
                 for (int j = 0; j < bloc.Length; j++)
                 {
                     char lletra = bloc[j];
-                    if (bloc[j] == ':')
+                    if (bloc[j] == ':' && !trobat)
                     {
                         trobat = true;
                         j += 2;
@@ -180,13 +180,16 @@ namespace HuntProfit
                 case 16:
                     pagatTXT = valorColumna;
                     break;
+                case 17:
+                    timeTXT = valorColumna;
+                    break;                   
             }
         }
 
         // Crea la clase Hunt i afegeix la hunt a la taula
         private void AfegirHuntATaula()
         {
-            Hunt huntTemp = new Hunt(huntIDTXT, respawnTXT, diaTXT, personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT, profitEachTXT, transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT, pagatTXT);
+            Hunt huntTemp = new Hunt(huntIDTXT, respawnTXT, diaTXT, personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT, profitEachTXT, transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT, pagatTXT, timeTXT);
             HistorialHunts.Items.Add(huntTemp);
         }
 

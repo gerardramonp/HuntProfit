@@ -71,8 +71,8 @@ namespace HuntProfit
                 StreamWriter sw = File.AppendText(pathHistorial);
                 sw.WriteLine(">>HuntID: {0}|Respawn: {1}|Dia: {2}|Persones: {3}|WasteEK: {4}|WasteED: {5}|WasteRP: {6}|WasteMS: {7}|" +
                     "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11:F2}|TransferEK: {12:F2}|TransferED: {13:F2}|TransferRP: {14:F2}|TransferMS: {15:F2}|" +
-                    "Pagat: no\n", huntTemp.HuntID, huntTemp.Respawn, huntTemp.Dia, huntTemp.Persones, huntTemp.WasteEK, huntTemp.WasteED, huntTemp.WasteRP, huntTemp.WasteMS,
-                    huntTemp.TotalWaste, huntTemp.Loot, huntTemp.Balance, huntTemp.ProfitEach, huntTemp.TransferEK, huntTemp.TransferED, huntTemp.TransferRP, huntTemp.TransferMS);
+                    "Pagat: no|Time: {16}\n", huntTemp.HuntID, huntTemp.Respawn, huntTemp.Dia, huntTemp.Persones, huntTemp.WasteEK, huntTemp.WasteED, huntTemp.WasteRP, huntTemp.WasteMS,
+                    huntTemp.TotalWaste, huntTemp.Loot, huntTemp.Balance, huntTemp.ProfitEach, huntTemp.TransferEK, huntTemp.TransferED, huntTemp.TransferRP, huntTemp.TransferMS, huntTemp.Time);
                 sw.Close();
             }
             catch

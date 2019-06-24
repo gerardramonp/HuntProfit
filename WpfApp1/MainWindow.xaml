@@ -60,7 +60,7 @@
         <Grid.RowDefinitions/>
 
         <Canvas x:Name="canvasHeader" HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="386" Background="#FF222431"/>
-        <Canvas HorizontalAlignment="Left" Height="114" Margin="0,471,0,0" VerticalAlignment="Top" Width="386" Background="#FF222431"/>
+        <Canvas HorizontalAlignment="Left" Height="114" Margin="0,486,0,0" VerticalAlignment="Top" Width="386" Background="#FF222431"/>
 
         <!--ComboBox Respawn-->
         <Label x:Name="lbRespawn" Content="Respawn:" HorizontalAlignment="Left" Margin="7,58,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
@@ -95,17 +95,19 @@
         <Label x:Name="lbRP" Content="RP:" HorizontalAlignment="Left" Margin="71,226,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="20"/>
         <Label x:Name="lbMS" Content="MS:" HorizontalAlignment="Left" Margin="66,271,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="20"/>
         <Label x:Name="lbLoot" Content="Loot:" HorizontalAlignment="Left" Margin="53,376,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
-        <Label x:Name="lbTime" Content="Time:" HorizontalAlignment="Left" Margin="11,428,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
-        <Label x:Name="lbTimeValue" Content="00:56" HorizontalAlignment="Left" Margin="209,428,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
-        
+        <Label x:Name="lbTime" Content="Time:" HorizontalAlignment="Left" Margin="48,422,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
+        <Label x:Name="lbTimeValue" Content="0:00" HorizontalAlignment="Left" Margin="306,423,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="18"/>
+
         <TextBox x:Name="tbWEK" HorizontalAlignment="Left" Height="30" Margin="111,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFF07D0A" TextChanged="TbWEK_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SeleccionarContingutTb" GotKeyboardFocus="SeleccionarContingutTb" PreviewMouseLeftButtonDown="ForcarSeleccionarContingutTb" GotFocus="TbWEK_GotFocus" LostFocus="TbWEK_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="tbWED" HorizontalAlignment="Left" Height="30" Margin="111,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FF00FF64" TextChanged="TbWED_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SeleccionarContingutTb" GotKeyboardFocus="SeleccionarContingutTb" PreviewMouseLeftButtonDown="ForcarSeleccionarContingutTb" GotFocus="TbWED_GotFocus" LostFocus="TbWED_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="tbWRP" HorizontalAlignment="Left" Height="30" Margin="111,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFFFDC00" TextChanged="TbWRP_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SeleccionarContingutTb" GotKeyboardFocus="SeleccionarContingutTb" PreviewMouseLeftButtonDown="ForcarSeleccionarContingutTb" LostFocus="TbWRP_LostFocus" GotFocus="TbWRP_GotFocus" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="tbWMS" HorizontalAlignment="Left" Height="30" Margin="111,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFBE00FF" TextChanged="TbWMS_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SeleccionarContingutTb" GotKeyboardFocus="SeleccionarContingutTb" PreviewMouseLeftButtonDown="ForcarSeleccionarContingutTb" GotFocus="TbWMS_GotFocus" LostFocus="TbWMS_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="tbLoot" HorizontalAlignment="Left" Height="30" Margin="111,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" FontWeight="SemiBold" BorderBrush="#FF4EB8CE" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SeleccionarContingutTb" GotKeyboardFocus="SeleccionarContingutTb" PreviewMouseLeftButtonDown="ForcarSeleccionarContingutTb" PreviewTextInput="NumberValidationTextBox"/>
 
-        <Slider HorizontalAlignment="Left" Margin="71,440,0,0" VerticalAlignment="Top" Width="138" Maximum="120"/>
-        
+        <Slider x:Name="sliderTime" HorizontalAlignment="Left" Margin="111,433,0,0" VerticalAlignment="Top" Width="195" Maximum="180" ValueChanged="Slider_ValueChanged" TickPlacement="BottomRight" Ticks="0, 30, 60, 90, 120, 150 " Foreground="#FFD4D4D4"/>
+        <Label x:Name="lb1h" Content="1h" HorizontalAlignment="Left" Margin="167,452,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="10"/>
+        <Label x:Name="lb2h" Content="2h" HorizontalAlignment="Left" Margin="229,452,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="10"/>
+
         <TextBox x:Name="tbTEK" HorizontalAlignment="Left" Height="30" Margin="246,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FFF07D0A" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbTED" HorizontalAlignment="Left" Height="30" Margin="246,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FF00FF64" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbTRP" HorizontalAlignment="Left" Height="30" Margin="246,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FFFFDC46" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
@@ -117,11 +119,11 @@
         <Button x:Name="btCalcular" Content="CALCULAR" HorizontalAlignment="Left" Margin="240,369,0,0" VerticalAlignment="Top" Width="112" Height="50" Click="BtCalcular_Click" Background="{x:Null}" BorderBrush="#FF4EB8CE" Foreground="#FF4EB8CE" FontSize="20" Cursor="Hand"/>
         <Button x:Name="btReiniciar" Content="Reiniciar" HorizontalAlignment="Left" Margin="246,318,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtReiniciar_Click" BorderBrush="#FFD4D4D4" Foreground="#FFD4D4D4" Background="{x:Null}" FontSize="20" Cursor="Hand"/>
 
-        <Label x:Name="lbBalance" Content="Balance:" HorizontalAlignment="Left" Margin="44,487,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
-        <Label x:Name="lbProfit" Content="Profit/each:" HorizontalAlignment="Left" Margin="14,531,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
-        <Label x:Name="lbBalanceValue" Content="0" HorizontalAlignment="Left" Margin="130,488,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
-        <Label x:Name="lbProfitValue" Content="0" HorizontalAlignment="Left" Margin="130,532,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
-        <Button x:Name="btHistorial" Content="Historial" HorizontalAlignment="Left" Margin="240,513,0,0" VerticalAlignment="Top" Width="117" Height="50" Click="btHistorial_Click" Background="#FF4EB8CE" BorderBrush="{x:Null}" Foreground="#FF222431" FontSize="22" FontWeight="SemiBold" Cursor="Hand"/>
+        <Label x:Name="lbBalance" Content="Balance:" HorizontalAlignment="Left" Margin="44,502,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
+        <Label x:Name="lbProfit" Content="Profit/each:" HorizontalAlignment="Left" Margin="14,546,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
+        <Label x:Name="lbBalanceValue" Content="0" HorizontalAlignment="Left" Margin="130,503,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
+        <Label x:Name="lbProfitValue" Content="0" HorizontalAlignment="Left" Margin="130,547,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
+        <Button x:Name="btHistorial" Content="Historial" HorizontalAlignment="Left" Margin="240,528,0,0" VerticalAlignment="Top" Width="117" Height="50" Click="btHistorial_Click" Background="#FF4EB8CE" BorderBrush="{x:Null}" Foreground="#FF222431" FontSize="22" FontWeight="SemiBold" Cursor="Hand"/>
 
         <Label x:Name="lbTitol" Content="Hunt Profit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,2,0,0" Foreground="#FFD4D4D4" FontSize="20" FontWeight="SemiBold"/>
         <Label x:Name="lbClose" Content="X" HorizontalAlignment="Left" Margin="358,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" MouseDown="LbClose_MouseDown">
@@ -137,7 +139,7 @@
             </Label.Style>
         </Label>
         <Canvas HorizontalAlignment="Left" Height="2" Margin="0,43,0,0" VerticalAlignment="Top" Width="386" Background="#FFD4D4D4"/>
-        <Canvas HorizontalAlignment="Left" Height="2" Margin="0,470,0,0" VerticalAlignment="Top" Width="386" Background="#FFD4D4D4"/>
+        <Canvas HorizontalAlignment="Left" Height="2" Margin="0,485,0,0" VerticalAlignment="Top" Width="386" Background="#FFD4D4D4"/>
 
         <Image x:Name="imgEK" HorizontalAlignment="Left" Height="22" Width="22" Margin="62,145,0,0" VerticalAlignment="Top"  Source="Resources\EK_g.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
@@ -190,7 +192,7 @@
                 </Style>
             </Label.Resources>
         </Label>
-        
+
 
     </Grid>
 </Window>
