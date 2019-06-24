@@ -702,3 +702,21 @@ Nombre de archivo: 'HuntProfit.1.0.1.nupkg'
 2019-05-29 16:05:44> DeltaPackageBuilder: \lib\net45\Squirrel.dll hasn't changed, writing dummy file
 2019-05-29 16:05:44> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempa\lib\net45\app.publish\HuntProfit.exe => C:\Users\gerar\AppData\Local\SquirrelTemp\tempb\lib\net45\app.publish\HuntProfit.exe
 2019-05-29 16:05:44> Program: Building embedded zip file for Setup.exe
+2019-06-25 00:45:33> Program: Starting Squirrel Updater: --releasify HuntProfit1.3.4.nupkg
+2019-06-25 00:45:33> Program: Bootstrapper EXE found at:C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\packages\squirrel.windows.1.9.1\tools\Setup.exe
+2019-06-25 00:45:33> Unhandled exception: System.IO.FileNotFoundException: No se pudo encontrar el archivo 'HuntProfit1.3.4.nupkg'.
+Nombre de archivo: 'HuntProfit1.3.4.nupkg'
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   en System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   en Squirrel.Update.Program.Releasify(String package, String targetDir, String packagesDir, String bootstrapperExe, String backgroundGif, String signingOpts, String baseUrl, String setupIcon, Boolean generateMsi, String frameworkVersion, Boolean generateDeltas)
+   en Squirrel.Update.Program.executeCommandLine(String[] args)
+   en Squirrel.Update.Program.main(String[] args)
+2019-06-25 00:45:53> Program: Starting Squirrel Updater: --releasify HuntProfit.1.3.4.nupkg
+2019-06-25 00:45:53> Program: Bootstrapper EXE found at:C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\packages\squirrel.windows.1.9.1\tools\Setup.exe
+2019-06-25 00:45:53> Program: Creating release package: C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit.1.3.4.nupkg
+2019-06-25 00:45:53> ReleasePackage: Creating release package: C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit.1.3.4.nupkg => C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit-1.3.4-full.nupkg
+2019-06-25 00:45:54> ReleasePackage: Extracting dependent packages: []
+2019-06-25 00:45:54> ReleasePackage: Removing unnecessary data
+2019-06-25 00:45:54> ReleasePackage: No release notes found in C:\Users\gerar\AppData\Local\SquirrelTemp\tempa\HuntProfit.nuspec
+2019-06-25 00:45:55> Program: Building embedded zip file for Setup.exe
