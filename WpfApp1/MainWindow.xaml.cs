@@ -184,6 +184,16 @@ namespace HuntProfit
             lbTimeValue.Content = time;
         }
 
+        private void Lb1h_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            sliderTime.Value = 60;
+        }
+
+        private void Lb2h_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            sliderTime.Value = 120;
+        }
+
         private void BtReiniciar_Click(object sender, RoutedEventArgs e)
         {
             ReiniciarValorsFormulari();

@@ -95,8 +95,8 @@
         <Label x:Name="lbRP" Content="RP:" HorizontalAlignment="Left" Margin="71,226,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="20"/>
         <Label x:Name="lbMS" Content="MS:" HorizontalAlignment="Left" Margin="66,271,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="20"/>
         <Label x:Name="lbLoot" Content="Loot:" HorizontalAlignment="Left" Margin="53,376,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
-        <Label x:Name="lbTime" Content="Time:" HorizontalAlignment="Left" Margin="48,422,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
-        <Label x:Name="lbTimeValue" Content="0:00" HorizontalAlignment="Left" Margin="306,423,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="18"/>
+        <Label x:Name="lbTime" Content="Time:" HorizontalAlignment="Left" Margin="48,420,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
+        <Label x:Name="lbTimeValue" Content="0:00" HorizontalAlignment="Left" Margin="306,424,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="18"/>
 
         <TextBox x:Name="tbWEK" HorizontalAlignment="Left" Height="30" Margin="111,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFF07D0A" TextChanged="TbWEK_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SeleccionarContingutTb" GotKeyboardFocus="SeleccionarContingutTb" PreviewMouseLeftButtonDown="ForcarSeleccionarContingutTb" GotFocus="TbWEK_GotFocus" LostFocus="TbWEK_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="tbWED" HorizontalAlignment="Left" Height="30" Margin="111,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FF00FF64" TextChanged="TbWED_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SeleccionarContingutTb" GotKeyboardFocus="SeleccionarContingutTb" PreviewMouseLeftButtonDown="ForcarSeleccionarContingutTb" GotFocus="TbWED_GotFocus" LostFocus="TbWED_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
@@ -104,9 +104,20 @@
         <TextBox x:Name="tbWMS" HorizontalAlignment="Left" Height="30" Margin="111,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" BorderBrush="#FFBE00FF" TextChanged="TbWMS_TextChanged" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SeleccionarContingutTb" GotKeyboardFocus="SeleccionarContingutTb" PreviewMouseLeftButtonDown="ForcarSeleccionarContingutTb" GotFocus="TbWMS_GotFocus" LostFocus="TbWMS_LostFocus" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="tbLoot" HorizontalAlignment="Left" Height="30" Margin="111,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" FontWeight="SemiBold" BorderBrush="#FF4EB8CE" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" MouseDoubleClick="SeleccionarContingutTb" GotKeyboardFocus="SeleccionarContingutTb" PreviewMouseLeftButtonDown="ForcarSeleccionarContingutTb" PreviewTextInput="NumberValidationTextBox"/>
 
-        <Slider x:Name="sliderTime" HorizontalAlignment="Left" Margin="111,433,0,0" VerticalAlignment="Top" Width="195" Maximum="180" ValueChanged="Slider_ValueChanged" TickPlacement="BottomRight" Ticks="0, 30, 60, 90, 120, 150 " Foreground="#FFD4D4D4"/>
-        <Label x:Name="lb1h" Content="1h" HorizontalAlignment="Left" Margin="167,452,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="10"/>
-        <Label x:Name="lb2h" Content="2h" HorizontalAlignment="Left" Margin="229,452,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="10"/>
+        <Slider x:Name="sliderTime" HorizontalAlignment="Left" Margin="111,433,0,0" VerticalAlignment="Top" Width="195" Maximum="180" ValueChanged="Slider_ValueChanged" TickPlacement="BottomRight" Ticks="0, 30, 60, 90, 120, 150 " Foreground="#FFD4D4D4" IsMoveToPointEnabled="True"/>
+        <Label x:Name="lb1h" Content="1h" HorizontalAlignment="Left" Margin="167,452,0,0" VerticalAlignment="Top" FontSize="10" MouseDown="Lb1h_MouseDown">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="#FFD4D4D4"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#FF4EB8CE"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+        <Label x:Name="lb2h" Content="2h" HorizontalAlignment="Left" Margin="229,452,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="10" MouseDown="Lb2h_MouseDown"/>
 
         <TextBox x:Name="tbTEK" HorizontalAlignment="Left" Height="30" Margin="246,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FFF07D0A" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbTED" HorizontalAlignment="Left" Height="30" Margin="246,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FF00FF64" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
@@ -192,7 +203,5 @@
                 </Style>
             </Label.Resources>
         </Label>
-
-
     </Grid>
 </Window>
