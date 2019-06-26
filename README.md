@@ -12,12 +12,15 @@ First, each person waste is paid, and then, after spliting the hunt balance by 2
 * EK waste: 105k
 * ED waste: 328k
 * RP waste: 112k
+* MS waste: - (Empty textbox)
 	* TOTAL WASTE:545
 
 * Loot: 945k
 * BALANCE: 400k
 
-* Profit/each = 400/3 = 133,33k
+* People in the hunt = 3
+
+* Profit/each = 400 / 3 = 133,33k
 
 * EK transfer: 238.33k (105waste + 133,33profit)
 * ED transfer: 461.33k (328waste + 133,33profit)

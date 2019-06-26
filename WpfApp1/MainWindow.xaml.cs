@@ -22,7 +22,7 @@ namespace HuntProfit
         float transferEK = 0, transferED = 0, transferRP = 0, transferMS = 0;
         float balance, profitEach;
         int hours = 0, min = 0, slidermin = 0;
-        string respawn = "", pathHistorial = "", pathUpdates = "", time = "";
+        string respawn = "", pathHistorial = "", pathUpdates = "", time = "0:00";
         MetodesPath metodesPath = new MetodesPath();
         MetodesGenerals metodesGenerals = new MetodesGenerals();
 
