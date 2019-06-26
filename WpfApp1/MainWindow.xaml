@@ -138,14 +138,14 @@
         <Label x:Name="lbTWaste" Content="T Waste:" HorizontalAlignment="Left" Margin="22,326,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbWTotal" HorizontalAlignment="Left" Height="34" Margin="111,328,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FF4EB8CE" FontWeight="SemiBold" UndoLimit="101" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="20" BorderThickness="2.5" MouseDoubleClick="SeleccionarContingutTb" GotKeyboardFocus="SeleccionarContingutTb" PreviewMouseLeftButtonDown="ForcarSeleccionarContingutTb"/>
 
-        <Button x:Name="btCalcular" Content="CALCULAR" HorizontalAlignment="Left" Margin="240,369,0,0" VerticalAlignment="Top" Width="112" Height="50" Click="BtCalcular_Click" Background="{x:Null}" BorderBrush="#FF4EB8CE" Foreground="#FF4EB8CE" FontSize="20" Cursor="Hand"/>
-        <Button x:Name="btReiniciar" Content="Reiniciar" HorizontalAlignment="Left" Margin="246,318,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtReiniciar_Click" BorderBrush="#FFD4D4D4" Foreground="#FFD4D4D4" Background="{x:Null}" FontSize="20" Cursor="Hand"/>
+        <Button x:Name="btCalcular" Content="CALCULATE" HorizontalAlignment="Left" Margin="240,369,0,0" VerticalAlignment="Top" Width="112" Height="50" Click="BtCalcular_Click" Background="{x:Null}" BorderBrush="#FF4EB8CE" Foreground="#FF4EB8CE" FontSize="20" Cursor="Hand"/>
+        <Button x:Name="btReiniciar" Content="Reset" HorizontalAlignment="Left" Margin="246,318,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtReiniciar_Click" BorderBrush="#FFD4D4D4" Foreground="#FFD4D4D4" Background="{x:Null}" FontSize="20" Cursor="Hand"/>
 
         <Label x:Name="lbBalance" Content="Balance:" HorizontalAlignment="Left" Margin="44,502,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
         <Label x:Name="lbProfit" Content="Profit/each:" HorizontalAlignment="Left" Margin="14,546,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
         <Label x:Name="lbBalanceValue" Content="0" HorizontalAlignment="Left" Margin="130,503,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
         <Label x:Name="lbProfitValue" Content="0" HorizontalAlignment="Left" Margin="130,547,0,0" VerticalAlignment="Top" FontWeight="SemiBold" FontSize="20" Foreground="#FFD4D4D4"/>
-        <Button x:Name="btHistorial" Content="Historial" HorizontalAlignment="Left" Margin="240,528,0,0" VerticalAlignment="Top" Width="117" Height="50" Click="btHistorial_Click" Background="#FF4EB8CE" BorderBrush="{x:Null}" Foreground="#FF222431" FontSize="22" FontWeight="SemiBold" Cursor="Hand"/>
+        <Button x:Name="btHistorial" Content="Record" HorizontalAlignment="Left" Margin="240,528,0,0" VerticalAlignment="Top" Width="117" Height="50" Click="btHistorial_Click" Background="#FF4EB8CE" BorderBrush="{x:Null}" Foreground="#FF222431" FontSize="22" FontWeight="SemiBold" Cursor="Hand"/>
 
         <Label x:Name="lbTitol" Content="Hunt Profit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,2,0,0" Foreground="#FFD4D4D4" FontSize="20" FontWeight="SemiBold"/>
         <Label x:Name="lbClose" Content="X" HorizontalAlignment="Left" Margin="358,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" MouseDown="LbClose_MouseDown">
@@ -188,7 +188,7 @@
 
         <Image x:Name="imgIconoTC" HorizontalAlignment="Left" Height="25" Width="25" Margin="11,9,0,0" VerticalAlignment="Top"  Source="Resources\HuntProfit_TC.jpg"/>
 
-        <Label x:Name="lbFolderSettings" Content="" HorizontalAlignment="Left" Margin="355,50,0,0" VerticalAlignment="Top" Width="25" Height="25" Foreground="White" ToolTip="Modificar carpeta Historial.txt" MouseDown="LbFolderSettings_MouseDown">
+        <Label x:Name="lbFolderSettings" Content="" HorizontalAlignment="Left" Margin="355,50,0,0" VerticalAlignment="Top" Width="25" Height="25" Foreground="White" ToolTip="Modify Hunt Record folder path" MouseDown="LbFolderSettings_MouseDown">
             <Label.Style>
                 <Style TargetType="Label">
                     <Setter Property="Background">

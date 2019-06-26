@@ -44,12 +44,12 @@
                 <DataGridTextColumn Header="Respawn" Width="152" Binding="{Binding Respawn}"/>
                 <DataGridTextColumn Header="Day" Width="50" Binding="{Binding Dia}"/>
                 <DataGridTextColumn Header="Time" Width="55" Binding="{Binding Time}"/>
-                <DataGridTextColumn Header="Pers" Width="25" Binding="{Binding Persones}"/>
+                <DataGridTextColumn Header="Ppl" Width="25" Binding="{Binding Persones}"/>
                 <DataGridTextColumn Header="W.EK" Width="70" Binding="{Binding WasteEK}"/>
                 <DataGridTextColumn Header="W.ED" Width="70" Binding="{Binding WasteED}"/>
                 <DataGridTextColumn Header="W.RP" Width="70" Binding="{Binding WasteRP}"/>
                 <DataGridTextColumn Header="W.MS" Width="70" Binding="{Binding WasteMS}"/>
-                <DataGridTextColumn Header="W.Total" Width="70" Binding="{Binding TotalWaste}"/>
+                <DataGridTextColumn Header="T.Waste" Width="70" Binding="{Binding TotalWaste}"/>
                 <DataGridTextColumn Header="Loot" Width="75" Binding="{Binding Loot}"/>
                 <DataGridTextColumn Header="Balance" Width="75" Binding="{Binding Balance}"/>
                 <DataGridTextColumn Header="PROFIT/e" Width="80" Binding="{Binding ProfitEach}" FontWeight="Bold"/>
@@ -57,11 +57,11 @@
                 <DataGridTextColumn Header="T.ED" Width="75" Binding="{Binding TransferED}"/>
                 <DataGridTextColumn Header="T.RP" Width="75" Binding="{Binding TransferRP}"/>
                 <DataGridTextColumn Header="T.MS" Width="75" Binding="{Binding TransferMS}"/>
-                <DataGridTextColumn Header="Pag." Width="28" Binding="{Binding Pagat}"/>
-                <DataGridTemplateColumn Header="PAGAR" Width="*">
+                <DataGridTextColumn Header="Paid" Width="28" Binding="{Binding Pagat}"/>
+                <DataGridTemplateColumn Header="PAY" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="buttonPagar" Click="buttonPagar_Click" Content="Pagar!" Margin="2,2,2,2" Cursor="Hand"/>
+                            <Button Name="buttonPagar" Click="buttonPagar_Click" Content="Pay!" Margin="2,2,2,2" Cursor="Hand"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -83,9 +83,9 @@
             </Label.Style>
         </Label>
 
-        <Label x:Name="lbTitolDG" Content="Historial Hunts" FontWeight="SemiBold" Foreground="#FFD4D4D4" HorizontalAlignment="Left" Margin="42,-3,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lbTitolDG" Content="Hunt Record" FontWeight="SemiBold" Foreground="#FFD4D4D4" HorizontalAlignment="Left" Margin="42,-3,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Image x:Name="imgIcono" HorizontalAlignment="Left" Height="22" Width="22" Margin="14,6,0,0" VerticalAlignment="Top"  Source="Resources\HuntProfit_TC.jpg"/>
-        <Label x:Name="lbFaltaPagarEDtxt" Content="Falta pagar ED:" HorizontalAlignment="Left" Margin="1117,522,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="16" FontWeight="SemiBold"/>
+        <Label x:Name="lbFaltaPagarEDtxt" Content="ED missing:" HorizontalAlignment="Left" Margin="1141,522,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="16" FontWeight="SemiBold"/>
         <TextBox x:Name="tbFaltaPagarED" HorizontalAlignment="Left" Height="25"  Width="80" Margin="1236,526,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" TextAlignment="Center" BorderBrush="#FF4EB8CE" Background="#FF222431" Foreground="#FFD4D4D4" FontSize="16" FontWeight="SemiBold"/>
 
     </Grid>
