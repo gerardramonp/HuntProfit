@@ -117,7 +117,18 @@
                 </Style>
             </Label.Style>
         </Label>
-        <Label x:Name="lb2h" Content="2h" HorizontalAlignment="Left" Margin="229,452,0,0" VerticalAlignment="Top" Foreground="#FFD4D4D4" FontSize="10" MouseDown="Lb2h_MouseDown"/>
+        <Label x:Name="lb2h" Content="2h" HorizontalAlignment="Left" Margin="229,452,0,0" VerticalAlignment="Top" FontSize="10" MouseDown="Lb2h_MouseDown">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="#FFD4D4D4"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#FF4EB8CE"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
 
         <TextBox x:Name="tbTEK" HorizontalAlignment="Left" Height="30" Margin="246,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FFF07D0A" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>
         <TextBox x:Name="tbTED" HorizontalAlignment="Left" Height="30" Margin="246,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" IsReadOnly="True" BorderBrush="#FF00FF64" Background="#FF333951" Foreground="#FFD4D4D4" FontSize="20"/>

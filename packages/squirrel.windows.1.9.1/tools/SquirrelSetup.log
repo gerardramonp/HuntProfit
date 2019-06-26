@@ -770,3 +770,113 @@ Nombre de archivo: 'HuntProfit1.3.4.nupkg'
 2019-06-25 15:08:05> DeltaPackageBuilder: \lib\net45\sv\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
 2019-06-25 15:08:05> DeltaPackageBuilder: \lib\net45\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
 2019-06-25 15:08:05> Program: Building embedded zip file for Setup.exe
+2019-06-25 15:14:24> Program: Starting Squirrel Updater: --releasify HuntProfit.1.3.6.nupkg
+2019-06-25 15:14:24> Program: Bootstrapper EXE found at:C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\packages\squirrel.windows.1.9.1\tools\Setup.exe
+2019-06-25 15:14:24> Program: Creating release package: C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit.1.3.6.nupkg
+2019-06-25 15:14:24> ReleasePackage: Creating release package: C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit.1.3.6.nupkg => C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit-1.3.6-full.nupkg
+2019-06-25 15:14:25> ReleasePackage: Extracting dependent packages: []
+2019-06-25 15:14:25> ReleasePackage: Removing unnecessary data
+2019-06-25 15:14:25> ReleasePackage: No release notes found in C:\Users\gerar\AppData\Local\SquirrelTemp\tempc\HuntProfit.nuspec
+2019-06-25 15:14:25> DeltaPackageBuilder: Extracting .\Releases\HuntProfit-1.3.5-full.nupkg and C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit-1.3.6-full.nupkg into C:\Users\gerar\AppData\Local\SquirrelTemp\tempd
+2019-06-25 15:14:26> DeltaPackageBuilder: \lib\net45\config.txt hasn't changed, writing dummy file
+2019-06-25 15:14:26> DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.dll hasn't changed, writing dummy file
+2019-06-25 15:14:26> DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.MsDelta.dll hasn't changed, writing dummy file
+2019-06-25 15:14:26> DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.PatchApi.dll hasn't changed, writing dummy file
+2019-06-25 15:14:26> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempc\lib\net45\HuntProfit.application => C:\Users\gerar\AppData\Local\SquirrelTemp\tempd\lib\net45\HuntProfit.application
+2019-06-25 15:14:26> DeltaPackageBuilder: We really couldn't create a delta for HuntProfit.application: System.DivideByZeroException: Intento de dividir por cero.
+   en Squirrel.Bsdiff.BinaryPatchUtility.Create(Byte[] oldData, Byte[] newData, Stream output)
+   en Squirrel.DeltaPackageBuilder.createDeltaForSingleFile(FileInfo targetFile, DirectoryInfo workingDirectory, Dictionary`2 baseFileListing)
+2019-06-25 15:14:26> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempc\lib\net45\HuntProfit.exe => C:\Users\gerar\AppData\Local\SquirrelTemp\tempd\lib\net45\HuntProfit.exe
+2019-06-25 15:14:26> DeltaPackageBuilder: \lib\net45\HuntProfit.exe.config hasn't changed, writing dummy file
+2019-06-25 15:14:26> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempc\lib\net45\HuntProfit.exe.manifest => C:\Users\gerar\AppData\Local\SquirrelTemp\tempd\lib\net45\HuntProfit.exe.manifest
+2019-06-25 15:14:26> DeltaPackageBuilder: We really couldn't create a delta for HuntProfit.exe.manifest: System.DivideByZeroException: Intento de dividir por cero.
+   en Squirrel.Bsdiff.BinaryPatchUtility.Create(Byte[] oldData, Byte[] newData, Stream output)
+   en Squirrel.DeltaPackageBuilder.createDeltaForSingleFile(FileInfo targetFile, DirectoryInfo workingDirectory, Dictionary`2 baseFileListing)
+2019-06-25 15:14:26> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempc\lib\net45\HuntProfit_ExecutionStub.exe => C:\Users\gerar\AppData\Local\SquirrelTemp\tempd\lib\net45\HuntProfit_ExecutionStub.exe
+2019-06-25 15:14:26> DeltaPackageBuilder: \lib\net45\LiveCharts.dll hasn't changed, writing dummy file
+2019-06-25 15:14:26> DeltaPackageBuilder: \lib\net45\LiveCharts.Wpf.dll hasn't changed, writing dummy file
+2019-06-25 15:14:26> DeltaPackageBuilder: \lib\net45\Mono.Cecil.dll hasn't changed, writing dummy file
+2019-06-25 15:14:26> DeltaPackageBuilder: \lib\net45\Mono.Cecil.Mdb.dll hasn't changed, writing dummy file
+2019-06-25 15:14:26> DeltaPackageBuilder: \lib\net45\Mono.Cecil.Pdb.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\Mono.Cecil.Rocks.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\NuGet.Squirrel.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\SharpCompress.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\Splat.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\Squirrel.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\Xceed.Wpf.AvalonDock.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\Xceed.Wpf.AvalonDock.Themes.Aero.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\Xceed.Wpf.AvalonDock.Themes.Metro.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\Xceed.Wpf.AvalonDock.Themes.VS2010.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\Xceed.Wpf.Toolkit.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\app.publish\HuntProfit.exe hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\de\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\es\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\fr\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\hu\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\it\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\pt-BR\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\ro\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\ru\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\sv\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> DeltaPackageBuilder: \lib\net45\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:14:27> Program: Building embedded zip file for Setup.exe
+2019-06-25 15:24:25> Program: Starting Squirrel Updater: --releasify HuntProfit.1.4.0
+2019-06-25 15:24:25> Program: Bootstrapper EXE found at:C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\packages\squirrel.windows.1.9.1\tools\Setup.exe
+2019-06-25 15:24:25> Unhandled exception: System.IO.FileNotFoundException: No se pudo encontrar el archivo 'HuntProfit.1.4.0'.
+Nombre de archivo: 'HuntProfit.1.4.0'
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   en System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   en Squirrel.Update.Program.Releasify(String package, String targetDir, String packagesDir, String bootstrapperExe, String backgroundGif, String signingOpts, String baseUrl, String setupIcon, Boolean generateMsi, String frameworkVersion, Boolean generateDeltas)
+   en Squirrel.Update.Program.executeCommandLine(String[] args)
+   en Squirrel.Update.Program.main(String[] args)
+2019-06-25 15:24:37> Program: Starting Squirrel Updater: --releasify HuntProfit.1.4.0.nupkg
+2019-06-25 15:24:37> Program: Bootstrapper EXE found at:C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\packages\squirrel.windows.1.9.1\tools\Setup.exe
+2019-06-25 15:24:37> Program: Creating release package: C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit.1.4.0.nupkg
+2019-06-25 15:24:37> ReleasePackage: Creating release package: C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit.1.4.0.nupkg => C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit-1.4.0-full.nupkg
+2019-06-25 15:24:37> ReleasePackage: Extracting dependent packages: []
+2019-06-25 15:24:37> ReleasePackage: Removing unnecessary data
+2019-06-25 15:24:37> ReleasePackage: No release notes found in C:\Users\gerar\AppData\Local\SquirrelTemp\tempc\HuntProfit.nuspec
+2019-06-25 15:24:38> DeltaPackageBuilder: Extracting .\Releases\HuntProfit-1.3.6-full.nupkg and C:\Users\gerar\OneDrive\Documentos\PROJECTES PROGRAMACIO\C#\HuntProfit\Releases\HuntProfit-1.4.0-full.nupkg into C:\Users\gerar\AppData\Local\SquirrelTemp\tempd
+2019-06-25 15:24:38> DeltaPackageBuilder: \lib\net45\config.txt hasn't changed, writing dummy file
+2019-06-25 15:24:38> DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.dll hasn't changed, writing dummy file
+2019-06-25 15:24:38> DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.MsDelta.dll hasn't changed, writing dummy file
+2019-06-25 15:24:38> DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.PatchApi.dll hasn't changed, writing dummy file
+2019-06-25 15:24:38> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempc\lib\net45\HuntProfit.application => C:\Users\gerar\AppData\Local\SquirrelTemp\tempd\lib\net45\HuntProfit.application
+2019-06-25 15:24:38> DeltaPackageBuilder: We really couldn't create a delta for HuntProfit.application: System.DivideByZeroException: Intento de dividir por cero.
+   en Squirrel.Bsdiff.BinaryPatchUtility.Create(Byte[] oldData, Byte[] newData, Stream output)
+   en Squirrel.DeltaPackageBuilder.createDeltaForSingleFile(FileInfo targetFile, DirectoryInfo workingDirectory, Dictionary`2 baseFileListing)
+2019-06-25 15:24:38> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempc\lib\net45\HuntProfit.exe => C:\Users\gerar\AppData\Local\SquirrelTemp\tempd\lib\net45\HuntProfit.exe
+2019-06-25 15:24:38> DeltaPackageBuilder: \lib\net45\HuntProfit.exe.config hasn't changed, writing dummy file
+2019-06-25 15:24:38> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempc\lib\net45\HuntProfit.exe.manifest => C:\Users\gerar\AppData\Local\SquirrelTemp\tempd\lib\net45\HuntProfit.exe.manifest
+2019-06-25 15:24:38> DeltaPackageBuilder: We really couldn't create a delta for HuntProfit.exe.manifest: System.DivideByZeroException: Intento de dividir por cero.
+   en Squirrel.Bsdiff.BinaryPatchUtility.Create(Byte[] oldData, Byte[] newData, Stream output)
+   en Squirrel.DeltaPackageBuilder.createDeltaForSingleFile(FileInfo targetFile, DirectoryInfo workingDirectory, Dictionary`2 baseFileListing)
+2019-06-25 15:24:38> DeltaPackageBuilder: Delta patching C:\Users\gerar\AppData\Local\SquirrelTemp\tempc\lib\net45\HuntProfit_ExecutionStub.exe => C:\Users\gerar\AppData\Local\SquirrelTemp\tempd\lib\net45\HuntProfit_ExecutionStub.exe
+2019-06-25 15:24:38> DeltaPackageBuilder: \lib\net45\LiveCharts.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\LiveCharts.Wpf.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\Mono.Cecil.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\Mono.Cecil.Mdb.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\Mono.Cecil.Pdb.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\Mono.Cecil.Rocks.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\NuGet.Squirrel.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\SharpCompress.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\Splat.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\Squirrel.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\Xceed.Wpf.AvalonDock.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\Xceed.Wpf.AvalonDock.Themes.Aero.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\Xceed.Wpf.AvalonDock.Themes.Metro.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\Xceed.Wpf.AvalonDock.Themes.VS2010.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\Xceed.Wpf.Toolkit.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\app.publish\HuntProfit.exe hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\de\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\es\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\fr\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\hu\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\it\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\pt-BR\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\ro\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\ru\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\sv\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> DeltaPackageBuilder: \lib\net45\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll hasn't changed, writing dummy file
+2019-06-25 15:24:39> Program: Building embedded zip file for Setup.exe
