@@ -26,7 +26,6 @@ namespace HuntProfit
         MetodesPath metodesPath = new MetodesPath();
         MetodesGenerals metodesGenerals = new MetodesGenerals();
 
-        // finestraDataGrid formDG = new finestraDataGrid();
         // #######################################
 
         public MainWindow()
@@ -148,14 +147,22 @@ namespace HuntProfit
 
         private void BtCalcular_Click(object sender, RoutedEventArgs e)
         {
-            CalcularPersones();
-            CalcularValors();
+            bool saveHunt = true;
+            if (time == "0:00")
+            {
+                saveHunt = CheckNoTime();
+            }
+            if (saveHunt)
+            {
+                CalcularPersones();
+                CalcularValors();
 
-            Hunt huntTemp = new Hunt(ID, respawn, DateTime.Now.ToString("dd/MM"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, loot, balance, profitEach,
-                transferEK, transferED, transferRP, transferMS, "no", time);
+                Hunt huntTemp = new Hunt(ID, respawn, DateTime.Now.ToString("dd/MM"), persones, wasteEK, wasteED, wasteRP, wasteMS, totalWaste, loot, balance, profitEach,
+                    transferEK, transferED, transferRP, transferMS, "no", time);
 
-            metodesGenerals.EscriureAHistorial(huntTemp, pathHistorial);
-            ReiniciarValors();
+                metodesGenerals.EscriureAHistorial(huntTemp, pathHistorial);
+                ReiniciarValors();
+            }
         }
 
         private void btHistorial_Click(object sender, RoutedEventArgs e)
@@ -209,6 +216,18 @@ namespace HuntProfit
             }
             e.Handled = true;
         }
+
+        // Checks if the user want to save the hunt when the time is set to 0. Returns true if yes.
+        private bool CheckNoTime()
+        {
+            MessageBoxResult messageBoxResult = MessageBox.Show("You have not introduced any hunt time.\n\nAre you sure you want to save it as 0:00?", "Confirm no Hunt Time", MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                return true;
+            }
+            return false;
+        }
+
         #endregion
         //###################
 
