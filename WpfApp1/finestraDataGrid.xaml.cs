@@ -66,7 +66,7 @@ namespace HuntProfit
             else { pagatTXT = "si"; }
             string newtext = string.Format(">>HuntID: {0}|Respawn: {1}|Dia: {2}|Persones: {3}|WasteEK: {4}|WasteED: {5}|WasteRP: {6}|WasteMS: {7}|" +
                     "WasteTOTAL: {8}|Loot: {9}|Balance: {10}|Profit/Each: {11:F2}|TransferEK: {12:F2}|TransferED: {13:F2}|TransferRP: {14:F2}|TransferMS: {15:F2}|" +
-                    "Pagat: {16}|Time:{17}", huntIDTXT, respawnTXT, diaTXT, personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT,
+                    "Pagat: {16}|Time: {17}", huntIDTXT, respawnTXT, diaTXT, personesTXT, wasteEKTXT, wasteEDTXT, wasteRPTXT, wasteMSTXT, totalWasteTXT, lootTXT, balanceTXT,
                     profitEachTXT, transferEKTXT, transferEDTXT, transferRPTXT, transferMSTXT, pagatTXT, timeTXT);
             CanviarPagat(newtext);
             CalcularQuantAPagarED();
@@ -199,6 +199,7 @@ namespace HuntProfit
             Hunt DGRow = HistorialHunts.SelectedItem as Hunt;
             huntIDTXT = DGRow.HuntID;
             respawnTXT = DGRow.Respawn;
+            timeTXT = DGRow.Time;
             diaTXT = DGRow.Dia;
             personesTXT = DGRow.Persones;
             wasteEKTXT = DGRow.WasteEK;
